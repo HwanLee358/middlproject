@@ -3,24 +3,37 @@
  */
 showList();
 function showList() {
-	const mainCategory = new Array;
-	const subCategory = new Array;
 	svc.menuList({ bno: 1 },
 		result => {
 			result.forEach(e => {
 				let tmpl = document.querySelector('.xan.on').cloneNode(true);
 				tmpl.setAttribute('style','display: inline-block;');
-				
-				document.querySelector('.gnb').appendChild(tmpl);
-				console.log(e.main);
+				tmpl.children[0].setAttribute('href', "#"+e.mainNo);
+				tmpl.children[0].children[0].innerHTML = ' '+ e.main + ' <b></b>';
 				if(e.sub == ''){
-					console.log("확인");
+					tmpl.children[1].remove();
+				}else{
+					tmpl.children[1].children[0].remove();
+					let ul = document.createElement('ul');
+					e.sub.forEach(s =>{
+						let li = document.createElement('li');
+						let a = document.createElement('a');
+						a.setAttribute('href','#');
+						a.innerText = s;
+						li.append(a);
+						ul.append(li);
+					})
+					let i = 0;
+					e.subNo.forEach(k =>{
+						ul.childNodes[i].children[0].setAttribute('href',"#"+k);
+						i++;
+					})
+					tmpl.children[1].append(ul);				
 				}
-				console.log(e.sub);
+				document.querySelector('.gnb').appendChild(tmpl);
+				console.log(e);
 			})
 		},
 		err => console.log(err)
 	)
-	console.log(mainCategory);
-	console.log(subCategory);
 }

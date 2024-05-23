@@ -10,4 +10,3 @@ const svc = {
 			.catch(errorCall);
 	}
 }	
-console.log("확인");

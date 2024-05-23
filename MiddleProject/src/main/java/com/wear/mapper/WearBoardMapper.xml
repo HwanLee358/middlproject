@@ -19,9 +19,7 @@
 		case when nvl(category_no_ref, 0) = 0 then ''
 					else category_name
 		end as "cate_col4",
-		case when nvl(category_no_ref, 0) = 0 then category_no
-                    else category_no_ref
-        end as "cate_col5" 
+		category_no 
 		from category c
 		start with category_no_ref is null
 		connect by category_no_ref = prior category_no
