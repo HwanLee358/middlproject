@@ -1,6 +1,7 @@
 package com.wear.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,6 +18,12 @@ public class WearBoardServiceImpl implements WearBoardService{
 	public List<CategoryVO> WearList() {
 		// TODO Auto-generated method stub
 		return mapper.wearList();
+	}
+
+	@Override
+	public List<Map<String, String>> categoryList() {
+		// TODO Auto-generated method stub
+		return mapper.cateList();
 	}
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wear.web.WearBoardControl;
+import com.wear.web.WearBoardheaderControl;
 
 
 
@@ -25,6 +26,7 @@ public class FrontControl extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 		// wear board
 		map.put("/main.do", new WearBoardControl());
+		map.put("/header.do", new WearBoardheaderControl());
 	}
 	
 	@Override

@@ -19,8 +19,7 @@ public class WearBoardControl implements Control {
 		String path = "wearboard/NewFile.tiles";
 		WearBoardService svc = new WearBoardServiceImpl();
 		List<CategoryVO> list = svc.WearList();
-		
-		req.setAttribute("WearList", list);
+		req.setAttribute("wearList", list);
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <div id="JD-Header">
 		<div class="headerWrap">
 			<div class="headerTop">
@@ -23,7 +24,8 @@
 					</ul>
 				</div>
 				<ul class="gnb">
-					<li class="xan on"><a href="#"><b> Best <b></b></b></a>
+					<li class="xan on" style="display: none;">
+						<a href="#"><b> BEST <b></b></b></a>
 						<div class="sub-category">
 							<ul>
 								<li><a href="#">all</a></li>
@@ -33,11 +35,7 @@
 								<li><a href="#">all</a></li>
 							</ul>
 						</div>
-					</li>
-					<li class="xan on"><a href="#"><b> New <b></b></b></a></li>
-					<li class="xan on"><a href="#"><b> TOP <b></b></b></a></li>
-					<li class="xan on"><a href="#"><b> SHIRT <b></b></b></a></li>
-					<li class="xan on"><a href="#"><b> KNIT <b></b></b></a></li>
+					</li>			
 				</ul>
 				<div class="section_right">
 					<div class="member">
@@ -56,3 +54,4 @@
 			</div>
 		</div>
 	</div>
+	

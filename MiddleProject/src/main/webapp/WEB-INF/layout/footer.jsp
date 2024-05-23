@@ -20,3 +20,5 @@
 			</div>
 		</div>
 	</div>
+<script src="js/menuService.js"></script>
+<script src="js/menu.js"></script>
