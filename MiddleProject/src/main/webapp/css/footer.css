@@ -1,0 +1,36 @@
+@charset "UTF-8";
+#foot .footer {
+    margin: 0 auto;
+    font-size: 11px;
+}
+.footWrap {
+    width: 100%;
+    max-width: 1522px;
+    overflow: hidden;
+    display: flex;
+    color: #999;
+    line-height: 2;
+    margin: 0 auto;
+}
+.footWrap div {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    padding: 10px 0;
+}
+.footWrap div h3.info_tit {
+    color: #757575;
+    margin-bottom: 10px;
+}
+.footWrap div+div {
+    border-left: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.company {
+    text-align: center;
+    background: #f5f5f5;
+    padding: 50px 0;
+    margin-top: 30px;
+    color: #999;
+    line-height: 2;
+}
