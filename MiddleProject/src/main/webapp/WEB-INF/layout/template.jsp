@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>템플릿</title>
+<title>제목</title>
 <style type="text/css">
 #JD-Container {
 	padding-top: 120px;
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/LineIcons.3.0.css">
 </head>
-<body>	
+<body id="JD-COMMON">	
 	<!-- Header-->
 	<tiles:insertAttribute name="header" />
 	<!-- Section-->

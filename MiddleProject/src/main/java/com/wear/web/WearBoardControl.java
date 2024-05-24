@@ -16,10 +16,7 @@ public class WearBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "wearboard/NewFile.tiles";
-		WearBoardService svc = new WearBoardServiceImpl();
-		List<CategoryVO> list = svc.WearList();
-		req.setAttribute("wearList", list);
+		String path = "wearboard/list.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

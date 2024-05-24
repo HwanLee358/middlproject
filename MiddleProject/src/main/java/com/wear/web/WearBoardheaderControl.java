@@ -29,6 +29,7 @@ public class WearBoardheaderControl implements Control {
 		List<String> catList = null;
 		List<String> noList = null;
 		String curCateName = null, preCateName = null;
+		
 		for (Map<String, String> map : list) {
 			String p_code, p_name, c_code, c_name, categoryno;
 			p_code = map.get("cate_col1");
