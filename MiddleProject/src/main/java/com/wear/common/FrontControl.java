@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.web.WearBoardControl;
 import com.wear.web.WearBoardheaderControl;
+import com.wear.web.WearCategoryControl;
 
 
 
@@ -24,9 +25,10 @@ public class FrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// wear board
-		map.put("/main.do", new WearBoardControl());
-		map.put("/header.do", new WearBoardheaderControl());
+		// wear board -- 정환
+		map.put("/header.do", new WearBoardheaderControl()); // category header 처리
+		map.put("/category.do", new WearCategoryControl()); // body category 누름
+		map.put("/list.do", new WearBoardControl());  // category header 누름
 	}
 	
 	@Override

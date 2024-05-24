@@ -106,6 +106,97 @@
     color: #757575;
     vertical-align: top;
 }	
+.ec-base-product .prdList .thumbnail {
+    position: relative;
+    margin: 0 15px 15px;
+    text-align: center;
+}
+.ec-base-product .prdList .thumbnail .prdImg {
+    position: relative;
+}
+.ec-base-product .prdList .thumbnail .prdImg > a > img {
+    width: 100%;
+    box-sizing: border-box;
+}
+.ec-base-product .prdList .thumbnail a img {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.ec-base-product .prdList .thumbnail .icon {
+    margin: 0;
+    vertical-align: middle;
+    padding: 0;
+    width: 100%;
+    border: 0;
+}
+.ec-base-product .prdList .icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+}
+.ec-base-product .prdList .thumbnail .button {
+    float: left;
+    margin: 0;
+}
+.ec-base-product .prdList .thumbnail .button > span {
+    background: rgba(255, 255, 255, 0.5);
+    width: 37px;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    transition: all 0.4s;
+}
+.ec-base-product .prdList .thumbnail .button img {
+    cursor: pointer;
+}
+.ec-base-product .prdList .thumbnail .button > span {
+    background: rgba(255, 255, 255, 0.5);
+    width: 37px;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    transition: all 0.4s;
+} 
+.ec-base-product .prdList .thumbnail .button > span:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+.ec-base-product .prdList li:hover .icon {
+    opacity: 1;
+    transition: all 1s;
+}
+.ec-base-product .prdList .description, .ec-base-product .spec li, .ec-base-product .prdList .promotion {
+    text-align: left;
+}
+.ec-base-product .prdList .description {
+    margin: 0 auto;
+    padding: 0 15px;
+    font-size: 12px;
+    line-height: 18px;
+    position: relative;
+}
+.ec-base-product .prdList .description .name {
+    display: block;
+    font-weight: normal;
+    padding-bottom: 5px;
+    letter-spacing: 1.5px;
+}
+.ec-base-product .prdList .description .name a {
+    color: #2e2e2e;
+}
+.ec-base-product .prdList .description .name {
+    display: block;
+    font-weight: normal;
+    padding-bottom: 5px;
+    letter-spacing: 1.5px;
+}
+.ec-base-product .spec {
+    margin: 0;
+    padding: 0;
+}
 </style>
 </head>
 <body>
@@ -134,8 +225,39 @@
 					<li id="" class="xans-recode-">
 						<div class="thumbnail">
 							<div class="prdlmg">
-								<a href=""><img src="" id="" alt=""></a>
+								<a href="#" name=""><img src="images/리모라운드넥니트.gif" id="" alt=""></a>
 							</div>
+							<div class="icon">
+								<div class="button">
+										<span>
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="">
+										</span>
+										<span>
+											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart">
+										</span>
+								</div>									
+							</div>
+						</div>
+						<div class="description">
+							<strong class="name">
+								<a href="#">
+									<span class="title displaynone"></span>
+									<b>
+										<span style="font-size:12px;color:#555555;">리모라운드넥니트</span><b></b>
+									</b>
+								</a>
+							</strong>
+							<ul class="xans-element- xans-product xans-product-listitem spec">
+								<li class="xans-record-">
+									<span style="font-size:12px;color:#000000;font-weight:bold;">12,900</span>
+								</li>
+								<li class="xans-record-">
+									<strong class="title">
+										<span style="font-size:10px;color:#333333;font-weight:bold;">리뷰</span> :
+									</strong>
+									<span style="font-size:10px;color:#333333;font-weight:bold;">1</span>
+								</li>
+							</ul>
 						</div>
 					</li>
 				</ul>

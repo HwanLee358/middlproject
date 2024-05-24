@@ -3,26 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.mapper.WearBoardMapper">
-	<select id="wearList" resultType="com.wear.vo.CategoryVO">
-	
+	<select id="boardcateList" resultType="com.wear.vo.CategoryVO" parameterType="int">
+		select DISTINCT
+			category_no, product_name,
+			product_price, product_size,
+			product_stock, product_img
+		from product
+		where category_no = #{categoryNo}
 	</select>
 	<select id="cateList" resultType="map">
-		select case when nvl(category_no_ref, 0) = 0 then 'main'
-					else ''
+		select case when
+		nvl(category_no_ref, 0) = 0 then 'main'
+		else ''
 		end as "cate_col1",
-		case when nvl(category_no_ref, 0) = 0 then category_name
-					else ''
+		case when nvl(category_no_ref, 0) = 0 then
+		category_name
+		else ''
 		end as "cate_col2",
 		case when nvl(category_no_ref, 0) = 0 then ''
-					else 'sub'
+		else 'sub'
 		end as "cate_col3",
-		case when nvl(category_no_ref, 0) = 0 then ''
-					else category_name
+		case when nvl(category_no_ref, 0) = 0
+		then ''
+		else category_name
 		end as "cate_col4",
-		category_no 
+		category_no
 		from category c
 		start with category_no_ref is null
-		connect by category_no_ref = prior category_no
+		connect by
+		category_no_ref = prior category_no
 		order siblings by category_no
 	</select>
 </mapper>

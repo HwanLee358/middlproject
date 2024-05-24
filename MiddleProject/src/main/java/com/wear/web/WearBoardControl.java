@@ -17,6 +17,11 @@ public class WearBoardControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "wearboard/list.tiles";
+		
+		String no = req.getParameter("cate_no");
+		no = no == null ? "1" : no;
+		WearBoardService svc = new WearBoardServiceImpl();
+		List<CategoryVO> list = svc.WearBoardList();
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

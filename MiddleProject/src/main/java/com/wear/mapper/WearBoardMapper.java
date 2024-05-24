@@ -6,7 +6,7 @@ import java.util.Map;
 import com.wear.vo.CategoryVO;
 
 public interface WearBoardMapper {
-	List<CategoryVO> wearList();
+	List<CategoryVO> boardcateList();
 	
 	List<Map<String, String>> cateList();
 }

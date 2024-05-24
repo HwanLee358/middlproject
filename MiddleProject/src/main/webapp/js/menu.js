@@ -8,7 +8,7 @@ function showList() {
 			result.forEach(e => {
 				let tmpl = document.querySelector('.xan.on').cloneNode(true);
 				tmpl.setAttribute('style','display: inline-block;');
-				tmpl.children[0].setAttribute('href', "#"+e.mainNo);
+				tmpl.children[0].setAttribute('href', "?cate_no="+e.mainNo);
 				tmpl.children[0].children[0].innerHTML = ' '+ e.main + ' <b></b>';
 				if(e.sub == ''){
 					tmpl.children[1].remove();

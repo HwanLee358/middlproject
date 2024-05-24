@@ -6,6 +6,6 @@ import java.util.Map;
 import com.wear.vo.CategoryVO;
 
 public interface WearBoardService {
-	List<CategoryVO> WearList();
+	List<CategoryVO> WearBoardList();
 	List<Map<String, String>> categoryList();
 }

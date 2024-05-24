@@ -15,9 +15,9 @@ public class WearBoardServiceImpl implements WearBoardService{
 	WearBoardMapper mapper = session.getMapper(WearBoardMapper.class);
 	
 	@Override
-	public List<CategoryVO> WearList() {
+	public List<CategoryVO> WearBoardList() {
 		// TODO Auto-generated method stub
-		return mapper.wearList();
+		return mapper.boardcateList();
 	}
 
 	@Override
