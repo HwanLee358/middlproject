@@ -1,3 +1,9 @@
+CREATE TABLE CATEGORY (
+	CATEGORY_NO	NUMBER		NOT NULL,
+	CATEGORY_NAME	VARCHAR2(50)		NOT NULL,
+	CATEGORY_NO_REF	NUMBER		NULL
+);
+
 select * from category;
 create sequence category_seq;
 insert into category(category_no, category_name)
