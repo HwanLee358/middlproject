@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.wear.member.mapper.MemberMapper">
+	<insert id="insertMember" parameterType="member">
+		insert into members
+		(user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email)
+		values
+		(#{userId},#{userName},#{userPassword},#{address1},#{address2},#{address3},#{address4},#{userPhone},#{userEmail})
+	</insert>
+
+	<select id="selectMember" resultType="member">
+		select *
+		from members
+		where user_id = #{id}
+		and user_pw = #{pw}
+	</select>
+
+	<select id="selectMember2" resultType="member">
+		select *
+		from members
+		where user_id = #{userId}
+	</select>
+
+	<select id="CheckId" parameterType="String" resultType="int">
+		 select count(*)
+		 from members 
+		 where user_id = #{userId}
+	 </select>
+	   <update id="updateMember" parameterType="member">
+   		 update members
+   		 set user_pw = #{userPassword},
+   			 address1 = #{address1},
+   		 	 address2 = #{address2},
+   		 	 address3 = #{address3},
+   			 address4 = #{address4},
+     		 user_phone = #{userPhone},
+     		 user_email = #{userEmail} 
+   			 where user_id = #{userId}
+  </update>
+
+</mapper>

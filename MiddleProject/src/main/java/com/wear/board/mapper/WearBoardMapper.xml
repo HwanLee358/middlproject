@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wear.board.mapper.WearBoardMapper">
+	<!-- category main -->
+	<select id="boardcateList" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
+		select r.*
+		from (select rownum rn, a.*
+      		  from (select *
+            	    from product b) a
+              <![CDATA[	    
+              where rownum <= #{page}*8)r
+              ]]>
+        where r.rn > (#{page}-1) *8
+        and category_no IN (select category_no
+							from category
+							where category_no_ref = #{categoryNo})				  
+	</select>
+	<select id="catetitle" resultType="com.wear.board.vo.CategoryVO" parameterType="String">
+		select * 
+		from category 
+		where category_no_ref = #{categoryNo} 
+		or category_no = #{categoryNo}
+	</select>
+	<select id="mainTotalCnt" resultType="int" parameterType="com.wear.board.vo.SearchVO">
+		select count(*) 
+		from product
+		where category_no IN (select category_no
+                      		  from category
+                              where category_no_ref = #{categoryNo})
+	</select>
+	
+	
+	<!-- category sub -->
+	<select id="minicategory" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
+		select r.*
+		from (select rownum rn, a.*
+      		  from (select *
+            	    from product b) a
+              <![CDATA[	    
+              where rownum <= #{page}*8)r
+              ]]>
+        where r.rn > (#{page}-1) *8
+		and category_no = #{categoryNo}
+	</select>
+	<select id="miniboard" resultType="com.wear.board.vo.CategoryVO" parameterType="String">
+		select *
+		from category
+		where category_no_ref In (select category_no_ref
+                          		  from category
+                          		  where category_no = #{categoryNo})
+		or category_no IN (select category_no_ref
+						   from category
+						   where category_no = #{categoryNo})
+	</select>
+	<select id="subTotalCnt" resultType="int" parameterType="com.wear.board.vo.SearchVO">
+		select count(*)
+		from product
+		where category_no = #{categoryNo}
+	</select>
+	
+	
+	<!-- category menu -->
+	<select id="cateList" resultType="map">
+		select case when nvl(category_no_ref, 0) = 0 then 'main'
+						 else ''
+		end as "cate_col1",
+		case when nvl(category_no_ref, 0) = 0 then category_name
+						 else ''
+		end as "cate_col2",
+		case when nvl(category_no_ref, 0) = 0 then ''
+					     else 'sub'
+		end as "cate_col3",
+		case when nvl(category_no_ref, 0) = 0 then ''
+						 else category_name
+		end as "cate_col4",
+		category_no
+		from category c
+		start with category_no_ref is null
+		connect by category_no_ref = prior category_no
+		order siblings by category_no
+	</select>
+	
+	<!-- search -->
+	<select id="searchBoard" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
+		select r.*
+		from (select rownum rn, a.*
+      		  from (select *
+            	    from product b) a
+              <![CDATA[	    
+              where rownum <= #{page}*6)r
+              ]]>
+        where r.rn > (#{page}-1) *6
+		and product_name like '%'|| #{keyword} || '%'
+	</select>
+	<select id="searchCnt" resultType="int" parameterType="com.wear.board.vo.SearchVO">
+		select count(*)
+		from product
+		where product_name like '%'|| #{keyword} || '%'
+	</select>
+	
+	<!-- wishList -->
+	<select id="wishTotalCnt">
+	
+	</select>
+	<!-- basket -->
+	<select id="basketTotalCnt">
+	
+	</select>
+</mapper>

@@ -8,7 +8,15 @@
 		<setting name="jdbcTypeForNull" value="NULL" />		
 	</settings>
 	<typeAliases>
-
+		<!-- 정환 -->
+		
+		<!-- 유진 -->
+		<typeAlias alias="product" type="com.wear.review.vo.ProductVO" />
+		<typeAlias alias="review" type="com.wear.review.vo.ReviewVO" />
+		<!-- 선우 -->
+		
+		<!-- 동규 -->
+		<typeAlias alias="member" type="com.wear.member.vo.MemberVo" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,6 +33,15 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/wear/mapper/WearBoardMapper.xml" />
+		<!-- 정환 -->
+		<mapper resource="com/wear/board/mapper/WearBoardMapper.xml" />
+		
+		<!-- 유진 -->
+		<mapper resource="com/wear/review/mapper/ProductMapper.xml"/>
+		<mapper resource="com/wear/review/mapper/ReviewMapper.xml"/>
+		<!-- 선우 -->
+		
+		<!-- 동규 -->
+		<mapper resource="com/wear/member/mapper/Member.xml" />
 	</mappers>
 </configuration>

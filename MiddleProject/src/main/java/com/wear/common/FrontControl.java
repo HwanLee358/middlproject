@@ -10,9 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wear.web.WearBoardControl;
-import com.wear.web.WearBoardheaderControl;
-import com.wear.web.WearCategoryControl;
+import com.wear.board.web.WearBoardControl;
+import com.wear.board.web.WearBoardheaderControl;
+import com.wear.board.web.WearSearchControl;
+import com.wear.member.web.CheckIdControl;
+import com.wear.member.web.LoginControl;
+import com.wear.member.web.LoginForm;
+import com.wear.member.web.LogoutControl;
+import com.wear.member.web.joinControl;
+import com.wear.member.web.joinFormControl;
+import com.wear.review.web.ProductDetailControl;
+import com.wear.review.web.ReviewFormControl;
+import com.wear.review.web.ReviewListControl;
+import com.wear.review.web.ReviewWriteControl;
 
 
 
@@ -25,10 +35,34 @@ public class FrontControl extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// wear board -- 정환
+		// 이정환
 		map.put("/header.do", new WearBoardheaderControl()); // category header 처리
-		map.put("/category.do", new WearCategoryControl()); // body category 누름
-		map.put("/list.do", new WearBoardControl());  // category header 누름
+		map.put("/search.do", new WearSearchControl()); 
+		map.put("/list.do", new WearBoardControl());  
+		
+		
+		// 정유진
+		map.put("/reviewForm.do", new ReviewFormControl());
+		map.put("/reviewWrite.do", new ReviewWriteControl());
+		map.put("/reviewList.do", new ReviewListControl());
+		// 제품상세
+		map.put("/productDetail.do", new ProductDetailControl());;
+		
+		
+		// 맹선우
+		
+		
+		
+		// 배동규
+		map.put("/joinForm.do", new joinFormControl());
+		map.put("/join.do", new joinControl()); // 회원가입화면
+		
+		map.put("/logForm.do", new LoginForm()); //로그인 관련
+		map.put("/login.do", new LoginControl());
+		map.put("/logout.do", new LogoutControl());
+		map.put("/check.do", new CheckIdControl());//중복체크
+		
+//		map.put("/findId.do", new findIdForm());
 	}
 	
 	@Override
