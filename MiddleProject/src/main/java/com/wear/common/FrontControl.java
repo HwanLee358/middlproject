@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wear.basket.web.BasketList;
+import com.wear.basket.web.BasketList1;
+import com.wear.basket.web.DelBasket;
+import com.wear.basket.web.EditBasket;
 import com.wear.board.web.WearBoardControl;
 import com.wear.board.web.WearBoardheaderControl;
 import com.wear.board.web.WearSearchControl;
@@ -19,10 +23,15 @@ import com.wear.member.web.LoginForm;
 import com.wear.member.web.LogoutControl;
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
+import com.wear.order.web.WearOrderControl;
+import com.wear.order.web.WearOrderFormControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ReviewFormControl;
 import com.wear.review.web.ReviewListControl;
 import com.wear.review.web.ReviewWriteControl;
+import com.wear.wishlist.web.DelWishList;
+import com.wear.wishlist.web.WishList;
+import com.wear.wishlist.web.WishList1;
 
 
 
@@ -39,7 +48,8 @@ public class FrontControl extends HttpServlet{
 		map.put("/header.do", new WearBoardheaderControl()); // category header 처리
 		map.put("/search.do", new WearSearchControl()); 
 		map.put("/list.do", new WearBoardControl());  
-		
+		map.put("/orderForm.do", new WearOrderFormControl());
+		map.put("/order.do", new WearOrderControl());
 		
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());
@@ -50,7 +60,13 @@ public class FrontControl extends HttpServlet{
 		
 		
 		// 맹선우
-		
+		map.put("/basketList1.do", new BasketList1()); // 화면 출력
+		map.put("/basketList.do", new BasketList()); // 장바구니 목록
+		map.put("/editBasket.do", new EditBasket()); // 수량변경
+		map.put("/delBasket.do", new DelBasket()); // 삭제
+		map.put("/wishList.do", new WishList()); // 위시리스트
+		map.put("/wishList1.do", new WishList1()); // 위시리스트 화면 출력
+		map.put("/delWishList.do", new DelWishList()); // 위시리스트 삭제 기능
 		
 		
 		// 배동규

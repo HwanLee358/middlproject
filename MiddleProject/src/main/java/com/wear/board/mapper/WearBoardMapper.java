@@ -21,7 +21,7 @@ public interface WearBoardMapper {
 	//검색
 	List<ProductVO> searchBoard(SearchVO search);
 	int searchCnt(SearchVO search);
-	
+	List<CategoryVO> searchCate();
 	//카테고리
 	List<Map<String, String>> cateList();
 }
