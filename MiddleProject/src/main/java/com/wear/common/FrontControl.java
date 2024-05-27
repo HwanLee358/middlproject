@@ -17,12 +17,19 @@ import com.wear.member.web.CheckIdControl;
 import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
 import com.wear.member.web.LogoutControl;
+import com.wear.member.web.findIdControl;
+import com.wear.member.web.findIdFormControl;
+import com.wear.member.web.findIdResultFormControl;
+import com.wear.member.web.findPWControl;
+import com.wear.member.web.findPWFormControl;
+import com.wear.member.web.findPWResultFormControl;
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ReviewFormControl;
 import com.wear.review.web.ReviewListControl;
 import com.wear.review.web.ReviewWriteControl;
+
 
 
 
@@ -62,6 +69,14 @@ public class FrontControl extends HttpServlet{
 		map.put("/logout.do", new LogoutControl());
 		map.put("/check.do", new CheckIdControl());//중복체크
 		
+		map.put("/findId.do", new findIdControl());
+		map.put("/findIdForm.do", new findIdFormControl());
+		map.put("/findIdResultForm.do", new findIdResultFormControl());		
+		
+		map.put("/findPW.do", new findPWControl());
+		map.put("/findPWForm.do", new findPWFormControl());
+		map.put("/findPWResultForm.do", new findPWResultFormControl());		
+	//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)
 //		map.put("/findId.do", new findIdForm());
 	}
 	

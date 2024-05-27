@@ -14,5 +14,10 @@ public interface MemberService {
 	
 	
 	boolean checkId(String userId);
-	boolean modifyMember(MemberVo Member);
+	
+	//찾기
+	MemberVo searchId(String userName,String userPhone);
+	MemberVo searchPW(String id, String userName, String userPhone);	
+	
+	
 }

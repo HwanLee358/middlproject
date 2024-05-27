@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="js/scripts.js"></script>
+<script src="js/daum.js"></script>
 <script src="js/check.js"></script>
 
 <!--<c:if test="${message != null}">
@@ -34,7 +34,8 @@
 			<tr>
 				<td>비밀번호</td>
 				<td><input type="password" name="userPW" id="pw"
-					onchange="check_pw()" required placeholder="4글자이상 16글자 이하">
+					onchange="check_pw()" required placeholder="4글자이상 16글자 이하"
+					>
 				</td>
 			</tr>
 			<tr>
@@ -69,7 +70,8 @@
 			</tr>
 
 			<tr align="center">
-				<td colspan="2"><input type="submit" placeholder="회원가입"></td>
+				<td colspan="2"><input type="submit" value="회원가입"></td>
+				<td colspan="2"><a href="logForm.do">취소</a> 
 			</tr>
 
 

@@ -38,6 +38,28 @@
      		 user_phone = #{userPhone},
      		 user_email = #{userEmail} 
    			 where user_id = #{userId}
-  </update>
-
+  		</update>
+<!--   아이디찾기 -->
+		<select id="findId" resultType="member"> 
+			select * 
+			from members 
+			where user_name=#{userName} 
+			and user_phone=#{userPhone} 
+		</select>
+<!--  비밀번호 찾기  -->
+		<select id="findPW" resultType="member">
+ 			 select * 
+ 			 from members 
+			 where user_id=#{userId} 
+			 and user_Name=#{userName} 
+			 and user_Phone=#{userPhone} 
+ 		</select>
+ 		<!--   비밀번호 수정  -->
+<!--  	<update id="updatePW" resultType="member">
+		update members 
+		set user_pw=#{userPW} 
+		where user_Id=#{userId}
+	</update>
+  -->
+ 		
 </mapper>
