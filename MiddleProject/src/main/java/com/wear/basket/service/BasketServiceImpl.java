@@ -29,4 +29,14 @@ public class BasketServiceImpl implements BasketService {
 		// TODO Auto-generated method stub
 		return mapper.deleteBasket(basketno) == 1;
 	}
+
+	
+	
+	
+	// basketCnt
+	@Override
+	public int basketTotalCnt() {
+		// TODO Auto-generated method stub
+		return mapper.basketCnt();
+	}
 }

@@ -162,7 +162,7 @@ input, select, textarea {
 					<li class="xans-record-">
 						<div class="thumbnail">
 							<div class="prdlmg">
-								<a href="#" name=""><img src="images/리모라운드넥니트.gif" id="" alt=""></a>
+								<a href="#" name=""><img src="images/wear/${search.productImg }.webp" id="" alt=""></a>
 							</div>
 							<div class="icon">
 								<div class="button">

@@ -10,9 +10,9 @@
       		  from (select *
             	    from product b) a
               <![CDATA[	    
-              where rownum <= #{page}*9)r
+              where rownum <= #{page}*8)r
               ]]>
-        where r.rn > (#{page}-1) *9
+        where r.rn > (#{page}-1) *8
         and category_no IN (select category_no
 							from category
 							where category_no_ref = #{categoryNo})				  
@@ -39,9 +39,9 @@
       		  from (select *
             	    from product b) a
               <![CDATA[	    
-              where rownum <= #{page}*9)r
+              where rownum <= #{page}*8)r
               ]]>
-        where r.rn > (#{page}-1) *9
+        where r.rn > (#{page}-1) *8
 		and category_no = #{categoryNo}
 	</select>
 	<select id="miniboard" resultType="com.wear.board.vo.CategoryVO" parameterType="String">
@@ -89,9 +89,10 @@
       		  from (select *
             	    from product b) a
               <![CDATA[	    
-              where rownum <= #{page}*7)r
+              where rownum <= #{page}*6
+              and product_name like '%'|| #{keyword} || '%')r
               ]]>
-        where r.rn > (#{page}-1) *7
+        where r.rn > (#{page}-1) *6
 		and product_name like '%'|| #{keyword} || '%'
 		<choose>
 			<when test='categoryNo != null and categoryNo != ""'>
@@ -117,9 +118,11 @@
       		  	  from (select *
             			from product b) a 
               	 <![CDATA[	   
-      		  	  where rownum <= #{page}*7)r
+      		  	  where rownum <= #{page}*6
+      		  	  and product_name like '%'|| #{keyword} || '%' 	   
+				  and category_no = #{categoryNo})r
       		   	  ]]>
-      		where r.rn > (#{page}-1) *7
+      		where r.rn > (#{page}-1) *6
       		and product_name like '%'|| #{keyword} || '%' 	   
 			and category_no = #{categoryNo}
 				<choose>
@@ -189,20 +192,20 @@
 	                	]]>
 	            	</when>
 	            </choose>
-	            ) 
+	            )
 			</when>
 			<otherwise>
-				)
 				<if test='productPrice1 != null and productPrice1 != ""'>
 					<![CDATA[	
-                    	where product_price >= #{productPrice1}
+                    	and product_price >= #{productPrice1}
                 	]]>
 				</if>
 				<if test='productPrice2 != null and productPrice2 != ""'>
 					<![CDATA[	
-                        where product_price <= #{productPrice2}
+                        and product_price <= #{productPrice2}
                     ]]> 
 				</if>
+				)
 			</otherwise>
 		</choose>              
 	</select>
@@ -212,13 +215,5 @@
 		start with category_no_ref is null
 		connect by category_no_ref = prior category_no
 		order siblings by category_no
-	</select>
-	<!-- wishList -->
-	<select id="wishTotalCnt">
-	
-	</select>
-	<!-- basket -->
-	<select id="basketTotalCnt">
-	
 	</select>
 </mapper>

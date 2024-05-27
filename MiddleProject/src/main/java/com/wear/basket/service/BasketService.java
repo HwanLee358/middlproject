@@ -9,4 +9,9 @@ public interface BasketService {
 		List<BasketVO> basketList(); // 목록
 		boolean modifyBasket(BasketVO bvo);
 		boolean removeBasket(int basketno);
+		
+		
+		
+		// basketCnt
+		int basketTotalCnt();
 }

@@ -5,18 +5,24 @@
 <mapper namespace="com.wear.basket.mapper.BasketMapper">
   <select id = "basketselectList" resultType = "com.wear.basket.vo.BasketVO">
   	select *
-  	from tbl_basket
+  	from basket
   </select>
   
   <update id = "updateBasket" parameterType = "int" >
-  	update tbl_basket
+  	update basket
   	set product_cnt = product_cnt + #{productCnt}
   	where basket_no = #{basketNo}
   </update>
   
   <delete id = "deleteBasket" parameterType = "int">
-  	delete from tbl_basket
+  	delete from basket
   	where basket_no = #{basketNo}
   </delete>
-
+  
+  
+  
+  <select id="basketCnt" resultType="int">
+  	select count(*)
+  	from basket
+  </select>
 </mapper>

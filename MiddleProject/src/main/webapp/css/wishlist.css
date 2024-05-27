@@ -79,15 +79,12 @@
     .basketdiv .basketprice {
         width: 20%;
     }
-    .basketdiv .num {
-        width: 20%;
-      min-width: 105px;
-    }
+ 
      .basketdiv .division {
-        width: 20%;
+        width: 40%;
     }
      .basketdiv .delivery_fee {
-        width: 30%;
+        width: 40%;
     }
     .basketdiv .sum {
         width: 20%;
@@ -206,9 +203,4 @@
     width: 40px;
     font-size: 1em;
 }
-.orderHeader{
-	text-align: center;
-}
-.orderHeader span{
-	font-size: 3em;
-}
+

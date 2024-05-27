@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <form name="orderform" id="orderform" method="post" class="orderform" action="/Page">
+<link href="css/wishlist.css" rel="stylesheet" />    
+<form name="orderform" id="orderform" method="post" class="orderform" action="/Page">
 
     <input type="hidden" name="cmd" value="order">
 
     <div class="basketdiv" id="basket">
+    
     <!-- 일반상품부분 -->
     <div>
     	<h4>일반상품</h4>
@@ -43,7 +45,7 @@
           <div class="num">
             <div class="updown">
               <input type="hidden" name="p_num0" id="p_num0" size="1" maxlength="2" class="p_num" value="2"
-                onkeyup="javascript: wishlist.changePNum(0);">
+                onkeyup="javascript: basket.changePNum(0);">
                <span class="updown-btn" onclick="javascript: basket.changePNum(0);">
                 <i class="fas fa-arrow-alt-circle-up up"></i>
               </span>
@@ -55,7 +57,7 @@
           <!-- 에러나면 지울곳 -->
           <div class = "delivery_fee">3000원</div>
           <!-- 에러나면 지울곳 -->          
-          <div class="sum">40,000원</div>
+          <div class="sum" id = "p_sum2">40,000원</div>
         </div>
         <div class="subdiv">
           <div class="basketcmd">
@@ -77,8 +79,10 @@
 	</div>
     <!-- 선택삭제. -->
     <div class="right-align basketrowcmd">
-      <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delCheckedItem();">선택상품삭제</a>
-      <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delAllItem();">위시리스트비우기</a>
+      <a href="javascript:void(0)" class="abutton"
+       	 onclick="javascript:wishlist.delCheckedItem();">선택상품삭제</a>
+      <a href="javascript:void(0)" class="abutton"
+         onclick="javascript:wishlist.delAllItem();">위시리스트비우기</a>
     </div>
     <div id="goorder" class="">
       <div class="clear"></div>

@@ -14,9 +14,12 @@ import com.wear.basket.web.BasketList;
 import com.wear.basket.web.BasketList1;
 import com.wear.basket.web.DelBasket;
 import com.wear.basket.web.EditBasket;
+import com.wear.board.web.WearBasketCntControl;
 import com.wear.board.web.WearBoardControl;
 import com.wear.board.web.WearBoardheaderControl;
+import com.wear.board.web.WearMainControl;
 import com.wear.board.web.WearSearchControl;
+import com.wear.board.web.WearWishCntControl;
 import com.wear.member.web.CheckIdControl;
 import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
@@ -45,11 +48,14 @@ public class FrontControl extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 이정환
+		map.put("/main.do", new WearMainControl());
 		map.put("/header.do", new WearBoardheaderControl()); // category header 처리
 		map.put("/search.do", new WearSearchControl()); 
 		map.put("/list.do", new WearBoardControl());  
 		map.put("/orderForm.do", new WearOrderFormControl());
 		map.put("/order.do", new WearOrderControl());
+		map.put("/wishCnt.do", new WearWishCntControl());
+		map.put("/basketCnt.do", new WearBasketCntControl());
 		
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());

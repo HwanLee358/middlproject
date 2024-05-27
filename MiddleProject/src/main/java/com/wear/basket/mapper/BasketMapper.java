@@ -9,4 +9,10 @@ public interface BasketMapper {
 		List<BasketVO> basketselectList();
 		int updateBasket(BasketVO bvo);
 		int deleteBasket(int basketno);
+		
+		
+		
+		
+		// basket cnt
+		int basketCnt();
 }

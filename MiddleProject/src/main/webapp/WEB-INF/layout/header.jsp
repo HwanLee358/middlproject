@@ -22,7 +22,7 @@
 		<div class="headerWrap">
 			<div class="headerTop">
 				<div class="logo">
-					<a href="/"> <span style="display: inline;">MONOLOGUE</span>
+					<a href="main.do"> <span style="display: inline;">MONOLOGUE</span>
 					</a>
 				</div>
 				<div class="memb_menu">
@@ -31,7 +31,7 @@
 							<a href="login.do"><span><strong>로그인</strong></span></a>
 						</li>
 						<li class="xans-element- xans-layout xans-layout-statelogoff">
-							<a href="#"><span><strong>회원가입</strong></span></a></li>
+							<a href="joinForm.do"><span><strong>회원가입</strong></span></a></li>
 						<li class="xans-element- xans-layout xans-layout-statelogoff">
 							<a href="#"><span><strong>주문조회</strong></span></a>
 						</li>
@@ -62,13 +62,13 @@
 							</div>
 						</div>
 						<div class="wishlist">
-							<a href="javascript:void(0)"> <i class="lni lni-heart"></i> <span
-								class="total-items">0</span>
+							<a href="wishList1.do"> 
+								<i class="lni lni-heart"></i> <span class="total-items">0</span>
 							</a>
 						</div>
 						<div class="cart-items">
-							<a href="javascript:void(0)" class="main-btn"> <i
-								class="lni lni-cart"></i> <span class="total-items">2</span>
+							<a href="basketList1.do" class="main-btn"> 
+								<i class="lni lni-cart"></i> <span class="total-items">0</span>
 							</a>
 						</div>
 					</div>
