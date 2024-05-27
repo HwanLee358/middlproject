@@ -21,6 +21,7 @@ public interface WearBoardService {
 	// search
 	List<ProductVO> searchBoard(SearchVO search);
 	int searchTotal(SearchVO search);
+	List<CategoryVO> searchOption();
 	//category menu
 	List<Map<String, String>> categoryList();
 }

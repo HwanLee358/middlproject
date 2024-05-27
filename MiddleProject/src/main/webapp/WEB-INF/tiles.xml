@@ -8,16 +8,27 @@
     <put-attribute name="body" value="/WEB-INF/layout/body.jsp" />
     <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
   </definition>
+  
   <!-- Junghwan -->
   <definition name="WILDCARD:wearboard/*" extends="myapp.homepage">
   	<put-attribute name="body" value="/WEB-INF/view/wearboard/{1}.jsp" />
   </definition>
+  <definition name="WILDCARD:productorder/*" extends="myapp.homepage">
+  	<put-attribute name="body" value="/WEB-INF/view/productorder/{1}.jsp" />
+  </definition>
+  
   <!-- Yujin -->
   <definition name="WILDCARD:productInfo/*" extends="myapp.homepage">
   	<put-attribute name="body" value="/WEB-INF/view/productInfo/{1}.jsp" />
   </definition>
   
   <!-- Sunwoo -->
+  <definition name="WILDCARD:wishlist/*" extends="myapp.homepage">
+  	<put-attribute name="body" value="/WEB-INF/view/wishlist/{1}.jsp" />
+  </definition>
+  <definition name="WILDCARD:basket/*" extends="myapp.homepage">
+  	<put-attribute name="body" value="/WEB-INF/view/basket/{1}.jsp" />
+  </definition>
   
   <!-- Donggyu -->
   <definition name="WILDCARD:member/*" extends="myapp.homepage">
