@@ -13,6 +13,8 @@ public class WearQnAFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "wearboard/qnawrite.tiles";
+		String productNo = req.getParameter("pno");
+		req.setAttribute("pNo", productNo);
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

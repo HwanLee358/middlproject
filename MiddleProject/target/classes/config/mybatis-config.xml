@@ -37,7 +37,7 @@
 	<mappers>
 		<!-- 정환 -->
 		<mapper resource="com/wear/board/mapper/WearBoardMapper.xml" />
-		
+		<mapper resource="com/wear/board/mapper/QnaBoardMapper.xml" />
 		<!-- 유진 -->
 		<mapper resource="com/wear/review/mapper/ProductMapper.xml"/>
 		<mapper resource="com/wear/review/mapper/ReviewMapper.xml"/>

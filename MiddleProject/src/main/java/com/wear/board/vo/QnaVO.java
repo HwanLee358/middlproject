@@ -6,8 +6,9 @@ import lombok.Data;
 public class QnaVO {
 	private int postNo;
 	private String userId;
-	private int product_no;
+	private int productNo;
 	private String postTitle;
 	private String content;
+	private String creationDate;
 	private int views;
 }
