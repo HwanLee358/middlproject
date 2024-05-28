@@ -22,7 +22,7 @@
   <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
 		
 		 <%
-		 Object data = session.getAttribute("findid");
+		 Object data = session.getAttribute("userId");
 		 String finduid = (String)data;
   		 %>
   		 
@@ -33,14 +33,14 @@
 		</div>
         
 		<div class="card-body">
-      <form action="resetPw" class="form-signin" method="POST">
-      <input type="hidden" name="member_id" value=<%= finduid %>>
+      <form action="findId.do" class="form-signin" method="POST">
+      <input type="hidden" name="userId" value=<%= finduid %>>
       <p class="check" id="check">내 아이디 : < <%= finduid %> ></p><br/>
       </form>
         
 		</div>
         <div class="links">
-            <a href="memberId">아이디 찾기</a> | <a href="memberLogin">로그인</a> | <a href="memberRegist">회원가입</a>
+            <a href="findPWForm.do">비밀번호 찾기</a> | <a href="logForm.do">로그인</a> | <a href="joinForm.do">회원가입</a>
 
         </div>
 	</div>
@@ -48,77 +48,39 @@
    		
   </body>
   
-  <script >
-	
-  	var check2 = "${findpw_checkt}";
-	if(check2 != ""){
-	 	alert(check2);
-	}
-	
-	// 비밀번호 정규식
-	var pwJ = /^[a-z0-9]{6,20}$/; 
-	var pwc = false;
-	var pwc2 = false;
-	
-	$("#pw").focusout(function(){
-	     if($('#pw').val() == ""){
-	   		$('#check').text('비밀번호를 입력해주세요.');
-	   	  	$('#check').css('color', 'red');
-	   	  	
-	     }else if(!pwJ.test($(this).val())){
-			$('#check').text('6~20자의 영문 소문자, 숫자만 사용가능합니다');
-			$('#check').css('color', 'red');
-	     }else{
-	    	 pwc2 = true;
-	    	 $('#check').hide();
-	     }
-	  });
-	
-	$("#pw2").focusout(function(){
-	     if($('#pw2').val() == ""){
-	   		$('#check').text('필수 정보입니다.')
-	   	  	$('#check').css('color', 'red')
-	 	}else
-   	 	$('#check').hide()
-	  });
-	
-	$("#pw2").keyup(function(){
-		   
-	    if($(this).val()!=$("#pw").val()){
-	        $("#check2").html("비밀번호가 다릅니다");
-	        $("#check2").css("color",'red');
-	        pwc = false;
-	
-	    }else{
-	        $("#check2").html("비밀번호가 일치합니다");
-	        $("#check2").css("color",'blue');
-	        pwc = true;
-	    }
-	});
-	
-	$("#pw").keyup(function(){
-		     
-	    if($(this).val()!=$("#pw2").val()){
-	        $("#check2").html("비밀번호가 다릅니다");
-	        $("#check2").css("color",'red');
-	        pwc = false;
-	
-	    }else{
-	        $("#check2").html("비밀번호가 일치합니다");
-	        $("#check2").css("color",'blue');
-	        pwc = true;
-	    }
-	});
+<script type="text/javascript">
 
-	function regist(){
-		if(pwc2 == false){
-		      alert('비밀번호는 6~20자의 영문 소문자, 숫자만 사용가능합니다')
-		 }else if(pwc == false ){
-			  	alert('비밀번호를 다시 확인해주세요')
-		}else{
-		 $('form').submit();
-		}
-		<%session.invalidate();%>
-		};
+	
+	  	//아이디 정규식
+		var idJ = /^[a-z0-9]{5,20}$/;
+		
+  		$("#userId").focusout(function(){
+	     if($('#userId').val() == ""){
+	   		$('#checks').text('아이디를 입력해주세요.');
+	   	  	$('#checks').css('color', 'red');
+	     }
+	     });
+  		
+  		//$("#member_id").focusout(function(){
+  		//	if(!idJ.test($(this).val())){
+  		//	$('#checks').text('5~20자의 영문 소문자, 숫자만 사용가능합니다');
+  		//	$('#checks').css('color', 'red');
+  	//	}
+  	//	 });
+  		
+  		$("#userName").focusout(function(){
+	     if($('#userName').val() == ""){
+	   		$('#checks').text('이름을 입력해주세요.');
+	   	  	$('#checks').css('color', 'red');
+	     }
+	     });
+	     
+  		$("#userPhone").focusout(function(){
+	     if($('#userPhone').val() == ""){
+	   		$('#checks').text('전화번호를 입력해주세요');
+	   	  	$('#checks').css('color', 'red');
+	     }
+	     });
+  
   </script>
 </html>

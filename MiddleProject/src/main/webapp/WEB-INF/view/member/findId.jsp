@@ -14,6 +14,7 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/findId.css" rel="stylesheet" type="text/css">
     <title>아이디 찾기</title>
    
   </head>
@@ -29,8 +30,8 @@
 		<div class="card-body">
       <form action="findId.do" class="form-signin" method="POST">
   		 <p class="text2"> ${findid2}</p>
-        <input type="text" name="userName" id="name" class="form-control" placeholder="이름" required autofocus><BR>
-        <input type="text" name="userPhone" id="email" class="form-control" placeholder="전화번호" required><br>
+        <input type="text" name="userName" id="userName" class="form-control" placeholder="이름" required autofocus><BR>
+        <input type="text" name="userPhone" id="userPhone" class="form-control" placeholder="전화번호 EX)010-1111-2222" required><br>
         	<p class="check" id="check">${check}</p><br/>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">아 이 디 찾 기</button>
       
@@ -46,29 +47,5 @@
 	</div>
    
   </body>
-  <script type="text/javascript">
-		
-  		
-  
-  		$("#name").focusout(function(){
-  			
-	     if($('#name').val() == ""){
-	   		$('#check').text('이름을 입력해주세요.');
-	   	  	$('#check').css('color', 'red');
-	   
-	     }else{
-	    	 $('#check').hide();
-	     }
-	     });
-	     
-  		$("#email").focusout(function(){
-	     if($('#email').val() == ""){
-	   		$('#check').text('이메일을 입력해주세요');
-	   	  	$('#check').css('color', 'red');
-	     }else{
-	    	 $('#check').hide();
-	     }
-	     });
-  
-  </script>
+
 </html>

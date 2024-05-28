@@ -19,21 +19,21 @@ public class findPWControl implements Control {
 
 		// TODO Auto-generated method stub
 		String id = req.getParameter("userId");
-		String name = req.getParameter("name");
-		String phone = req.getParameter("phone");
+		String name = req.getParameter("userName");
+		String phone = req.getParameter("userPhone");
 
 		MemberService svc = new MemberServiceImpl();
 		MemberVo mvo = svc.searchPW(id, name, phone);
 
+		HttpSession session = req.getSession();
 		if (mvo != null) {
-			HttpSession session = req.getSession();
-			session.setAttribute("findPW", mvo.getUserId());
-			
-			resp.sendRedirect("logForm.do");
-
+			session.setAttribute("userPW", mvo.getUserPW());
+			resp.sendRedirect("findPWResultForm.do");
+			System.out.println("아아아아아ㅏㅇ아이스크림 짜잔");
 		} else {
-			resp.sendRedirect("logForm.do");
-
+			
+			resp.sendRedirect("findPWForm.do");
+			System.out.println("동서남북어디에서도");
 		}
 
 	}
