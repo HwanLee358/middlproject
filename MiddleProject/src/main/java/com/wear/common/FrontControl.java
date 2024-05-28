@@ -18,6 +18,12 @@ import com.wear.board.web.WearBasketCntControl;
 import com.wear.board.web.WearBoardControl;
 import com.wear.board.web.WearBoardheaderControl;
 import com.wear.board.web.WearMainControl;
+import com.wear.board.web.WearQnAControl;
+import com.wear.board.web.WearQnAFormControl;
+import com.wear.board.web.WearQnAaddControl;
+import com.wear.board.web.WearQnAdelControl;
+import com.wear.board.web.WearQnAmodifyFormControl;
+import com.wear.board.web.WearQnamodifyControl;
 import com.wear.board.web.WearSearchControl;
 import com.wear.board.web.WearWishCntControl;
 import com.wear.member.web.CheckIdControl;
@@ -64,6 +70,12 @@ public class FrontControl extends HttpServlet{
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
 		
+		map.put("/qna.do", new WearQnAControl()); //qna 들어감
+		map.put("/qnaWriteForm.do", new WearQnAFormControl()); // qna 폼
+		map.put("/qnaWrite.do", new WearQnAaddControl()); // qna 쓰기
+		map.put("/qnaModifyForm.do", new WearQnAmodifyFormControl());
+		map.put("/qnaModify.do", new WearQnamodifyControl());
+		map.put("/qnaDelte.do", new WearQnAdelControl());
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/reviewWrite.do", new ReviewWriteControl());
