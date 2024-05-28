@@ -208,6 +208,7 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>	
 </form>
 
 <script

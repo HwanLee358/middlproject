@@ -102,10 +102,10 @@
 							<div class="icon">
 								<div class="button">
 										<span>
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="">
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" >
 										</span>
-										<span>
-											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart">
+										<span data-product_no="${List.productNo }">
+											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" alt="${List.productImg }" onclick='insertBasket()'>
 										</span>
 								</div>									
 							</div>
@@ -166,3 +166,4 @@
 			</c:if>
 		</div>
 	</div>
+<script src="js/addBasket.js"></script>

@@ -10,7 +10,7 @@ public interface BasketMapper {
 		int updateBasket(BasketVO bvo);
 		int deleteBasket(int basketno);
 		
-		
+		int insertBasket(BasketVO basket);
 		
 		
 		// basket cnt

@@ -39,4 +39,10 @@ public class BasketServiceImpl implements BasketService {
 		// TODO Auto-generated method stub
 		return mapper.basketCnt();
 	}
+
+	@Override
+	public boolean addBasket(BasketVO basket) {
+		// TODO Auto-generated method stub
+		return mapper.insertBasket(basket) == 1;
+	}
 }
