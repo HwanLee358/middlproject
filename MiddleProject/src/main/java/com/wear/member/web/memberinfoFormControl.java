@@ -8,15 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class findPWResultFormControl implements Control {
+
+
+public class memberinfoFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String path = "WEB-INF/view/member/findPWResult.jsp";
-	//	String path = "member/findPWResult.tiles";
+		
+		String path = "member/information.tiles";
+		String userId = req.getParameter("id");
+		
+		//String path = "member/information.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-
+		
 	}
-
 }
+
+

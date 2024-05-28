@@ -181,7 +181,7 @@ let basket = {
 	orderAllItem: function(){
 		var form = document.createElement('form');
     	form.method = 'post';
-    	form.action = "main.do"; // 임시로 main.do
+    	form.action = "basketlist1.do"; 
     	
     	 var items = document.querySelectorAll('.row.data');
     	 items.forEach(function(item, index) {

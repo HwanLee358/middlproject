@@ -10,14 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wear.basket.web.AddBasketControl;
 import com.wear.basket.web.BasketList;
 import com.wear.basket.web.BasketList1;
 import com.wear.basket.web.DelBasket;
 import com.wear.basket.web.EditBasket;
+import com.wear.basket.web.CerBoardList;
 import com.wear.board.web.WearBasketCntControl;
 import com.wear.board.web.WearBoardControl;
 import com.wear.board.web.WearBoardheaderControl;
 import com.wear.board.web.WearMainControl;
+import com.wear.board.web.WearQnAControl;
+import com.wear.board.web.WearQnAFormControl;
+import com.wear.board.web.WearQnAaddControl;
+import com.wear.board.web.WearQnAdelControl;
+import com.wear.board.web.WearQnAmodifyFormControl;
+import com.wear.board.web.WearQnamodifyControl;
 import com.wear.board.web.WearSearchControl;
 import com.wear.board.web.WearWishCntControl;
 import com.wear.member.web.CheckIdControl;
@@ -30,6 +38,9 @@ import com.wear.member.web.findIdResultFormControl;
 import com.wear.member.web.findPWControl;
 import com.wear.member.web.findPWFormControl;
 import com.wear.member.web.findPWResultFormControl;
+import com.wear.member.web.memberinfoControl;
+import com.wear.member.web.memberinfoFormControl;
+
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
 import com.wear.order.web.WearOrderControl;
@@ -64,6 +75,12 @@ public class FrontControl extends HttpServlet{
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
 		
+		map.put("/qna.do", new WearQnAControl()); //qna 들어감
+		map.put("/qnaWriteForm.do", new WearQnAFormControl()); // qna 폼
+		map.put("/qnaWrite.do", new WearQnAaddControl()); // qna 쓰기
+		map.put("/qnaModifyForm.do", new WearQnAmodifyFormControl());
+		map.put("/qnaModify.do", new WearQnamodifyControl());
+		map.put("/qnaDelte.do", new WearQnAdelControl());
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/reviewWrite.do", new ReviewWriteControl());
@@ -80,6 +97,9 @@ public class FrontControl extends HttpServlet{
 		map.put("/wishList.do", new WishList()); // 위시리스트
 		map.put("/wishList1.do", new WishList1()); // 위시리스트 화면 출력
 		map.put("/delWishList.do", new DelWishList()); // 위시리스트 삭제 기능
+		map.put("/addbasket.do", new AddBasketControl()); // 장바구니 버튼 클릭시 장바구니 페이지로 이동
+		map.put("/cerBoardList.do", new CerBoardList()); // 취소/교환/반품 목록
+		
 		
 		
 		// 배동규
@@ -91,14 +111,23 @@ public class FrontControl extends HttpServlet{
 		map.put("/logout.do", new LogoutControl());
 		map.put("/check.do", new CheckIdControl());//중복체크
 		
-		map.put("/findId.do", new findIdControl());
+		map.put("/findId.do", new findIdControl()); 	// 아이디찾기
 		map.put("/findIdForm.do", new findIdFormControl());
-		map.put("/findIdResultForm.do", new findIdResultFormControl());		
+		map.put("/findIdResultForm.do", new findIdResultFormControl());		//결과창
 		
-		map.put("/findPW.do", new findPWControl());
+		map.put("/findPW.do", new findPWControl());			//패스워드찾기
 		map.put("/findPWForm.do", new findPWFormControl());
-		map.put("/findPWResultForm.do", new findPWResultFormControl());		
-	//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)
+		map.put("/findPWResultForm.do", new findPWResultFormControl());		//결과창
+		
+		
+		map.put("/info.do", new memberinfoFormControl());
+		map.put("/infoForm.do", new memberinfoControl());
+		
+	//	map.put("/info.do", new memberinfoControl());
+	//	map.put("/infoForm.do", new memberinfoFormControl());
+		
+		
+		//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)
 //		map.put("/findId.do", new findIdForm());
 	}
 	

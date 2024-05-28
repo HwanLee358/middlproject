@@ -7,7 +7,7 @@
 		insert into members
 		(user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email)
 		values
-		(#{userId},#{userName},#{userPassword},#{address1},#{address2},#{address3},#{address4},#{userPhone},#{userEmail})
+		(#{userId},#{userName},#{userPW},#{address1},#{address2},#{address3},#{address4},#{userPhone},#{userEmail})
 	</insert>
 
 	<select id="selectMember" resultType="member">
@@ -17,28 +17,12 @@
 		and user_pw = #{pw}
 	</select>
 
-	<select id="selectMember2" resultType="member">
-		select *
-		from members
-		where user_id = #{userId}
-	</select>
-
 	<select id="CheckId" parameterType="String" resultType="int">
 		 select count(*)
 		 from members 
 		 where user_id = #{userId}
 	 </select>
-	   <update id="updateMember" parameterType="member">
-   		 update members
-   		 set user_pw = #{userPassword},
-   			 address1 = #{address1},
-   		 	 address2 = #{address2},
-   		 	 address3 = #{address3},
-   			 address4 = #{address4},
-     		 user_phone = #{userPhone},
-     		 user_email = #{userEmail} 
-   			 where user_id = #{userId}
-  		</update>
+	 
 <!--   아이디찾기 -->
 		<select id="findId" resultType="member"> 
 			select * 
@@ -54,12 +38,25 @@
 			 and user_Name=#{userName} 
 			 and user_Phone=#{userPhone} 
  		</select>
- 		<!--   비밀번호 수정  -->
-<!--  	<update id="updatePW" resultType="member">
-		update members 
-		set user_pw=#{userPW} 
-		where user_Id=#{userId}
-	</update>
-  -->
+	 	<!--   개인정보 수정  -->
+	 	<select id="selectMember2" resultType="member">
+	 		select *
+			from members
+			where user_id = #{userId}
+	 	</select>
+	    <update id="updateMember" parameterType="member">
+   		 update members
+   		 set user_pw = #{userPW},
+   			 address1 = #{address1},
+   		 	 address2 = #{address2},
+   		 	 address3 = #{address3},
+   			 address4 = #{address4},
+     		 user_phone = #{userPhone},
+     		 user_email = #{userEmail} 
+   			 where user_id = #{userId}
+  		</update>
+ 	
+
+
  		
 </mapper>

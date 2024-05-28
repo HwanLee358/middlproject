@@ -39,14 +39,14 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public MemberVo searchPW(String id, String userName, String userPhone) {
+	public MemberVo searchPW(String userid, String userName, String userPhone) {
 		// TODO Auto-generated method stub
-		return mapper.findPW(id, userName, userPhone);
+		return mapper.findPW(userid, userName, userPhone);
 	}
-	
-//	@Override
-//	public boolean modifyMember(MemberVo Member) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
+	@Override
+	public boolean modifyMember(MemberVo Member) {
+		// TODO Auto-generated method stub
+		return mapper.updateMember(Member)==1;
+	}
+
 }

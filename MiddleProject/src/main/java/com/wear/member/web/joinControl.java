@@ -17,7 +17,7 @@ public class joinControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userId = req.getParameter("userId");
 		String userName = req.getParameter("name");
-		String userPassword = req.getParameter("userPW");
+		String userPW = req.getParameter("userPW");
 		String address1 = req.getParameter("address1");
 		String address2 =req.getParameter("address2");
 		String address3 = req.getParameter("address3");
@@ -26,7 +26,7 @@ public class joinControl implements Control {
 		String userEmail = req.getParameter("email");
 		String userResp = req.getParameter("resp");
 		System.out.println(address2);
-		MemberService svc = new MemberServiceImpl();
+		
 
 		//MemberVo mvo = svc.checkMember(writer);
 		//if (mvo == null) {
@@ -36,9 +36,10 @@ public class joinControl implements Control {
 
 			//return;
 		//}
+		MemberService svc = new MemberServiceImpl();
 		MemberVo vo = new MemberVo();
 		vo.setUserId(userId);
-		vo.setUserPassword(userPassword);
+		vo.setUserPW(userPW);
 		vo.setUserName(userName);
 		vo.setAddress1(address1);
 		vo.setAddress2(address2);
