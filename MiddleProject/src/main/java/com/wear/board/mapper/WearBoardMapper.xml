@@ -89,23 +89,139 @@
       		  from (select *
             	    from product b) a
               <![CDATA[	    
-              where rownum <= #{page}*6)r
+              where rownum <= #{page}*6
+              and product_name like '%'|| #{keyword} || '%')r
               ]]>
         where r.rn > (#{page}-1) *6
 		and product_name like '%'|| #{keyword} || '%'
+		<choose>
+			<when test='categoryNo != null and categoryNo != ""'>
+			and r.category_no in (select category_no 
+		                      from category 
+                              where category_no_ref = #{categoryNo}
+	            <choose>
+	            	<when test='productPrice1 != null and productPrice1 != ""'>
+	            		<![CDATA[	
+	                    	and product_price >= #{productPrice1}
+	                	]]>
+	            	</when>
+	            	<when test='productPrice2 != null and productPrice2 != ""'>
+	            		<![CDATA[	
+	                    	and product_price <= #{productPrice2}
+	                	]]>
+	            	</when>
+	            </choose>
+            )                                                                                     
+			union all
+			select  r.*
+			from (select rownum rn, a.*
+      		  	  from (select *
+            			from product b) a 
+              	 <![CDATA[	   
+      		  	  where rownum <= #{page}*6
+      		  	  and product_name like '%'|| #{keyword} || '%' 	   
+				  and category_no = #{categoryNo})r
+      		   	  ]]>
+      		where r.rn > (#{page}-1) *6
+      		and product_name like '%'|| #{keyword} || '%' 	   
+			and category_no = #{categoryNo}
+				<choose>
+	            	<when test='productPrice1 != null and productPrice1 != ""'>
+	            		<![CDATA[	
+	                    	and product_price >= #{productPrice1}
+	                	]]>
+	            	</when>
+	            	<when test='productPrice2 != null and productPrice2 != ""'>
+	            		<![CDATA[	
+	                    	and product_price <= #{productPrice2}
+	                	]]>
+	            	</when>
+	            </choose>
+			</when>
+			<otherwise>
+				<if test='productPrice1 != null and productPrice1 != ""'>
+					<![CDATA[	
+                    	and product_price >= #{productPrice1}
+                	]]>
+				</if>
+				<if test='productPrice2 != null and productPrice2 != ""'>
+					<![CDATA[	
+                        and product_price <= #{productPrice2}
+                    ]]> 
+				</if>
+			</otherwise>
+		</choose>
 	</select>
 	<select id="searchCnt" resultType="int" parameterType="com.wear.board.vo.SearchVO">
 		select count(*)
-		from product
-		where product_name like '%'|| #{keyword} || '%'
+		from (select *
+			  from product p
+			  where product_name like '%'|| #{keyword} || '%'
+		<choose>
+			<when test='categoryNo != null and categoryNo != ""'>
+				and p.category_no in (select category_no 
+			                            from category 
+	                                    where category_no_ref = #{categoryNo}
+		            <choose>
+		            	<when test='productPrice1 != null and productPrice1 != ""'>
+		            		<![CDATA[	
+		                    	and product_price >= #{productPrice1}
+		                	]]>
+		            	</when>
+		            	<when test='productPrice2 != null and productPrice2 != ""'>
+		            		<![CDATA[	
+		                    	and product_price <= #{productPrice2}
+		                	]]>
+		            	</when>
+		            </choose>
+	            )                        
+	        	union all
+	        	select *
+				from product p
+				where product_name like '%'|| #{keyword} || '%'
+				and category_no = #{categoryNo}
+				<choose>
+	            	<when test='productPrice1 != null and productPrice1 != ""'>
+	            		<![CDATA[	
+	                    	and product_price >= #{productPrice1}
+	                	]]>
+	            	</when>
+	            	<when test='productPrice2 != null and productPrice2 != ""'>
+	            		<![CDATA[	
+	                    	and product_price <= #{productPrice2}
+	                	]]>
+	            	</when>
+	            </choose>
+	            )
+			</when>
+			<otherwise>
+				<if test='productPrice1 != null and productPrice1 != ""'>
+					<![CDATA[	
+                    	and product_price >= #{productPrice1}
+                	]]>
+				</if>
+				<if test='productPrice2 != null and productPrice2 != ""'>
+					<![CDATA[	
+                        and product_price <= #{productPrice2}
+                    ]]> 
+				</if>
+				)
+			</otherwise>
+		</choose>              
+	</select>
+	<select id="searchCate" resultType="com.wear.board.vo.CategoryVO">
+		select * 
+		from category
+		start with category_no_ref is null
+		connect by category_no_ref = prior category_no
+		order siblings by category_no
 	</select>
 	
-	<!-- wishList -->
-	<select id="wishTotalCnt">
 	
-	</select>
-	<!-- basket -->
-	<select id="basketTotalCnt">
 	
-	</select>
+	
+	<!-- qna -->
+	<insert id="addQnA" parameterType="com.wear.board.vo.QnaVO">
+		
+	</insert>
 </mapper>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.wear.board.vo.CategoryVO;
 import com.wear.board.vo.ProductVO;
+import com.wear.board.vo.QnaVO;
 import com.wear.board.vo.SearchVO;
 
 public interface WearBoardMapper {
@@ -21,7 +22,11 @@ public interface WearBoardMapper {
 	//검색
 	List<ProductVO> searchBoard(SearchVO search);
 	int searchCnt(SearchVO search);
-	
+	List<CategoryVO> searchCate();
 	//카테고리
 	List<Map<String, String>> cateList();
+	
+	
+	//QnA
+	int addQnA(QnaVO board);
 }

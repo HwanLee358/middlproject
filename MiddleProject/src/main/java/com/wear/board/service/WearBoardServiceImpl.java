@@ -74,6 +74,12 @@ public class WearBoardServiceImpl implements WearBoardService{
 		return mapper.searchCnt(search);
 	}
 
+	@Override
+	public List<CategoryVO> searchOption() {
+		// TODO Auto-generated method stub
+		return mapper.searchCate();
+	}
+
 
 
 }

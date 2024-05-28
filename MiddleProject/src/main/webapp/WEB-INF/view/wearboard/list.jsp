@@ -97,7 +97,7 @@
 					<li id="" class="xans-recode-">
 						<div class="thumbnail">
 							<div class="prdlmg">
-								<a href="#" name=""><img src="images/${List.productImg }.gif" id="" alt=""></a>
+								<a href="#" name=""><img src="images/wear/${List.productImg }.webp" id="" alt=""></a>
 							</div>
 							<div class="icon">
 								<div class="button">
