@@ -29,6 +29,9 @@
   <definition name="WILDCARD:basket/*" extends="myapp.homepage">
   	<put-attribute name="body" value="/WEB-INF/view/basket/{1}.jsp" />
   </definition>
+  <definition name="WILDCARD:cerboard/*" extends="myapp.homepage">
+  	<put-attribute name="body" value="/WEB-INF/view/cerboard/{1}.jsp" />
+  </definition>
   
   <!-- Donggyu -->
   <definition name="WILDCARD:member/*" extends="myapp.homepage">

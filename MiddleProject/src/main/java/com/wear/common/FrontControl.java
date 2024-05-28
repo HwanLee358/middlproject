@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wear.basket.web.AddBasketControl;
 import com.wear.basket.web.BasketList;
 import com.wear.basket.web.BasketList1;
 import com.wear.basket.web.DelBasket;
 import com.wear.basket.web.EditBasket;
+import com.wear.basket.web.CerBoardList;
 import com.wear.board.web.WearBasketCntControl;
 import com.wear.board.web.WearBoardControl;
 import com.wear.board.web.WearBoardheaderControl;
@@ -95,6 +97,9 @@ public class FrontControl extends HttpServlet{
 		map.put("/wishList.do", new WishList()); // 위시리스트
 		map.put("/wishList1.do", new WishList1()); // 위시리스트 화면 출력
 		map.put("/delWishList.do", new DelWishList()); // 위시리스트 삭제 기능
+		map.put("/addbasket.do", new AddBasketControl()); // 장바구니 버튼 클릭시 장바구니 페이지로 이동
+		map.put("/cerBoardList.do", new CerBoardList()); // 취소/교환/반품 목록
+		
 		
 		
 		// 배동규

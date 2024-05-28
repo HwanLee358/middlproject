@@ -22,5 +22,15 @@ const menusvc = {
 		    .then(resolve => resolve.json())
 		    .then(successCall)
 		    .catch(errorCall)
-	}
+	},
+	addBasket(bno = 1, successCall, errorCall){
+		fetch('addbasket.do',{
+			method: 'post',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: 'bno=' + bno
+		})
+		    .then(resolve => resolve.json())
+		    .then(successCall)
+		    .catch(errorCall)
+	}	    
 }	
