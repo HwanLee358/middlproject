@@ -8,19 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class LoginForm implements Control {
+public class findIdFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-				// TODO Auto-generated method stub
-				String path = "member/loginForm.tiles";
-				req.getRequestDispatcher(path).forward(req, resp);
-				//System.out.println(path+"@@@@@@@@@");
-			}
-
-	
-
+		// TODO Auto-generated method stub
+		String path = "WEB-INF/view/member/findId.jsp";
+		req.getRequestDispatcher(path).forward(req, resp);
+		
+		
 	}
 
-
+}

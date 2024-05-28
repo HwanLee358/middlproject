@@ -1,5 +1,4 @@
 package com.wear.member.web;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,34 +11,31 @@ import com.wear.member.service.MemberService;
 import com.wear.member.service.MemberServiceImpl;
 import com.wear.member.vo.MemberVo;
 
-public class LoginControl implements Control {
+public class findPWControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		// TODO Auto-generated method stub
 		String id = req.getParameter("userId");
-		String pw = req.getParameter("userPW");
+		String name = req.getParameter("userName");
+		String phone = req.getParameter("userPhone");
 
 		MemberService svc = new MemberServiceImpl();
-		MemberVo mvo = svc.login(id, pw);
-		
-		System.out.println(svc.login(id, pw));
+		MemberVo mvo = svc.searchPW(id, name, phone);
 
-		
+		HttpSession session = req.getSession();
 		if (mvo != null) {
-			HttpSession session = req.getSession();
-			session.setAttribute("logId", mvo.getUserId());
-
-			// 관리자, 회원.
-			if (mvo.getUserResp().equals("Admin"))
-				resp.sendRedirect("joinForm.do");
-		
-			else
-				resp.sendRedirect("list.do");
-			
+			session.setAttribute("userPW", mvo.getUserPW());
+			resp.sendRedirect("findPWResultForm.do");
+			System.out.println("아아아아아ㅏㅇ아이스크림 짜잔");
 		} else {
-			resp.sendRedirect("logForm.do");
+			
+			resp.sendRedirect("findPWForm.do");
+			System.out.println("동서남북어디에서도");
 		}
+
 	}
 
 }

@@ -31,8 +31,8 @@
 	</div>
 
 	<div class="links">
-		<a href="/T20240520/findId.do">아이디 찾기</a> | 
-		<a href="/T20240520/findPW.do">비밀번호찾기</a> | 
+		<a href="findIdForm.do">아이디 찾기</a> |
+		<a href="findPWForm.do">비밀번호찾기</a> | 
 		<a href="joinForm.do">회원가입</a>
 	</div>
 </section>

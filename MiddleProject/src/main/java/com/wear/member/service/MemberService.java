@@ -3,7 +3,7 @@ package com.wear.member.service;
 import com.wear.member.vo.MemberVo;
 
 public interface MemberService {
-	
+	//회원가입
 	 boolean MemberJoin(MemberVo Member);
 
 	//로그인
@@ -12,7 +12,13 @@ public interface MemberService {
 	
 	MemberVo getMember(String userId);
 	
-	
+	//중복체크
 	boolean checkId(String userId);
-	boolean modifyMember(MemberVo Member);
+	
+	//찾기
+	MemberVo searchId(String userName,String userPhone);
+	MemberVo searchPW(String userId, String userName, String userPhone);	
+	
+	//수정
+	boolean modifyMember(MemberVo Member);	
 }

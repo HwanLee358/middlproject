@@ -1,4 +1,4 @@
-package com.wear.member.web;
+package com.wear.board.web;
 
 import java.io.IOException;
 
@@ -8,19 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class LoginForm implements Control {
+public class WearQnAFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-				// TODO Auto-generated method stub
-				String path = "member/loginForm.tiles";
-				req.getRequestDispatcher(path).forward(req, resp);
-				//System.out.println(path+"@@@@@@@@@");
-			}
-
-	
-
+		String path = "wearboard/qnawrite.tiles";
+		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
-
+}
