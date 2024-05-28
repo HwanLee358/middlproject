@@ -9,8 +9,9 @@ public interface ReviewService {
 
 	List<ReviewVO> ReviewList(SearchVO search);
 	int getReviewCnt(int reviewNo);
-	List<ReviewVO> imgList(ReviewVO rvo);
-	List<ReviewVO> totalCnt(ReviewVO rvo);
+	List<ReviewVO> imgList(int pno);
 	boolean addReview(ReviewVO review);
+	//List<ReviewVO> totalCnt(ReviewVO rvo); //totalCnt[40]
+	int totalCnt(ReviewVO rvo);
 	
 }

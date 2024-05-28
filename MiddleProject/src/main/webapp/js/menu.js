@@ -41,7 +41,7 @@ function showList() {
 					tmpl.children[1].append(ul);				
 				}
 				document.querySelector('.gnb').appendChild(tmpl);
-				console.log(e);
+				//console.log(e);
 			})
 		},
 		err => console.log(err)
