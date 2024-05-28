@@ -7,6 +7,7 @@
 	}
     #btn-Yes{
         background-color: #e4932b;
+        text-align : center;
         border: none;
     }
 	
@@ -34,3 +35,8 @@
     	color : red;
     }
 
+	.head{
+	text-align:center;
+	margin: 0 auto;
+	font-size : 20px;
+	}

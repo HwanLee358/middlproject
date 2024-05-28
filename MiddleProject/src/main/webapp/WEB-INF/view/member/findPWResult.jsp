@@ -16,15 +16,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/result.css" rel="stylesheet" type="text/css">
     
-    <title>아이디 찾기</title>
+    <title>패스워드 찾기</title>
 
   </head>
 
   <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
 		
 		 <%
-		 Object data = session.getAttribute("findid");
-		 String finduid = (String)data;
+		 Object data = session.getAttribute("userPW");
+		 String findupw = (String)data;
   		 %>
   		 
 	<div class="card align-middle" style="width:25rem;">
@@ -34,15 +34,18 @@
 		</div>
         
 		<div class="card-body">
-      <form action="resetPw" class="form-signin" method="POST">
-      <input type="hidden" name="member_id" value=<%= finduid %>>
-      <p class="check" id="check">내 패스워드 : < <%= finduid %> ></p><br/>
+      <form action="findPW.do" class="form-signin" method="POST">
+      <input type="hidden" name="userPW" value=<%= findupw %>>
+      <p class="check" id="check">내 패스워드 : < <%= findupw %> ></p><br/>
       
       </form>
         
 		</div>
         <div class="links">
-            <a href="memberId">아이디 찾기</a> | <a href="memberLogin">로그인</a> | <a href="memberRegist">회원가입</a>
+           <a href="findIdForm.do">아이디 찾기</a> | 
+            <a href="logForm.do">로그인</a> | 
+            <a href="joinForm.do">회원가입</a>
+
 
         </div>
 	</div>

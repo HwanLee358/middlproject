@@ -14,6 +14,7 @@ public class findIdResultFormControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String path = "WEB-INF/view/member/findIdResult.jsp";
+	//	String path = "member/findIdResult.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 
 	}

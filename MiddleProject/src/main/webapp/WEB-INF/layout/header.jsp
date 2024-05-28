@@ -27,17 +27,26 @@
 				</div>
 				<div class="memb_menu">
 					<ul class="inwrap">
-						<li class="xans-element- xans-layout xans-layout-statelogoff">
-							<a href="login.do"><span><strong>로그인</strong></span></a>
-						</li>
-						<li class="xans-element- xans-layout xans-layout-statelogoff">
-							<a href="#"><span><strong>회원가입</strong></span></a></li>
-						<li class="xans-element- xans-layout xans-layout-statelogoff">
-							<a href="#"><span><strong>주문조회</strong></span></a>
-						</li>
-						<li class="xans-element- xans-layout xans-layout-statelogoff">
-							<a href="#"><span><strong>마이페이지</strong></span></a>
-						</li>
+						<c:choose>
+							<c:when test="${empty logId }">
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<a href="login.do"><span><strong>로그인</strong></span></a>
+								</li>
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<a href="#"><span><strong>회원가입</strong></span></a></li>								
+							</c:when>
+							<c:otherwise>
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<a href="logout.do"><span><strong>로그아웃</strong></span></a>
+								</li>
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<a href="#"><span><strong>주문조회</strong></span></a>
+								</li>
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<a href="info.do?id=${logId }"><span><strong>마이페이지</strong></span></a>
+								</li>							
+							</c:otherwise>
+						</c:choose>
 					</ul>
 				</div>
 				<ul class="gnb">
