@@ -4,7 +4,7 @@ import com.wear.review.vo.ProductVO;
 
 public interface ProductService {
 
-	ProductVO productList(int proNo);
+	ProductVO getProduct(int proNo);
 
 	
 	

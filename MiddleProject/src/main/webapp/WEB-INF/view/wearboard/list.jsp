@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <link href="css/wearList.css" rel="stylesheet" />
+
 <style></style>
 	<div class="contents wide">
 		<div class="xans-product-menupackage">
@@ -97,7 +98,7 @@
 					<li id="" class="xans-recode-">
 						<div class="thumbnail">
 							<div class="prdlmg">
-								<a href="#" name=""><img src="images/wear/${List.productImg }.webp" id="" alt=""></a>
+								<a href="productDetail.do?pno=${List.productNo }" name=""><img src="images/wear/${List.productImg }.webp" id="" alt=""></a>
 							</div>
 							<div class="icon">
 								<div class="button">

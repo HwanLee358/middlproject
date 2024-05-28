@@ -14,7 +14,7 @@ public class LoginForm implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 				// TODO Auto-generated method stub
-				String path = "WEB-INF/view/member/loginForm.jsp";
+				String path = "member/loginForm.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);
 				//System.out.println(path+"@@@@@@@@@");
 			}
