@@ -216,4 +216,12 @@
 		connect by category_no_ref = prior category_no
 		order siblings by category_no
 	</select>
+	
+	
+	
+	
+	<!-- qna -->
+	<insert id="addQnA" parameterType="com.wear.board.vo.QnaVO">
+		
+	</insert>
 </mapper>
