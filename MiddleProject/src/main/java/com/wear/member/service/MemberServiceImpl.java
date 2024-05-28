@@ -31,9 +31,22 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public boolean modifyMember(MemberVo Member) {
+	public MemberVo searchId(String userName, String userPhone) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.findId(userName, userPhone);
 	}
+	
+	@Override
+	public MemberVo searchPW(String id, String userName, String userPhone) {
+		// TODO Auto-generated method stub
+		return mapper.findPW(id, userName, userPhone);
+	}
+	
+//	@Override
+//	public boolean modifyMember(MemberVo Member) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 }

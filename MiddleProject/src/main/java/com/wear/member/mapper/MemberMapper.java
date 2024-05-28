@@ -15,4 +15,8 @@ public interface MemberMapper {
 	//중복체크
 	int CheckId(String userId);
 	int updateMember(MemberVo Member); // 수정처리.
+	
+	//찾기
+	MemberVo findId(@Param("userName") String userName, @Param("userPhone") String userPhone);
+	MemberVo findPW(@Param("id") String id,@Param("userName") String userName, @Param("userPhone") String userPhone); 
 }
