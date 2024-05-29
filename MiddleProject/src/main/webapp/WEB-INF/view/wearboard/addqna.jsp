@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <link href="css/wearList.css" rel="stylesheet" />
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style>
 .qnainfoList {
 	padding-bottom: 110px;
@@ -54,58 +53,34 @@
 			</div>
 		</div>
 		<div>
-			<form name="myFrm">
-				<input type="hidden" name="qno" value="${qnaInfo.postNo }">
-				<input type="hidden" name="write" value="${qnaInfo.userId }">
-				<input type="hidden" name="title" value="${qnaInfo.postTitle }">
-				<input type="hidden" name="content" value="${qnaInfo.content }">
-				<input type="hidden" name="pNo" value="${pNo }">
-			</form>
+			<form action="qnaModify.do">
+			<input type="hidden" name="pNo" value="${productNo }"/>
+			<input type="hidden" name="qNo" value="${qnaNo }"/>
 			<table class="table">
 				<tbody>
 					<tr>
 						<th style="width: 10%;">글 제목</th>
-						<td colspan="3">${qnaInfo.postTitle }</td>
+						<td colspan="3"><input type="text" name="title" value="${qnaModify.postTitle }" style="width: 100%;"></td>
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td colspan="3">${qnaInfo.userId }</td>
+						<td colspan="3">${qnaModify.userId }</td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="3" style="height: 200px;">${qnaInfo.content }</td>
+						<td colspan="3" style="height: 200px;">
+							<textarea id="ncontent" name="content" placeholder="내용을 입력해주세요.." style="height:200px;  width: 100%;">${qnaModify.content }</textarea>
+						</td>
 					</tr>
-					<tr>
-						<th>작성일시</th>
-						<td>${qnaInfo.creationDate }</td>
-						<th>조회수</th>
-						<td>${qnaInfo.views }</td>
+					<tr align="center">
+						<td colspan="4">
+							<button class="btn btn-primary">수정</button>
+						</td>
 					</tr>
-					<c:choose>
-						<c:when test="${qnaInfo.userId eq logId  }">
-							<tr align="center">
-								<td colspan="4">
-									<button class="btn btn-primary" id="modBtn">수정</button>
-									<button class="btn btn-danger">삭제</button>
-								</td>
-							</tr>						
-						</c:when>
-						<c:otherwise></c:otherwise>
-					</c:choose>
+					
 				</tbody>
 			</table>
+			</form>
 		</div>
 	</div>
 </div>
-<script>
-
-document.querySelector('#modBtn').addEventListener('click', function() {
-	document.forms.myFrm.action = "qnaModifyForm.do";
-	document.forms.myFrm.submit();
-})
-
-document.querySelector('.btn-danger').addEventListener('click', function() {
-	document.forms.myFrm.action = "qnaDelte.do";
-	document.forms.myFrm.submit();
-})
-</script>

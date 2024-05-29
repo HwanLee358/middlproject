@@ -13,18 +13,33 @@
   </insert>
   
   <update id="updateQna" parameterType="com.wear.board.vo.QnaVO">
-  	
+  	update qna
+  	set post_title = #{postTitle},
+  	    content = #{content}
+  	where post_no = #{postNo}
+  	and product_no = #{productNo}    
   </update>
-  <delete id="deleteQna" parameterType="com.wear.board.vo.QnaVO">
   
+  <delete id="deleteQna" parameterType="com.wear.board.vo.QnaVO">
+    delete from qna
+    where post_no = #{postNo}
+    and product_no = #{productNo}
   </delete>
   
   <select id="QnaList" resultType="com.wear.board.vo.QnaVO" parameterType="int">
-  	select * from qna where post_no = #{postNo}
+  	select * 
+  	from qna 
+  	where post_no = #{postNo}
   </select>
   <update id="updateViews" parameterType="int">
   	update qna
   	set views = views + 1
   	where post_no = #{postNo}
   </update>
+  
+  <select id="qnaTotalCnt" resultType="com.wear.board.vo.QnaVO" parameterType="int">
+  	select count(*)
+  	from qna
+  	where product_no = #{productNo}
+  </select>
 </mapper>

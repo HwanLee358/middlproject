@@ -11,4 +11,11 @@ public interface QnaBoardMapper {
 	int insertQna(QnaVO qnaboard);
 	QnaVO QnaList(int postNo);
 	int updateViews(int postNo);
+	
+	// 수정
+	int updateQna(QnaVO qnaboard);
+	int deleteQna(QnaVO qnaboard);
+	
+	// 페이징
+	int qnaTotalCnt(int productNo);
 }

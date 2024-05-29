@@ -37,4 +37,24 @@ public class QnaBoardServiceImpl implements QnaBoardService{
 		// TODO Auto-generated method stub
 		return mapper.updateViews(postNo);
 	}
+
+	@Override
+	public Boolean modifyQna(QnaVO qnaboard) {
+		// TODO Auto-generated method stub
+		return mapper.updateQna(qnaboard) == 1;
+	}
+
+	@Override
+	public Boolean removeQna(QnaVO qnaboard) {
+		// TODO Auto-generated method stub
+		return mapper.deleteQna(qnaboard) == 1;
+	}
+
+	@Override
+	public int getQnaTotalCnt(int productNo) {
+		// TODO Auto-generated method stub
+		return mapper.qnaTotalCnt(productNo);
+	}
+
+	
 }

@@ -29,7 +29,9 @@ import com.wear.board.web.WearQnAdelControl;
 import com.wear.board.web.WearQnAmodifyFormControl;
 import com.wear.board.web.WearQnamodifyControl;
 import com.wear.board.web.WearSearchControl;
+import com.wear.board.web.WearTotalControl;
 import com.wear.board.web.WearWishCntControl;
+import com.wear.board.web.WearaddWishControl;
 import com.wear.member.web.CheckIdControl;
 import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
@@ -76,13 +78,18 @@ public class FrontControl extends HttpServlet {
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
 
-		map.put("/qnaList.do", new WearQnAControl()); // qna 들어감
-		map.put("/qnaInfo.do", new WearQnAInfoControl());
+		map.put("/addWish.do", new WearaddWishControl());
+		
+		
+		map.put("/qnaList.do", new WearQnAControl()); //qnaList
+		map.put("/qnaInfo.do", new WearQnAInfoControl()); //qna 정보
+
 		map.put("/qnaWriteForm.do", new WearQnAFormControl()); // qna 폼
 		map.put("/qnaWrite.do", new WearQnAaddControl()); // qna 쓰기
 		map.put("/qnaModifyForm.do", new WearQnAmodifyFormControl());
 		map.put("/qnaModify.do", new WearQnamodifyControl());
 		map.put("/qnaDelte.do", new WearQnAdelControl());
+		map.put("/getTotalCnt.do", new WearTotalControl());
 
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());
