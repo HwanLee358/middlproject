@@ -23,11 +23,21 @@ const menusvc = {
 		    .then(successCall)
 		    .catch(errorCall)
 	},
-	addBasket(bno = 1, successCall, errorCall){
+	addBasket(pno = 1, successCall, errorCall){
 		fetch('addbasket.do',{
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'bno=' + bno
+			body: 'bno=' + pno
+		})
+		    .then(resolve => resolve.json())
+		    .then(successCall)
+		    .catch(errorCall)
+	},
+	addWish(pno = 1, successCall, errorCall){
+		fetch('addwish.do',{
+			method: 'post',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+			body: 'pno=' + pno
 		})
 		    .then(resolve => resolve.json())
 		    .then(successCall)
