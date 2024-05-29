@@ -79,17 +79,16 @@ public class FrontControl extends HttpServlet {
 		map.put("/header.do", new WearBoardheaderControl()); // category header 처리
 		map.put("/search.do", new WearSearchControl());
 		map.put("/list.do", new WearBoardControl());
+		
 		map.put("/orderForm.do", new WearOrderFormControl());
 		map.put("/order.do", new WearOrderControl());
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
-
 		map.put("/addWish.do", new WearaddWishControl());
 		
 		
 		map.put("/qnaList.do", new WearQnAControl()); //qnaList
 		map.put("/qnaInfo.do", new WearQnAInfoControl()); //qna 정보
-
 		map.put("/qnaWriteForm.do", new WearQnAFormControl()); // qna 폼
 		map.put("/qnaWrite.do", new WearQnAaddControl()); // qna 쓰기
 		map.put("/qnaModifyForm.do", new WearQnAmodifyFormControl());
