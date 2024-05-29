@@ -1,4 +1,4 @@
-package com.wear.wishlist.web;
+package com.wear.basket.web;
 
 import java.io.IOException;
 
@@ -8,15 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class WishList1 implements Control {
+public class AddWishlistControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		String path = "wishlist/wishlist.tiles";
-		req.getRequestDispatcher(path).forward(req, resp);
-		
-		
+		resp.setContentType("text/json;charset=utf-8");
+
 	}
 
 }

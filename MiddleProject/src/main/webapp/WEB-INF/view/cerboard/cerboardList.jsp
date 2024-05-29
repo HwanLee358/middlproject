@@ -1,44 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link href="css/cart.css" rel="stylesheet" />    
-<form name="orderform" id="orderform" method="post" class="orderform"
-	action="/Page">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-	<input type="hidden" name="cmd" value="order">
-
-<div class="ec-base-table typeList gBorder">
-        <table border="1" summary="">
-<caption>취소/교환/반품 목록</caption>
-            <colgroup class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 "><col style="width:70px;">
-<col style="width:135px;" class="displaynone">
-<col style="width:auto;">
-<col style="width:100px;">
-<col style="width:100px;" class="displaynone">
-<col style="width:55px;" class="displaynone">
-</colgroup>
-<thead class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 "><tr style=" ">
-<th scope="col">CS처리구분</th>
-                    <th scope="col" class="displaynone">주문번호</th>
-                    <th scope="col">접수제목</th>
-                    <th scope="col">접수일자</th>
-                    <th scope="col" class="displaynone">진행상태</th>
-                    <th scope="col" class="displaynone">완료일자</th>
-                </tr></thead>
-<tbody class="xans-element- xans-board xans-board-list-1002 xans-board-list xans-board-1002 center"><!--
-                    $login_page_url = /member/login.html
-                    $deny_access_url = /index.html
-                --><tr style="background-color:#FFFFFF; color:#555555;" class="xans-record-">
-<td> 38</td>
-                    <td class="displaynone"></td>
-                    <td class="subject left txtBreak">
-                         <a href="/board/free/read.html?no=180688&amp;board_no=101" style="color:#555555;">[배송문의]주문상품 한번에 받고 싶어요</a> </span>
-                    </td>
-                    <td>모놀로그</td>
-                    <td class="displaynone"><span class="txtNum">2022-04-28</span></td>
-                    <td class="displaynone"><span class="txtNum">128678</span></td>
-                </tr>
-<tr style="background-color:#FFFFFF; color:#555555;" class="xans-record-">
-
-</tbody>
-</table><p class="xans-element- xans-board xans-board-empty-1002 xans-board-empty xans-board-1002 message displaynone "></p>
-    </div>
+<link href="css/qnaboard.css" rel="stylesheet"/>
+<link href="css/wearList.css" rel="stylesheet" />    
+<div class="detailQnaList">
+	<div class="wrapper">
+		<div class="xans-product-menupackage">
+			<div class="xans-product-headcategory title">
+				<p class="banner"></p>
+				<!-- main -->
+				<h2>
+					<span>취소/교환/반품 </span>
+				</h2>
+				<!-- sub -->
+				<span>상품에 대해 궁금한 점을 해결해 드립니다</span>
+			</div>
+		</div>
+		<div class="table-slide qna-list">
+			<table>
+				<caption>QnA 리스트</caption>
+				<colgroup>
+					<col width="80">
+					<col width="30">
+					<col width="*">
+					<col width="100">
+					<col width="100">
+					<col width="80">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col"><div class="tb-center">NO</div></th>
+						<th scope="col"></th>
+						<th scope="col"><div class="tb-center">SUBJECT</div></th>
+						<th scope="col"><div class="tb-center">NAME</div></th>
+						<th scope="col"><div class="tb-center">DATE</div></th>
+						<th scope="col"><div class="tb-center">HIT</div></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="nbg" style="display:none">
+						<td><div class="tb-center"><span class="reviewnum">252</span></div></td>
+						<td><div class="tb-center"><span class="reviewnum"></span></div></td>
+						<td><div class="tb-center"><span class="reviewnum"><a href="#">상품문의</a></span></div></td>
+						<td><div class="tb-center"><span class="reviewnum">이름</span></div></td>
+						<td><div class="tb-center"><span class="reviewnum">날짜</span></div></td>
+						<td><div class="tb-center"><span class="reviewnum">조회수</span></div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="list-btm">
+				<div class="paging-wrap">
+					<div class="paging">
+						<a href="" class="prev"><</a>
+						<a href="" class="now">1</a>
+						<a href="">2</a>
+						<a href="">3</a>
+						<a href="">4</a>
+						<a href="">5</a>
+						<a href="" class="next">></a>						
+					</div>
+				</div>
+				<div class="btm_write">
+				<c:choose>
+					<c:when test="${empty logId}">
+						<a href="logForm.do">문의하기</a>
+					</c:when>
+					<c:otherwise>
+						<a href="qnaWriteForm.do?pno=${result.orderNo }">문의하기</a>					
+					</c:otherwise>
+				</c:choose>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	const qnaNo = ${result.orderNo }
+</script>    
+<script src="js/qnalist.js"></script>

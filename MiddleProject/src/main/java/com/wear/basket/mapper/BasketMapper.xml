@@ -20,12 +20,17 @@
   </delete>
   
   <insert id = "insertBasket" parameterType = "basket">
-  	insert into basket(basket_no, product_no, user_id, product_cnt, delivery_fee)
-	values(#{basket_no}, #{product_no}, #{user_id}, #{product_cnt}, #{delivery_fee})
+  	insert into basket(basket_no, product_info_no, user_id, product_cnt)
+	values(#{basket_no}, #{product_info_no}, #{user_id}, #{product_cnt})
   </insert>
   
   <select id="basketCnt" resultType="int">
   	select count(*)
   	from basket
+  </select>
+  
+  <select id="wishlistCnt" resultType="int">
+  	select count(*)
+  	from wishlist
   </select>
 </mapper>

@@ -8,7 +8,8 @@
 		select r.*
 		from (select rownum rn, a.*
       		  from (select *
-            	    from product b) a
+            	    from product b
+            	    order by product_no) a
               <![CDATA[	    
               where rownum <= #{page}*8)r
               ]]>
@@ -37,7 +38,8 @@
 		select r.*
 		from (select rownum rn, a.*
       		  from (select *
-            	    from product b) a
+            	    from product b
+            	    order by product_no) a
               <![CDATA[	    
               where rownum <= #{page}*8)r
               ]]>

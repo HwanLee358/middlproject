@@ -24,7 +24,7 @@ const QnAsvc = {
 
 let page = 1;
 qnaListshow();
-console.log(qnaNo);
+//console.log(qnaNo);
 
 function qnaListshow() {
 	QnAsvc.qnaList({ pno: qnaNo, page: page },

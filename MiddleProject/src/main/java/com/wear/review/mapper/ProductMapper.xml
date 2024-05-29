@@ -9,5 +9,17 @@
 		where product_no = #{productNo}
 	</select>
 
-
+	<select id="productOption" resultType="com.wear.review.vo.ProductInfoVO" parameterType="com.wear.review.vo.ProductInfoVO">
+		select product_info_no from product_info 
+		where product_size = #{productSize} 
+		and product_color = #{productColor}
+		and product_no = #{productNo}
+	</select>
+	
+	<insert id="insertBasket" parameterType="com.wear.review.vo.BasketVO">
+	  insert into basket(basket_no, user_id, product_info_no, product_cnt)
+      values(basket_seq.nextval, #{userId}, #{productInfoNo}, #{productCnt})
+	</insert>
+	
+	
 </mapper>
