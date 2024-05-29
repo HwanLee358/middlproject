@@ -21,8 +21,6 @@ public class AddBasketControl implements Control {
 		String bno = req.getParameter("bno");
 		System.out.println(bno);
 		
-		
-		
 		BasketService svc = new BasketServiceImpl();
 		int baskCnt = svc.basketTotalCnt();
 				

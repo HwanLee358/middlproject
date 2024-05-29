@@ -13,6 +13,7 @@ import com.wear.review.service.ProductServiceImpl;
 import com.wear.review.service.ReviewService;
 import com.wear.review.service.ReviewServiceImpl;
 import com.wear.review.vo.PageDTO;
+import com.wear.review.vo.ProductInfoVO;
 import com.wear.review.vo.ProductVO;
 import com.wear.review.vo.ReviewVO;
 import com.wear.review.vo.SearchVO;
@@ -55,6 +56,31 @@ public class ProductDetailControl implements Control {
 
 		String path = "productInfo/productDetail.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
+
+//		//장바구니에 보낼것 제품명,컬러,사이즈, 수량?, 총 금액 user는?
+//		String proNo = req.getParameter("pNo");
+//		String proColor = req.getParameter("Color");
+//		String proSize = req.getParameter("pSize");
+//		// 수량 어떻게 보냄????
+//
+//		ProductInfoVO pinfovo = new ProductInfoVO();
+//		
+//		pinfovo.setProductInfoNo(Integer.parseInt(proNo));
+//		pinfovo.setProductColor(proColor);
+//		pinfovo.setProductSize(proSize);
+//		
+//		int pinfovo1 = svp.getProductInfoNo(proColor,proSize);
+//		
+//		req.setAttribute("pinfoNo", pinfovo1);
+//		// 수량보내기....
+//		
+//		
+//		path = "basket/basket.tiles";
+//		req.getRequestDispatcher(path).forward(req, resp);
+//		// (선택한색상의 물건가격(제품별 고정된가격)) * 갯수 +(선택한색상의 물건가격(제품별 고정된가격)) * 갯수+(선택한색상의 물건가격(제품별 고정된가격)) * 갯수
+//		// => 있는 수만큼 더하기 반복 보통 색상은3개정도=> basket.jsp에서 처리
+//
+//		
 
 	}
 
