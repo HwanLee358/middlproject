@@ -111,10 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionContainer = document.getElementById('option-container');
         let pino = optionContainer.getAttribute('data-pno');
         console.log('Product Number (pno):', pino);		
-		//console.log('totalCount :', totalCount);
-		//console.log('Product Number (pno):', pino);
 			
-			//let qty = totalCount;
+			let qty = newQuantity;
 			/*let login = ;*/
 			
 /*			fetch('registerBasket.do')
