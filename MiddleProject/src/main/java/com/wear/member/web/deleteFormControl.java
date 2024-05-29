@@ -11,26 +11,26 @@ import com.wear.member.service.MemberService;
 import com.wear.member.service.MemberServiceImpl;
 import com.wear.member.vo.MemberVo;
 
-
-
-public class memberinfoFormControl implements Control {
+public class deleteFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		String path = "member/information.tiles";
+		// TODO Auto-generated method stub
+
+		String path = "member/deleteMember.tiles";
 		
 		String userId = req.getParameter("id");	
 		
 		MemberService svc = new MemberServiceImpl();
 		MemberVo vo = svc.sList(userId);
-		
+			
 		System.out.println(vo+"@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		req.setAttribute("result", vo);
 		req.getRequestDispatcher(path).forward(req, resp);
 		
 	}
-}
+		
+	}
 
 

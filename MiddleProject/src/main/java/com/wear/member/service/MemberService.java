@@ -19,6 +19,11 @@ public interface MemberService {
 	MemberVo searchId(String userName,String userPhone);
 	MemberVo searchPW(String userId, String userName, String userPhone);	
 	
+	MemberVo sList(String userId);
+
+	
 	//수정
-	boolean modifyMember(MemberVo Member);	
+	boolean modifyMember(MemberVo userId);	
+	//삭제
+	boolean deleteMember(MemberVo user);
 }

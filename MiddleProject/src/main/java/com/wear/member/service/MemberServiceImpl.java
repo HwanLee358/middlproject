@@ -44,9 +44,21 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.findPW(userid, userName, userPhone);
 	}
 	@Override
-	public boolean modifyMember(MemberVo Member) {
+	public boolean modifyMember(MemberVo userId) {
 		// TODO Auto-generated method stub
-		return mapper.updateMember(Member)==1;
+		return mapper.updateMember(userId)==1;
 	}
-
+	
+	@Override
+	public MemberVo sList(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.selectList(userId);
+	}
+	@Override
+	public boolean deleteMember(MemberVo user) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMember(user)==1;
+	}
+	
+	
 }

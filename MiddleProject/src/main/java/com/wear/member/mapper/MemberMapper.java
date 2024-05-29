@@ -22,7 +22,12 @@ public interface MemberMapper {
 	MemberVo findPW(@Param("userId") String userId,@Param("userName") String userName, @Param("userPhone") String userPhone);
 	
 	//개인정보관련
+	
+	MemberVo selectList(String userId);
+	MemberVo delList(String userPW);
+	
 	List<MemberVo> MemberList();
-	int updateMember(MemberVo member); //수정
+	int updateMember(MemberVo userId); //수정
+	int deleteMember(MemberVo member);//삭제
 	
 }
