@@ -7,31 +7,36 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.wear.basket.service.CerBoardService;
 import com.wear.basket.service.CerBoardServiceImpl;
 import com.wear.basket.vo.CerBoardVO;
 import com.wear.basket.vo.SearchVO;
 import com.wear.common.Control;
 
-public class CerBoardList implements Control {
+public class CerBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "cerboard/cerboardList.tiles";
+		resp.setContentType("text/json;charset=utf-8");
+		String orderNo = req.getParameter("pno");
+		String page = req.getParameter("page");
+		
+		System.out.println(orderNo);
+		System.out.println(page);
 		
 		CerBoardService svc = new CerBoardServiceImpl();
-		SearchVO search = new SearchVO();
+		SearchVO vo = new SearchVO();
+		vo.setOrderNo(Integer.parseInt(orderNo));
+		List<CerBoardVO> list = svc.selectcerboard(vo);
+		System.out.println(list);
 		
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
-		search.setPage(Integer.parseInt(page));
-		
-		List<CerBoardVO> list = svc.cerboardList(search);
-		
-		req.setAttribute("cerboardList", list);
-		
-		req.getRequestDispatcher(path).forward(req, resp);
+		Gson gson = new GsonBuilder().create();
+		String json = gson.toJson(list);
+
+		resp.getWriter().print(json);
 	}
 
 }

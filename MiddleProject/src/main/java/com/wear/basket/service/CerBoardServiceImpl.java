@@ -13,10 +13,11 @@ public class CerBoardServiceImpl implements CerBoardService {
 	
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CerBoardMapper mapper = session.getMapper(CerBoardMapper.class);
+	
 	@Override
-	public List<CerBoardVO> cerboardList(SearchVO search) {
+	public List<CerBoardVO> selectcerboard(SearchVO search) {
 		// TODO Auto-generated method stub
-		return mapper.cerboardListPaging(search);
+		return mapper.selectcerboard(search);
 	}
 
 }

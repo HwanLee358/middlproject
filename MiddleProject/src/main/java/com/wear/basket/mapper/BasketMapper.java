@@ -11,8 +11,8 @@ public interface BasketMapper {
 		int deleteBasket(int basketno);
 		
 		int insertBasket(BasketVO basket);
-		
-		
+
 		// basket cnt
 		int basketCnt();
+		int wishlistCnt();
 }
