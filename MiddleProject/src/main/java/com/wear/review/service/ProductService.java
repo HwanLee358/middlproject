@@ -1,13 +1,15 @@
 package com.wear.review.service;
 
+import com.wear.review.vo.BasketVO;
+import com.wear.review.vo.ProductInfoVO;
 import com.wear.review.vo.ProductVO;
 
 public interface ProductService {
 
-	ProductVO productList(int proNo);
+	ProductVO getProduct(int proNo);
 
-	
-	
-	
-	
+	ProductInfoVO getProductInfoNo(ProductInfoVO pvo);
+
+	boolean addBasket(BasketVO bvo);
+
 }

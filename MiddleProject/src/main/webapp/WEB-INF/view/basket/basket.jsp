@@ -50,7 +50,9 @@
 					<img src="images/과테말라 안티구아.jpg" width="60">
 				</div>
 				<div class="pname">
-					<span>찜마마(XJ-92214/1)</span>
+					<span>찜마마(XJ-92214/1)</span><br>
+					<span class=""><a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
+					<img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_option.gif" alt="옵션변경"></a></span>
 				</div>
 			</div>
 			<div class="subdiv">
@@ -62,8 +64,7 @@
 					<div class="updown">
 						<input type="text" name="p_num0" id="p_num0" size="1"
 							maxlength="2" class="p_num" value="2"
-							onkeyup="javascript: basket.changePNum(0);"> 
-						<span
+							onkeyup="javascript: basket.changePNum(0);"> <span
 							class="updown-btn" onclick="javascript: basket.changePNum(0);">
 							<a href="javascript:;"
 							onmousedown="javascript:try{AW_F_D('4303','i',1);}catch(e){}">
@@ -71,8 +72,7 @@
 								src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
 								alt="수량증가" class="up">
 						</a>
-						</span> 
-						<span class="updown-btn"
+						</span> <span class="updown-btn"
 							onclick="javascript: basket.changePNum(0);"> <a
 							href="javascript:;"
 							onmousedown="javascript:try{AW_F_D('4303','o',1);}catch(e){}">
@@ -128,8 +128,8 @@
 				href="javascript:void(0);"
 				onclick="javascript:basket.orderSelectedItem()">선택한 상품 주문</a>
 		</div>
-	</div>
-	<div class="xans-element- xans-order xans-order-totalsummary ec-base-table typeList gBorder total  ">
+	</div><!--  
+	<div class="Total">
 		<table border="1" summary="">
 			<caption>총 주문금액</caption>
 			<colgroup>
@@ -140,11 +140,7 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th scope="col"><strong>총 상품금액</strong> <a href="#none"
-						onclick="OrderLayer.onDiv('order_layer_detail', event);"
-						class="more displaynone"><img
-							src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_list.gif"
-							alt="내역보기"></a></th>
+					<th scope="col"><strong>총 상품금액</strong></th>
 					<th scope="col"><strong>총 배송비</strong></th>
 					<th scope="col"><strong>결제예정금액</strong></th>
 				</tr>
@@ -164,39 +160,8 @@
 								class="txt14 displaynone"><span
 								class="total_delv_price_back"></span></span>
 							<div class="shippingArea displaynone">
-								(<span></span>
-								<div class="shippingFee">
-									<a href="#none" class="button" id=""><img
-										src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_details.gif"
-										alt="자세히보기"></a>)
-									<div class="ec-base-tooltip" style="display: none;">
-										<h3>배송비할인</h3>
-										<div class="content">
-											<h4></h4>
-											<table border="1" summary="">
-												<caption>배송비 할인 이벤트 정보</caption>
-												<tbody>
-													<tr>
-														<th scope="row">혜택</th>
-														<td><strong class="txtEm"></strong>
-															<p></p></td>
-													</tr>
-													<tr class="displaynone">
-														<th scope="row">기간</th>
-														<td><strong class="txtEm"></strong>
-															<p></p></td>
-													</tr>
-													<tr class="displaynone">
-														<th scope="row">대상</th>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<a href="#none" class="btnClose"><img
-											src="//img.echosting.cafe24.com/skin/base/common/btn_close_tip.gif"
-											alt="닫기"></a> <span class="edge"></span>
-									</div>
+								<span></span>
+								
 								</div>
 							</div>
 						</div>
@@ -208,6 +173,8 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>-->	
+	
 </form>
 
 <script

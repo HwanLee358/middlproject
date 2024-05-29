@@ -8,7 +8,8 @@
 		select r.*
 		from (select rownum rn, a.*
       		  from (select *
-            	    from product b) a
+            	    from product b
+            	    order by product_no) a
               <![CDATA[	    
               where rownum <= #{page}*8)r
               ]]>
@@ -37,7 +38,8 @@
 		select r.*
 		from (select rownum rn, a.*
       		  from (select *
-            	    from product b) a
+            	    from product b
+            	    order by product_no) a
               <![CDATA[	    
               where rownum <= #{page}*8)r
               ]]>
@@ -216,12 +218,4 @@
 		connect by category_no_ref = prior category_no
 		order siblings by category_no
 	</select>
-	
-	
-	
-	
-	<!-- qna -->
-	<insert id="addQnA" parameterType="com.wear.board.vo.QnaVO">
-		
-	</insert>
 </mapper>

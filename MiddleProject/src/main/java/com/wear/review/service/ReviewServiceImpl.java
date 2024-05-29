@@ -26,19 +26,20 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List<ReviewVO> imgList(ReviewVO rvo) {
-		return mapper.totalImg();
-	}
-
-	@Override
-	public List<ReviewVO> totalCnt(ReviewVO rvo) {
-		return mapper.getCnt();
+	public List<ReviewVO> imgList(int pno) {
+		return mapper.totalImg(pno);
 	}
 
 	@Override
 	public boolean addReview(ReviewVO review) {
 		return mapper.insertReview(review)==1;
 	}
+
+	@Override
+	public int totalCnt(ReviewVO rvo) {
+		return mapper.getCnt(rvo);
+	}
+
 
 
 

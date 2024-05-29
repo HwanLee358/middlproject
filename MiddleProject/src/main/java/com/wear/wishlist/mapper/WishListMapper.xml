@@ -3,13 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.wishlist.mapper.WishListMapper">
-  <select id = "selectwishlist" resultType = "com.wear.wishlist.vo.WishListVO">
+  <select id = "selectwishlist" resultType = "com.wear.wishlist.vo.WishListVO" parameterType = "String">
   	select *
-  	from tbl_wishlist
+  	from wishlist
+  	where user_id = #{userId}
   </select>
   
   <delete id = "deletewishList" parameterType = "int">
-  	delete from tbl_wishlist
+  	delete from wishlist
   	where wishlist_no = #{wishlistNo}
   </delete>
+  
+  <insert id = "insertWishlist" parameterType = "wishlist">
+  	insert into wishlist(wishlist_no, product_no, user_id)
+	values(#{wishlist_no}, #{product_info_no}, #{user_id})
+  </insert>
 </mapper>
