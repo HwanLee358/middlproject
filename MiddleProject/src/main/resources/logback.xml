@@ -8,16 +8,16 @@
     </encoder>
   </appender>
 
-  <logger name="com.yedam.mapper.BoardMapper">
-    <level value="trace"/>
+   <logger name="com.wear.board.mapper.WearBoardMapper">
+    <level value="debug"/>
   </logger>
-   <logger name="com.yedam.mapper.ReplyMapper">
-    <level value="trace"/>
+
+  <logger name="com.wear.review.mapper.ReviewMapper">
+    <level value="debug"/>
   </logger>
-   <logger name="com.wear.review.mapper.ReviewMapper">
-    <level value="trace"/>
-  </logger>
-  <root level="error">
+
+
+  <root level="trace">
     <appender-ref ref="stdout"/>
   </root>
 

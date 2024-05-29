@@ -19,7 +19,7 @@ public class WishList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		resp.setContentType("text/json;charset=utf-8");
 		WishListService svc = new WishListServiceImpl();
 		
@@ -30,6 +30,7 @@ public class WishList implements Control {
 
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(list));
+		
 	}
 
 }
