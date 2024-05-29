@@ -12,6 +12,12 @@ drop table basket;
 drop table cancel_echange_return;
 
 
+alter table qna
+modify views number default 0;
+
+alter table qna
+modify creation_date default sysdate;
+
 
 
 

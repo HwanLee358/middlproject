@@ -11,28 +11,18 @@ import com.wear.board.service.QnaBoardServiceImpl;
 import com.wear.board.vo.QnaVO;
 import com.wear.common.Control;
 
-public class WearQnAaddControl implements Control {
+public class WearQnAInfoControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String userId = req.getParameter("writer");
-		String productNo = req.getParameter("pno");
-		
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
-		
-		QnaVO vo = new QnaVO();
-		vo.setUserId(userId);
-		vo.setProductNo(Integer.parseInt(productNo));
-		vo.setPostTitle(title);
-		vo.setContent(content);
-		
+		// TODO Auto-generated method stub
 		QnaBoardService svc = new QnaBoardServiceImpl();
-		if(svc.addQna(vo)) {
-			resp.sendRedirect("productDetail.do?pno="+productNo);
-		}else {
-			resp.sendRedirect("maid.do");			
-		}
+		String pNo = req.getParameter("qno");
+		QnaVO vo = svc.getQnaInfo(Integer.parseInt(pNo));
+		svc.addViews(Integer.parseInt(pNo));
+
+		String path = "wearboard/qnaInfo.tiles";
+		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
 }
