@@ -7,5 +7,5 @@ import com.wear.basket.vo.SearchVO;
 
 public interface CerBoardService {
 	// 중간프로젝트 취소/교환/반품
-	List<CerBoardVO> cerboardList(SearchVO search);
+	List<CerBoardVO> selectcerboard(SearchVO search);
 }

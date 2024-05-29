@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.wear.basket.mapper.CerBoardMapper">
-  	<select id = "cerboardList" resultType = "com.wear.basket.vo.CerBoardVO">
+  	<select id = "selectcerboard" resultType = "com.wear.basket.vo.CerBoardVO">
   		select * from cancel_echange_return
-  		order by cancel_echange_return_no
+  		where order_no = #{orderNo}
   	</select>
   	
-  	<select id = "cerboardListPaging" parameterType = "com.wear.basket.vo.SearchVO">
-  		select *
-		from cancel_echange_return
+  	<select id = "cerboardList" resultType = "com.wear.basket.vo.CerBoardVO" parameterType = "int">
+  		select * from cancel_echange_return
+  		where cancel_echange_return_no = #{cancel_echange_returnNo}
   	</select>
   </mapper>

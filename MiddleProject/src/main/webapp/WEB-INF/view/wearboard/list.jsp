@@ -103,10 +103,10 @@
 							<div class="icon">
 								<div class="button">
 										<span>
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" >
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="${List.productImg }" onclick='insertBasket()'>
 										</span>
 										<span data-product_no="${List.productNo }">
-											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" alt="${List.productImg }" onclick='insertBasket()'>
+											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" >
 										</span>
 								</div>									
 							</div>
@@ -168,3 +168,4 @@
 		</div>
 	</div>
 <script src="js/addBasket.js"></script>
+<script src="js/addWishlist.js"></script>

@@ -6,7 +6,6 @@ import com.wear.basket.vo.SearchVO;
 import com.wear.basket.vo.CerBoardVO;
 
 public interface CerBoardMapper {
-	List<CerBoardVO> cerboardList();
-	List<CerBoardVO> cerboardListPaging(SearchVO search);
+	List<CerBoardVO> selectcerboard(SearchVO search);
 	int getTotalCnt(SearchVO search);
 }

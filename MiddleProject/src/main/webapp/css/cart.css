@@ -212,3 +212,7 @@
 .orderHeader span{
 	font-size: 3em;
 }
+.Total table{
+	width: 80%;
+	margin-left: 200px;
+}
