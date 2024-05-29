@@ -10,14 +10,14 @@ const menusvc = {
 			.catch(errorCall);
 	},
 	// 위시리스트 갯수
-	wishCnt(wish = 1, successCall, errorCall){
+	wishCnt(param = {}, successCall, errorCall){
 		fetch('wishCnt.do')
 		    .then(resolve => resolve.json())
 		    .then(successCall)
 		    .catch(errorCall)
 	},
 	// 장바구니 갯수
-	basketCnt(basket = 1, successCall, errorCall){
+	basketCnt(param = {}, successCall, errorCall){
 		fetch('basketCnt.do')
 		    .then(resolve => resolve.json())
 		    .then(successCall)

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wear.basket.mapper.BasketMapper">
+  <select id = "basketselectList" resultType = "com.wear.basket.vo.BasketVO">
+  	select *
+  	from basket
+  </select>
+  
+  <update id = "updateBasket" parameterType = "int" >
+  	update basket
+  	set product_cnt = product_cnt + #{productCnt}
+  	where basket_no = #{basketNo}
+  </update>
+  
+  <delete id = "deleteBasket" parameterType = "int">
+  	delete from basket
+  	where basket_no = #{basketNo}
+  </delete>
+  
+  
+  
+  <select id="basketCnt" resultType="int">
+  	select count(*)
+  	from basket
+  </select>
+</mapper>

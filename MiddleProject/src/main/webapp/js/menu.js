@@ -52,3 +52,10 @@ function requestSearch(e){
 	let search = document.querySelector(e).value;
 	window.location.href= 'search.do?keyword='+search;
 }
+function menuWishCnt(){
+	
+}
+function menuBasketCnt(){
+	
+}
+
