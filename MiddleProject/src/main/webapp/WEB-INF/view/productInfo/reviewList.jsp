@@ -62,8 +62,8 @@
 </div>
 
 <script>
-const review = <%= review %>;
-console.log(review);
+<%-- const review = <%= review %>;
+console.log(review); --%>
 	const reviewImagesWrapper = document
 			.querySelector('.review-images-wrapper');
 	const reviewImages = document.querySelector('.review-images');

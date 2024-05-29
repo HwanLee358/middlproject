@@ -14,4 +14,5 @@ public class WishListVO {
 	private int productCnt;
 	private int deliveryFee;
 	private String userId;
+	
 }
