@@ -22,6 +22,7 @@ public class memberinfoControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
+		String userId = req.getParameter("userId");
 		String userName = req.getParameter("name");
 		String userPW = req.getParameter("userPW");
 		String address1 = req.getParameter("address1");
@@ -33,8 +34,10 @@ public class memberinfoControl implements Control {
 
 		System.out.println(userName+"그리워하다 하루가 다지났어");
 
-		
+		MemberService svc = new MemberServiceImpl();
 		MemberVo member = new MemberVo();
+		
+		member.setUserId(userId);
 		member.setUserPW(userPW);
 		member.setUserName(userName);
 		member.setAddress1(address1);
@@ -43,13 +46,12 @@ public class memberinfoControl implements Control {
 		member.setAddress4(address4);
 		member.setUserPhone(userPhone);
 		member.setUserEmail(userEmail);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
-		
-		MemberService svc = new MemberServiceImpl();
-
 		if (svc.modifyMember(member)) { // 수정...
-			resp.sendRedirect("list.do");
-			System.out.println("성공");
+			resp.sendRedirect("infoResult.do");
+			System.out.println("성공@@@@@@@@@@@@@이닷@@@@@@");
+			
 		} else {
 			resp.sendRedirect("info.do");
 			System.out.println("비투비 그리워하다.");

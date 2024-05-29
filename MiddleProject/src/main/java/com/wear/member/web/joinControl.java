@@ -38,6 +38,7 @@ public class joinControl implements Control {
 		//}
 		MemberService svc = new MemberServiceImpl();
 		MemberVo vo = new MemberVo();
+		
 		vo.setUserId(userId);
 		vo.setUserPW(userPW);
 		vo.setUserName(userName);

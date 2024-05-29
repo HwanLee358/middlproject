@@ -17,17 +17,20 @@ import com.wear.member.web.CheckIdControl;
 import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
 import com.wear.member.web.LogoutControl;
+import com.wear.member.web.deleteControl;
+import com.wear.member.web.deleteFormControl;
+import com.wear.member.web.deleteResultControl;
 import com.wear.member.web.findIdControl;
 import com.wear.member.web.findIdFormControl;
 import com.wear.member.web.findIdResultFormControl;
 import com.wear.member.web.findPWControl;
 import com.wear.member.web.findPWFormControl;
 import com.wear.member.web.findPWResultFormControl;
-import com.wear.member.web.memberinfoControl;
-import com.wear.member.web.memberinfoFormControl;
-
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
+import com.wear.member.web.memberinfoControl;
+import com.wear.member.web.memberinfoFormControl;
+import com.wear.member.web.memberinfoResultControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ReviewFormControl;
 import com.wear.review.web.ReviewListControl;
@@ -79,11 +82,14 @@ public class FrontControl extends HttpServlet{
 		map.put("/findPW.do", new findPWControl());			//패스워드찾기
 		map.put("/findPWForm.do", new findPWFormControl());
 		map.put("/findPWResultForm.do", new findPWResultFormControl());		//결과창
-		
-		
+
 		map.put("/info.do", new memberinfoFormControl());
 		map.put("/infoForm.do", new memberinfoControl());
+		map.put("/infoResult.do", new memberinfoResultControl());
 		
+		map.put("/delete.do", new deleteControl());
+		map.put("/deleteForm.do", new deleteFormControl());
+		map.put("/deleteResult.do", new deleteResultControl());
 	//	map.put("/info.do", new memberinfoControl());
 	//	map.put("/infoForm.do", new memberinfoFormControl());
 		
