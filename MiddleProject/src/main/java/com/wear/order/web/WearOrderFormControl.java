@@ -20,28 +20,40 @@ public class WearOrderFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "productorder/orderPage.tiles";
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("logId");
-		String form = req.getParameter("form");
-		form = "basket";
 		if(id == null) {
 			resp.sendRedirect("logForm.do");
 			return;
 		}
-		if(form.equals("direct")) {
-			
-		}else if(form.equals("basket")){
-			
+		String pIN = req.getParameter("pin");
+		String from = req.getParameter("from");
+		if(from == null) {
+			resp.sendRedirect("main.do");
+			return;
 		}
 		MemberService mvc = new MemberServiceImpl();
 		OrderService svc = new OrderServiceImpl();
-		List<OrderVO> list = svc.selectList(id);
+		List<OrderVO> list;
+		
+		if(from.equals("direct")) {
+			list = svc.directList(2);
+		}else if(from.equals("cart")){
+			list = svc.selectList(id);			
+		}else {
+			resp.sendRedirect("main.do");
+			return;
+		}
+		
 		MemberVo mlist = mvc.checkMember(id);
 		System.out.println(mlist);
 		System.out.println(list);
+		
+		
 		req.setAttribute("orderList", list);
 		req.setAttribute("member", mlist);
+
+		String path = "productorder/orderPage.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
