@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const quantityInput = optionDiv.querySelector("input");
 				quantityInput.addEventListener("change", function() {
 					const newQuantity = parseInt(this.value, 10);
-					console.log(this.value);
+					console.log('this.value' , this.value);
 					const newTotalPrice = price * newQuantity;
 					const optionPriceElement = optionDiv.querySelector(".option-price");
 					const optionQuentity = optionDiv.querySelector(".option-qty");
@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	window.updateTotal = updateTotal;
+	
 	// 장바구니 클릭시 정보저장.
 	document.querySelector('.add-to-cart').addEventListener('click', function() {
 		document.querySelectorAll('.selected-options div').forEach(item => {
@@ -111,25 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionContainer = document.getElementById('option-container');
         let pino = optionContainer.getAttribute('data-pno');
         console.log('Product Number (pno):', pino);		
-		//console.log('totalCount :', totalCount);
-		//console.log('Product Number (pno):', pino);
 			
-			//let qty = totalCount;
-			/*let login = ;*/
+			//let cnt = newQuantity;
+			/*let userId = ;*/
 			
-/*			fetch('registerBasket.do')
-				.then()
-				.then()
-				.catch()*/
-
+			fetch('registerBasket.do')
+				.then(resolve => resolve.json())
+				.then(result=>{
+					console.log(result);
+					result.forEach(product=>{
+						const row = makeRow(product);
+						document.querySelector('div').appendChild(row);
+					})
+				})
+				.catch(err=> console.log(err));
 		});
 
 		location.href = 'basketList1.do';
 	})
 });
-
-
-
 
 
 /* 여기부터모달 */

@@ -16,13 +16,25 @@ public class RegisterBasket implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String cnt = req.getParameter("cnt");
+		String pino = req.getParameter("pino");
+		String userId = req.getParameter("userId");
+		
 		BasketVO bvo = new BasketVO();
-		bvo.setProductCnt(0);
-		bvo.setProductInfoNo(0);
-		bvo.setUserId(null);
+		bvo.setProductCnt(Integer.parseInt(cnt));
+		bvo.setProductInfoNo(Integer.parseInt(pino));
+		bvo.setUserId(userId);
 		
 		ProductService svc = new ProductServiceImpl();
-		svc.addBasket(bvo);
+		
+		if(svc.addBasket(bvo)) {
+			System.out.println("등록성공");
+			resp.sendRedirect("basketList1.do");
+		}else {
+			System.out.println("실패");
+			resp.sendRedirect("productDetail.do");
+		}
+		
 
 	}
 
