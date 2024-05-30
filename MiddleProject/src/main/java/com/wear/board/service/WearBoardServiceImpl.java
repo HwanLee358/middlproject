@@ -80,6 +80,12 @@ public class WearBoardServiceImpl implements WearBoardService{
 		return mapper.searchCate();
 	}
 
+	@Override
+	public List<ProductVO> RecentList() {
+		// TODO Auto-generated method stub
+		return mapper.RecentList();
+	}
+
 
 
 }

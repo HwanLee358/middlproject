@@ -3,6 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.board.mapper.WearBoardMapper">
+	<!-- main -->
+	<select id="RecentList" resultType="com.wear.board.vo.ProductVO">
+		select *
+		from product
+		order by product_date
+	</select>
+	
 	<!-- category main -->
 	<select id="boardcateList" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
 		select r.*
@@ -11,8 +18,11 @@
             	    from product b
             	    order by product_no) a
               <![CDATA[	    
-              where rownum <= #{page}*8)r
+              where rownum <= #{page}*8
               ]]>
+              and category_no IN (select category_no
+							from category
+							where category_no_ref = #{categoryNo}))r
         where r.rn > (#{page}-1) *8
         and category_no IN (select category_no
 							from category
@@ -41,8 +51,9 @@
             	    from product b
             	    order by product_no) a
               <![CDATA[	    
-              where rownum <= #{page}*8)r
+              where rownum <= #{page}*8
               ]]>
+              and category_no = #{categoryNo})r
         where r.rn > (#{page}-1) *8
 		and category_no = #{categoryNo}
 	</select>

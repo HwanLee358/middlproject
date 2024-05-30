@@ -8,6 +8,8 @@ import com.wear.board.vo.ProductVO;
 import com.wear.board.vo.SearchVO;
 
 public interface WearBoardService {
+	//recent
+	List<ProductVO> RecentList();
 	// category main
 	List<ProductVO> WearBoardList(SearchVO search);
 	List<CategoryVO> categorytitle(String no);

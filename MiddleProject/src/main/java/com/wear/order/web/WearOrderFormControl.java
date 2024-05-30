@@ -27,8 +27,8 @@ public class WearOrderFormControl implements Control {
 			return;
 		}
 		String pIN = req.getParameter("pin");
-		String from = req.getParameter("from");
-		if(from == null) {
+		String form = req.getParameter("form");
+		if(form == null) {
 			resp.sendRedirect("main.do");
 			return;
 		}
@@ -36,9 +36,9 @@ public class WearOrderFormControl implements Control {
 		OrderService svc = new OrderServiceImpl();
 		List<OrderVO> list;
 		
-		if(from.equals("direct")) {
+		if(form.equals("direct")) {
 			list = svc.directList(2);
-		}else if(from.equals("cart")){
+		}else if(form.equals("basket")){
 			list = svc.selectList(id);			
 		}else {
 			resp.sendRedirect("main.do");
