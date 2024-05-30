@@ -46,6 +46,7 @@ em {
 	margin-top: 60px;
 }
 </style>
+
 <div class="detailQnaList">
 	<div class="wrapper">
 		<div class="xans-product-menupackage">
@@ -56,7 +57,7 @@ em {
 					<span>주문/결제</span>
 				</h2>
 				<!-- sub -->
-				<span>상품에 대해 궁금한 점을 해결해 드립니다</span>
+				<span></span>
 			</div>
 		</div>
 		<div class="checkout_delivery">
@@ -73,7 +74,7 @@ em {
 								<div class="tb-center">이름</div>
 							</th>
 							<td>
-								${member.userName }
+								<input type="text" name="" value="${member.userName }">
 							</td>
 						</tr>
 						<tr>
@@ -81,7 +82,7 @@ em {
 								<div class="tb-center">연락처</div>
 							</th>
 							<td>
-								${member.userPhone }
+								<input type="text" name="" value="${member.userPhone }">
 							</td>
 						</tr>
 						<tr>
@@ -89,7 +90,7 @@ em {
 								<div class="tb-center">주소</div>
 							</th>
 							<td>
-								(${member.address1 }) ${member.address2 } ${member.address3 } ${member.address4 }
+								(${member.address1 }) ${member.address2 } ${member.address3 } ${member.address4 } 
 							</td>
 						</tr>
 					</tbody>
@@ -129,6 +130,7 @@ em {
 					</thead>
 					<tbody>
 						<c:forEach var="oList" items="${orderList }">
+							<input type="hidden" class="productInfo" value="${oList.productInfoNo }"/>
 							<tr class="nbg">
 								<td>
 									<div class="tb-center">
@@ -157,7 +159,7 @@ em {
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productCnt }개</span>
+										<span class="reviewnum">${oList.productCnt eq 0 ? 1 : oList.productCnt }개</span>
 									</div>
 								</td>
 								<td>
@@ -167,17 +169,18 @@ em {
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productPrice * oList.productCnt + 3000}원</span>
+										<span class="reviewnum">${oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt) + 3000}원</span>
 									</div>
 								</td>
 							</tr>
+							<c:set var="total" value="${total + (oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt) + 3000) }" />
 						</c:forEach>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="6">
 								<div class="money_tot">
-									<em>총 주문금액</em> <span class="int_black_big"> <em>20000원</em>
+									<em>총 주문금액</em> <span class="int_black_big"> <em><c:out value="${total }" />원</em>
 									</span>
 								</div>
 							</td>
@@ -186,9 +189,10 @@ em {
 				</table>
 				<div class="list-btm">
 					<button>취소</button>
-					<button>결제하기</button>
+					<button class="payMent">결제하기</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script src="js/order.js" ></script>

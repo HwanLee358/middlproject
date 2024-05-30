@@ -4,9 +4,14 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.order.mapper.OrderMapper">
   <select id="selectList" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
-    select p.product_name, p.product_price, pi.product_color, pi.product_size, b.product_cnt
+    select p.product_name, p.product_price, pi.product_color, pi.product_size, b.product_cnt, pi.product_info_no
 	from product_info pi left join product p on (pi.product_no = p.product_no)
                          left join basket b on (pi.product_info_no = b.product_info_no)
 	where b.user_id = #{userId} 
+  </select>
+  <select id="directOrder" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
+  	select p.product_no, p.product_name, p.product_price, pi.product_color, pi.product_size, pi.product_info_no
+	from product_info pi left join product p on (pi.product_no = p.product_no)
+	where pi.product_info_no = #{productInfoNo}
   </select>
 </mapper>

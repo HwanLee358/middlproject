@@ -1,15 +1,12 @@
-package com.wear.order.vo;
+package com.wear.basket.vo;
 
 import lombok.Data;
 
 @Data
-public class OrderVO {
-	//주문
+public class BasVO {
 	private String productName;
-	private int productPrice;
 	private String productColor;
 	private String productSize;
-	private int productCnt;
-	
+	private int productPrice;
 	private int productInfoNo;
 }

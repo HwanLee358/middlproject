@@ -22,7 +22,7 @@
         <div class="subdiv">
           <div class="basketprice">가격</div>
           <div class="delivery_fee" style="display: none;">배송비</div>
-          <div class="sum">합계</div>
+          <div class="sum" style="display: none;">합계</div>
         </div>
         <div class="subdiv">
           <div class="basketcmd">선택</div>
@@ -54,15 +54,11 @@
                </span>
             </div>
           </div>
-          <!-- 에러나면 지울곳 -->
-          <div class = "delivery_fee" style="display: none;">3000원</div>
-          <!-- 에러나면 지울곳 -->          
-          <div class="sum" id = "p_sum2">40,000원</div>
+          <div class = "delivery_fee" style="display: none;">3000원</div>       
+          <div class="sum" id = "p_sum2" style="display: none;">40,000원</div>
         </div>
         <div class="subdiv">
           <div class="basketcmd">
-           <!--   <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">주문하기</a>
-            <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">관심상품등록</a>-->
             <a href="javascript:void(0)" class="abutton" onclick="javascript:wishlist.delItem();">삭제</a>
           </div>
         </div>
@@ -74,8 +70,6 @@
 
     <!-- 합계정보보여주기. -->
     <div><h4>[기본배송]</h4>
-    <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: <span>4</span>개</div>
-    <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: <span>74,200</span>원</div>
 	</div>
     <!-- 선택삭제. -->
     <div class="right-align basketrowcmd">

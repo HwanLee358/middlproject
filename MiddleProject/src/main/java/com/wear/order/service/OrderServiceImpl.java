@@ -17,4 +17,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return mapper.selectList(id);
 	}
+
+	@Override
+	public List<OrderVO> directList(int productInfoNo) {
+		// TODO Auto-generated method stub
+		return mapper.directOrder(productInfoNo);
+	}	
 }

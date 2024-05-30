@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wear.basket.web.AddBasketControl;
-import com.wear.basket.web.AddWishlistControl;
 import com.wear.basket.web.BasketList;
 import com.wear.basket.web.BasketList1;
+import com.wear.basket.web.BasketOrderControl;
 import com.wear.basket.web.CerBoardControl;
 import com.wear.basket.web.DelBasket;
 import com.wear.basket.web.EditBasket;
@@ -61,6 +61,7 @@ import com.wear.review.web.RegisterBasket;
 import com.wear.review.web.ReviewFormControl;
 import com.wear.review.web.ReviewListControl;
 import com.wear.review.web.ReviewWriteControl;
+import com.wear.wishlist.web.AddWishlistControl;
 import com.wear.wishlist.web.DelWishList;
 import com.wear.wishlist.web.WishList;
 import com.wear.wishlist.web.WishList1;
@@ -107,7 +108,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/reviewModify", new ModifyReviewFormControl());
 		
 		// 맹선우
-		map.put("/basketList1.do", new BasketList1()); // 화면 출력
+		map.put("/basketList1.do", new BasketList1()); // 장바구니 화면 출력
 		map.put("/basketList.do", new BasketList()); // 장바구니 목록
 		map.put("/editBasket.do", new EditBasket()); // 수량변경
 		map.put("/delBasket.do", new DelBasket()); // 삭제
@@ -115,7 +116,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/wishList1.do", new WishList1()); // 위시리스트 화면 출력
 		map.put("/delWishList.do", new DelWishList()); // 위시리스트 삭제 기능
 
-		map.put("/addwishlist.do", new AddWishlistControl()); // 장바구니 버튼 클릭시 장바구니 페이지로 이동
+		map.put("/addwishlist.do", new AddWishlistControl()); // 위시리스트 버튼 클릭시 상품을 위시리스트에 저장 
+		map.put("/addbasket.do", new AddBasketControl()); // 위시리스트에서 장바구니로 이동
+		map.put("/orderbasket.do", new BasketOrderControl()); // 주문버튼 클릭 시 주문 페이지로 이동
 		map.put("/cerBoardList.do", new CerBoardControl()); // 취소/교환/반품 목록
 
 		// 배동규

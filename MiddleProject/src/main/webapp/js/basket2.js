@@ -181,49 +181,20 @@ let basket = {
 	orderAllItem: function(){
 		var form = document.createElement('form');
     	form.method = 'post';
-    	form.action = "basketlist1.do"; 
+    	form.action = "orderForm.do"; 
     	
-    	 var items = document.querySelectorAll('.row.data');
-    	 items.forEach(function(item, index) {
-			if (item.style.display !== 'none'){
-			// 상품번호
-            var itemId = document.createElement('input');
-            itemId.type = 'hidden';
-            itemId.name = 'item_id' + index;
-            itemId.value = item.querySelector('.check input').value;
-            form.appendChild(itemId);
-
-            // 상품명
-            var itemName = document.createElement('input');
-            itemName.type = 'hidden';
-            itemName.name = 'item_name' + index;
-            itemName.value = item.querySelector('.pname span').textContent;
-            form.appendChild(itemName);
-
-            // 상품가격
-            var itemPrice = document.createElement('input');
-            itemPrice.type = 'hidden';
-            itemPrice.name = 'item_price' + index;
-            itemPrice.value = item.querySelector('.p_price').value;
-            form.appendChild(itemPrice);
-
-            // 상품수량
-            var itemQuantity = document.createElement('input');
-            itemQuantity.type = 'hidden';
-            itemQuantity.name = 'item_quantity' + index;
-            itemQuantity.value = item.querySelector('.p_num').value;
-            form.appendChild(itemQuantity);
-
-            // 배송비
-            var deliveryFee = document.createElement('input');
-            deliveryFee.type = 'hidden';
-            deliveryFee.name = 'delivery_fee' + index;
-            deliveryFee.value = item.querySelector('.delivery_fee').textContent;
-            form.appendChild(deliveryFee);
-			}
-		 })
-		    document.body.appendChild(form);
-		    form.submit();
+    	 document.querySelectorAll('.row.data').forEach((item) => {
+			let no = item.dataset.id;
+			svc.orderItem(no,
+				result => {
+					if (result.retCode == 'OK') {
+						console.log(result);
+					}
+				},
+				err => {
+					console.log(err);
+				});
+		})
 	},
 	
 	// 선택된 상품 주문
