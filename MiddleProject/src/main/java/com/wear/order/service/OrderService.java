@@ -6,4 +6,6 @@ import com.wear.order.vo.OrderVO;
 
 public interface OrderService {
 	List<OrderVO> selectList(String id);
+	
+	List<OrderVO> directList(int productInfoNo);
 }
