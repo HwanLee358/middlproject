@@ -8,5 +8,4 @@ public class ProductInfoVO {
 	private int productNo;
 	private String productColor;
 	private String productSize;
-	private int productCnt;	// ????
 }
