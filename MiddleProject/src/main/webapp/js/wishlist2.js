@@ -36,23 +36,23 @@ let wishlist = {
 					const rowDiv = document.querySelector('div[data-id="0"]').cloneNode(true);
 					rowDiv.style.display = 'block';
 					rowDiv.setAttribute('data-id', wishlist1.wishlistNo);
-					rowDiv.querySelector('div.img>img').setAttribute('src', './images/' + wishlist1.productName + '.jpg');
+					rowDiv.querySelector('div.img>img').setAttribute('src', './images/wear/' + wishlist1.productImg + '.jpg');
 					rowDiv.querySelector('div.pname>span').innerText = wishlist1.productName;
-					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = wishlist1.productPrice.numberFormat() + "원";
+					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = wishlist1.productPrice + "원";
 					// 배송비
-					rowDiv.querySelector('div.delivery_fee').value = wishlist1.deliveryfee;
+			//		rowDiv.querySelector('div.delivery_fee').value = wishlist1.deliveryfee;
 
-					rowDiv.querySelector('div.basketprice input').value = wishlist1.productPrice;
-					rowDiv.querySelector('div.basketprice input').setAttribute('id', 'p_price' + wishlist1.wishlistNo);
+			//		rowDiv.querySelector('div.basketprice input').value = wishlist1.productPrice;
+			//		rowDiv.querySelector('div.basketprice input').setAttribute('id', 'p_price' + wishlist1.wishlistNo);
 
-					rowDiv.querySelector('div.updown input').value = wishlist1.productCnt;
-					rowDiv.querySelector('div.updown input').setAttribute('id', 'p_num' + wishlist1.wishlistNo);
+			//		rowDiv.querySelector('div.updown input').value = wishlist1.productCnt;
+			//		rowDiv.querySelector('div.updown input').setAttribute('id', 'p_num' + wishlist1.wishlistNo);
 					// event
-					rowDiv.querySelector('div.updown input').onkeyup = () => wishlist.changePNum(wishlist1.wishlistNo);
-					rowDiv.querySelector('div.updown span').onclick = () => wishlist.changePNum(wishlist1.wishlistNo);
-					rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => wishlist.changePNum(wishlist1.wishlistNo);					// 개별합계
-					rowDiv.querySelector('div.sum').textContent = (wishlist.productCnt * wishlist.productPrice).numberFormat() + "원";
-					rowDiv.querySelector('div.sum').setAttribute('id', 'p_sum' + wishlist1.wishlistNo);
+			//		rowDiv.querySelector('div.updown input').onkeyup = () => wishlist.changePNum(wishlist1.wishlistNo);
+			//		rowDiv.querySelector('div.updown span').onclick = () => wishlist.changePNum(wishlist1.wishlistNo);
+			//		rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => wishlist.changePNum(wishlist1.wishlistNo);					// 개별합계
+				//	rowDiv.querySelector('div.sum').textContent = (wishlist.productCnt * wishlist.productPrice).numberFormat() + "원";
+				//	rowDiv.querySelector('div.sum').setAttribute('id', 'p_sum' + wishlist1.wishlistNo);
 					document.querySelector('#basket').append(rowDiv);
 				});
 				wishlist.reCalc();
@@ -92,9 +92,9 @@ let wishlist = {
 	reCalc: function() {
 		//수량, 금액 합계 계산
 		//합계 자리에 출력
-		document.querySelector('#sum_p_num span').textContent = wishlist.wishlistCount;
-		document.querySelector('#sum_p_price span').textContent
-			= wishlist.wishlistTotal.numberFormat();
+	//	document.querySelector('#sum_p_num span').textContent = wishlist.wishlistCount;
+	//	document.querySelector('#sum_p_price span').textContent
+	//		= wishlist.wishlistTotal.numberFormat();
 	}, 
 
 	changePNum: function(wishlistNo) {

@@ -45,6 +45,16 @@ const svc = {
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
+	},
+	orderItem(basketNo = 1, successCall, errorCall) {
+		fetch('orderbasket.do', {
+			method : 'post',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: 'basketNo=' + basketNo
+		})
+			.then(resolve => resolve.json())
+			.then(successCall)
+			.catch(errorCall);
 	}
 	
 }

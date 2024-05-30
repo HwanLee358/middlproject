@@ -6,6 +6,7 @@
   <select id = "basketselectList" resultType = "com.wear.basket.vo.BasketVO">
   	select *
   	from basket
+  	where user_id = #{userId}
   </select>
   
   <update id = "updateBasket" parameterType = "int" >
@@ -21,7 +22,7 @@
   
   <insert id = "insertBasket" parameterType = "basket">
   	insert into basket(basket_no, product_info_no, user_id, product_cnt)
-	values(#{basket_no}, #{product_info_no}, #{user_id}, #{product_cnt})
+	values(#{basketNo}, #{productInfoNo}, #{userId}, #{productCnt})
   </insert>
   
   <select id="basketCnt" resultType="int">
@@ -33,4 +34,16 @@
   	select count(*)
   	from wishlist
   </select>
+  
+  <select id = "orderbasket" parameterType = "com.wear.basket.vo.BasketVO">
+  	select *
+  	from basket
+  </select>
+  
+  <select id = "sBasket" resultType = "com.wear.basket.vo.BasVO" parameterType = "int">
+  	select p.product_name, pi.product_color, pi.product_size, p.product_price, pi.product_info_no
+	from product p left join product_info pi on (p.product_no = pi.product_no)
+	where p.product_no = #{productInfoNo}
+  </select>
+  
 </mapper>
