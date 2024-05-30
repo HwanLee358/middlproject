@@ -26,8 +26,7 @@
 		parameterType="int">
 		select count(*)
 		from product_review
-		where product_no =
-		#{productNo}
+		where product_no =#{productNo}
 	</select>
 
 	<select id="totalImg" resultType="review" parameterType="int">
@@ -47,11 +46,9 @@
 
 	<insert id="insertReview" parameterType="review">
 		insert into
-		product_review
-		(view_no,product_no,nickname,view_like_cnt,view_score,content,review_img)
+		product_review (view_no,product_no,view_score,content,review_img)
 		values
-		(viewNo.nextval, #{productNo}, #{nickName}, #{viewLikeCnt},
-		#{viewScore}, #{content}, #{reviewImg})
+		(view_no_seq.nextval, #{productNo},	#{viewScore}, #{content}, #{reviewImg})
 	</insert>
 
 

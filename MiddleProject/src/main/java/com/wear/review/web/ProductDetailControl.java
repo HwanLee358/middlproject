@@ -6,14 +6,16 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.wear.common.Control;
 import com.wear.review.service.ProductService;
 import com.wear.review.service.ProductServiceImpl;
 import com.wear.review.service.ReviewService;
 import com.wear.review.service.ReviewServiceImpl;
 import com.wear.review.vo.PageDTO;
-import com.wear.review.vo.ProductInfoVO;
 import com.wear.review.vo.ProductVO;
 import com.wear.review.vo.ReviewVO;
 import com.wear.review.vo.SearchVO;
@@ -22,6 +24,11 @@ public class ProductDetailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("logId");
+		System.out.println(id);
+		
+		// ========================페이징====================================
 		ProductService svp = new ProductServiceImpl();
 
 		String pno = req.getParameter("pno");
@@ -35,6 +42,7 @@ public class ProductDetailControl implements Control {
 
 		search.setPage(Integer.parseInt(page));
 
+		// ==============================상품상세====================================
 		ReviewService svr = new ReviewServiceImpl();
 		ReviewVO rvo = new ReviewVO();
 
@@ -53,34 +61,10 @@ public class ProductDetailControl implements Control {
 		req.setAttribute("reviewList", list);
 		req.setAttribute("paging", pdto);
 		req.setAttribute("pno", pno);
+		req.setAttribute("id", id);
 
 		String path = "productInfo/productDetail.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-
-//		//장바구니에 보낼것 제품명,컬러,사이즈, 수량?, 총 금액 user는?
-//		String proNo = req.getParameter("pNo");
-//		String proColor = req.getParameter("Color");
-//		String proSize = req.getParameter("pSize");
-//		// 수량 어떻게 보냄????
-//
-//		ProductInfoVO pinfovo = new ProductInfoVO();
-//		
-//		pinfovo.setProductInfoNo(Integer.parseInt(proNo));
-//		pinfovo.setProductColor(proColor);
-//		pinfovo.setProductSize(proSize);
-//		
-//		int pinfovo1 = svp.getProductInfoNo(proColor,proSize);
-//		
-//		req.setAttribute("pinfoNo", pinfovo1);
-//		// 수량보내기....
-//		
-//		
-//		path = "basket/basket.tiles";
-//		req.getRequestDispatcher(path).forward(req, resp);
-//		// (선택한색상의 물건가격(제품별 고정된가격)) * 갯수 +(선택한색상의 물건가격(제품별 고정된가격)) * 갯수+(선택한색상의 물건가격(제품별 고정된가격)) * 갯수
-//		// => 있는 수만큼 더하기 반복 보통 색상은3개정도=> basket.jsp에서 처리
-//
-//		
 
 	}
 
