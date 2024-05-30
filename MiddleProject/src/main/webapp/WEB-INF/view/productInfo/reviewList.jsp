@@ -3,11 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 
-<%
-    // review 변수를 가져옴
-    Object review = request.getAttribute("review");
-%>
-
 <link href="css/paging.css" rel="stylesheet" />
 <link href="css/reviewList.css" rel="stylesheet" />
 
@@ -25,7 +20,7 @@
 
 			<div class="review-images">
 				<c:forEach var="img" items="${totalImg }">
-					<img src="resources/images/${img.reviewImg }" class="image-item" />
+					<img src="images/${img.reviewImg }" class="image-item" />
 				</c:forEach>
 			</div>
 		</div>
@@ -41,15 +36,15 @@
 							<div class="bi-star-fill">★</div>
 						</c:forEach>
 					</div>
-					<span class="review-user">${review.nickName }</span> <span
+					<span class="review-user">${id }</span> <span
 						class="review-date">${review.viewDate }</span> <span
 						class="review-option">사이즈 : free </span>
-					<span class="review-body">컬러 : <%-- ${review.productColor } --%></span>
+					<span class="review-body">컬러 : white </span>
 					<div class="review-text">
 						<span>${review.content }</span>
 					</div>
 				</div>
-				<img src="resources/images/${review.reviewImg }"
+				<img src="images/${review.reviewImg }"
 					class="review-thumb" />
 				<!-- 리뷰 썸네일 추가 -->
 			</div>

@@ -36,6 +36,11 @@ public class RegisterBasket implements Control {
 		}
 		
 
+
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write("{\"status\":\"success\"}");
+		
 	}
 
 }

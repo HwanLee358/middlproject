@@ -40,7 +40,4 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.getCnt(rvo);
 	}
 
-
-
-
 }
