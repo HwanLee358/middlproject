@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.wear.basket.vo.BasketVO;
 import com.wear.common.DataSource;
 import com.wear.order.mapper.OrderMapper;
 import com.wear.order.vo.OrderVO;
+import com.wear.order.vo.SaveOrderVO;
 
 public class OrderServiceImpl implements OrderService{
 	SqlSession session = DataSource.getInstance().openSession(true);
@@ -22,5 +24,17 @@ public class OrderServiceImpl implements OrderService{
 	public List<OrderVO> directList(int productInfoNo) {
 		// TODO Auto-generated method stub
 		return mapper.directOrder(productInfoNo);
+	}
+
+	@Override
+	public Boolean addOrder(SaveOrderVO order) {
+		// TODO Auto-generated method stub
+		return mapper.insertOrder(order) == 1;
+	}
+
+	@Override
+	public Boolean remove(BasketVO basket) {
+		// TODO Auto-generated method stub
+		return mapper.delOrderBasket(basket) == 1;
 	}	
 }

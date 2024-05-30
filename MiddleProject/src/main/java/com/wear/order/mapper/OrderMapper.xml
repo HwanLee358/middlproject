@@ -14,4 +14,13 @@
 	from product_info pi left join product p on (pi.product_no = p.product_no)
 	where pi.product_info_no = #{productInfoNo}
   </select>
+  <insert id="insertOrder" parameterType="com.wear.order.vo.SaveOrderVO">
+  	insert into product_order(order_no, user_id, product_info_no, user_name, user_email, address1, address2, address3, address4)
+  	values(order_no_seq.nextval, #{user_id}, #{product_info_no}, #{user_name}, #{user_email}, #{address1}, #{address2}, #{address3}, #{address4})
+  </insert>
+  <delete id="delOrderBasket" parameterType="com.wear.basket.vo.BasketVO">
+  	delete from basket
+  	where product_info_no = #{productInfoNo}
+  	and user_id = #{userId}
+  </delete>
 </mapper>
