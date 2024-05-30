@@ -103,7 +103,7 @@
 							<div class="icon">
 								<div class="button">
 										<span data-product_no="${List.productNo }">
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="${List.productImg }" onclick='insertBasket()'>
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="${List.productImg }" onclick='insertWishList()'>
 										</span>
 										<span data-product_no="${List.productNo }">
 											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" >
