@@ -54,7 +54,7 @@ import com.wear.member.web.memberinfoResultControl;
 
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
-
+import com.wear.review.web.ModifyReviewFormControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ProductInfoControl;
 import com.wear.review.web.RegisterBasket;
@@ -104,7 +104,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/registerBasket.do", new RegisterBasket()); // 장바구니에 등록.
 		// 제품상세
 		map.put("/productDetail.do", new ProductDetailControl());
-
+		map.put("/reviewModify", new ModifyReviewFormControl());
+		
 		// 맹선우
 		map.put("/basketList1.do", new BasketList1()); // 화면 출력
 		map.put("/basketList.do", new BasketList()); // 장바구니 목록
