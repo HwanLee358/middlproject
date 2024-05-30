@@ -23,9 +23,16 @@ public class WearOrderFormControl implements Control {
 		String path = "productorder/orderPage.tiles";
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("logId");
+		String form = req.getParameter("form");
+		form = "basket";
 		if(id == null) {
 			resp.sendRedirect("logForm.do");
 			return;
+		}
+		if(form.equals("direct")) {
+			
+		}else if(form.equals("basket")){
+			
 		}
 		MemberService mvc = new MemberServiceImpl();
 		OrderService svc = new OrderServiceImpl();

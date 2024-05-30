@@ -171,13 +171,14 @@ em {
 									</div>
 								</td>
 							</tr>
+							<c:set var="total" value="${total + (oList.productPrice * oList.productCnt + 3000) }" />
 						</c:forEach>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="6">
 								<div class="money_tot">
-									<em>총 주문금액</em> <span class="int_black_big"> <em>20000원</em>
+									<em>총 주문금액</em> <span class="int_black_big"> <em><c:out value="${total }" />원</em>
 									</span>
 								</div>
 							</td>
