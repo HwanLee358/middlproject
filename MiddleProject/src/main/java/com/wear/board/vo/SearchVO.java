@@ -12,4 +12,7 @@ public class SearchVO {
 	// 가격
 	private int productPrice1;
 	private int productPrice2;
+	
+	
+	private int productNo;
 }

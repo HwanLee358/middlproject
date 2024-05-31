@@ -2,9 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
-<link href="css/paging.css" rel="stylesheet" />
 
-<div class="review-container">
+<%
+    // review 변수를 가져옴
+    Object review = request.getAttribute("review");
+%>
+
+<link href="css/paging.css" rel="stylesheet" />
+<link href="css/reviewList.css" rel="stylesheet" />
+
+<div class="review-container" id="reviewTop">
 	<div class="review-header">
 		<div class="review-title">
 			<span class="title-text">리뷰</span><span class="title-count">${totalCnt }</span>
@@ -34,9 +41,9 @@
 							<div class="bi-star-fill">★</div>
 						</c:forEach>
 					</div>
-					<span class="review-user">${review.userId }</span> <span
+					<span class="review-user">${review.nickName }</span> <span
 						class="review-date">${review.viewDate }</span> <span
-						class="review-option">사이즈 : <%-- ${review.productSize } --%></span>
+						class="review-option">사이즈 : free </span>
 					<span class="review-body">컬러 : <%-- ${review.productColor } --%></span>
 					<div class="review-text">
 						<span>${review.content }</span>
@@ -55,6 +62,8 @@
 </div>
 
 <script>
+<%-- const review = <%= review %>;
+console.log(review); --%>
 	const reviewImagesWrapper = document
 			.querySelector('.review-images-wrapper');
 	const reviewImages = document.querySelector('.review-images');

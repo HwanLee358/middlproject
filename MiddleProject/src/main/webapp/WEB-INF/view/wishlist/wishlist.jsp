@@ -21,7 +21,7 @@
         </div>
         <div class="subdiv">
           <div class="basketprice">가격</div>
-          <div class="delivery_fee">배송비</div>
+          <div class="delivery_fee" style="display: none;">배송비</div>
           <div class="sum">합계</div>
         </div>
         <div class="subdiv">
@@ -55,7 +55,7 @@
             </div>
           </div>
           <!-- 에러나면 지울곳 -->
-          <div class = "delivery_fee">3000원</div>
+          <div class = "delivery_fee" style="display: none;">3000원</div>
           <!-- 에러나면 지울곳 -->          
           <div class="sum" id = "p_sum2">40,000원</div>
         </div>

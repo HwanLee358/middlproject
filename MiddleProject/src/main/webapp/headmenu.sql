@@ -4,8 +4,11 @@ CREATE TABLE CATEGORY (
 	CATEGORY_NO_REF	NUMBER		NULL
 );
 
-select * from category;
+drop sequence category_seq;
 create sequence category_seq;
+
+
+
 insert into category(category_no, category_name)
 values(category_seq.nextval, 'BEST');
 insert into category(category_no, category_name)

@@ -10,6 +10,7 @@ public interface BasketService {
 		boolean modifyBasket(BasketVO bvo);
 		boolean removeBasket(int basketno);
 		
+		boolean addBasket(BasketVO basket);
 		
 		
 		// basketCnt

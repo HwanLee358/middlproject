@@ -56,10 +56,10 @@ public class WearBoardheaderControl implements Control {
 			}
 			preCateName = curCateName;
 		}
-		// 결과보기.
+		/*// 결과보기.
 		for (Map<String, Object> tmap : categoryList) {
 			System.out.println(tmap);
-		}
+		}*/
 
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(categoryList);

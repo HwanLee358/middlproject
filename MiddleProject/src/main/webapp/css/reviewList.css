@@ -2,6 +2,7 @@
 	box-sizing: border-box;
 }
 
+
 /* .justify-content-center {
   justify-content: center !important;
 } */
@@ -28,6 +29,9 @@ body {
 	margin: 0 auto;
 	padding-top: 20px;
 }
+/* .review-container {
+    margin-top: 40px;
+} */
 
 .review-header {
 	display: flex;

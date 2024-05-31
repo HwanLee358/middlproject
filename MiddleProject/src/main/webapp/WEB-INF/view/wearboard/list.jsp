@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <link href="css/wearList.css" rel="stylesheet" />
+
 <style></style>
 	<div class="contents wide">
 		<div class="xans-product-menupackage">
@@ -97,22 +98,22 @@
 					<li id="" class="xans-recode-">
 						<div class="thumbnail">
 							<div class="prdlmg">
-								<a href="#" name=""><img src="images/wear/${List.productImg }.webp" id="" alt=""></a>
+								<a href="productDetail.do?pno=${List.productNo }" name=""><img src="images/wear/${List.productImg }.webp" id="" alt=""></a>
 							</div>
 							<div class="icon">
 								<div class="button">
-										<span>
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="">
+										<span data-product_no="${List.productNo }">
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="${List.productImg }" onclick='insertBasket()'>
 										</span>
-										<span>
-											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart">
+										<span data-product_no="${List.productNo }">
+											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" >
 										</span>
 								</div>									
 							</div>
 						</div>
 						<div class="description">
 							<strong class="name">
-								<a href="#">
+								<a href="productDetail.do?pno=${List.productNo }">
 									<span class="title displaynone"></span>
 									<b>
 										<span style="font-size:12px;color:#555555;">${List.productName }</span><b></b>
@@ -166,3 +167,5 @@
 			</c:if>
 		</div>
 	</div>
+<script src="js/addBasket.js"></script>
+<script src="js/addWishlist.js"></script>

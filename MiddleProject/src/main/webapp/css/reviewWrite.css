@@ -4,6 +4,13 @@
 body {
   font-size: 14px;
 }
+
+.write-container {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
 .v5_41 {
   width: 420px;
   height: 515px;

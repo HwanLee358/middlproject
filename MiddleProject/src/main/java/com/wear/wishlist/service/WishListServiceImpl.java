@@ -12,13 +12,23 @@ public class WishListServiceImpl implements WishListService{
 	SqlSession session = DataSource.getInstance().openSession(true);
 	WishListMapper mapper = session.getMapper(WishListMapper.class);
 	@Override
-	public List<WishListVO> WishList() {
+	public List<WishListVO> WishList(String userId) {
 		// TODO Auto-generated method stub
-		return mapper.selectwishlist();
+		return mapper.selectwishlist(userId);
 	}
 	@Override
 	public boolean removeWishList(int wishlistno) {
 		// TODO Auto-generated method stub
 		return mapper.deletewishList(wishlistno) == 1;
+	}
+	@Override
+	public int wishlistTotalCnt() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean addWishlist(WishListVO wishlist) {
+		// TODO Auto-generated method stub
+		return mapper.insertWishlist(wishlist) == 1;
 	}
 }

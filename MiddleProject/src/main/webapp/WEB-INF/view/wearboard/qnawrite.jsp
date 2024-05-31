@@ -109,5 +109,6 @@ input[type=submit]:hover {
 	  <div class="row">
 	    <input type="submit" value="Submit">
 	  </div>
+  <input type="hidden" name="pno" value="${pNo }">	  
   </form>
 </div>

@@ -5,21 +5,27 @@
 <configuration>
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
-		<setting name="jdbcTypeForNull" value="NULL" />		
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<setting name="logImpl" value="SLF4J" />
+
 	</settings>
 	<typeAliases>
 		<!-- 정환 -->
-		
+
 		<!-- 유진 -->
-		<typeAlias alias="product" type="com.wear.review.vo.ProductVO" />
+		<typeAlias alias="product"
+			type="com.wear.review.vo.ProductVO" />
 		<typeAlias alias="review" type="com.wear.review.vo.ReviewVO" />
 		<!-- 선우 -->
-		<typeAlias alias = "basket" type = "com.wear.basket.vo.BasketVO"/>
-		<typeAlias alias = "wishlist" type = "com.wear.wishlist.vo.WishListVO"/>
+		<typeAlias alias="basket" type="com.wear.basket.vo.BasketVO" />
+		<typeAlias alias="wishlist"
+			type="com.wear.wishlist.vo.WishListVO" />
+		<typeAlias alias="cerboardList"
+			type="com.wear.basket.vo.CerBoardVO" />
 		<!-- 동규 -->
 		<typeAlias alias="member" type="com.wear.member.vo.MemberVo" />
 	</typeAliases>
-	
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -36,13 +42,14 @@
 	<mappers>
 		<!-- 정환 -->
 		<mapper resource="com/wear/board/mapper/WearBoardMapper.xml" />
-		
+		<mapper resource="com/wear/board/mapper/QnaBoardMapper.xml" />
 		<!-- 유진 -->
-		<mapper resource="com/wear/review/mapper/ProductMapper.xml"/>
-		<mapper resource="com/wear/review/mapper/ReviewMapper.xml"/>
+		<mapper resource="com/wear/review/mapper/ProductMapper.xml" />
+		<mapper resource="com/wear/review/mapper/ReviewMapper.xml" />
 		<!-- 선우 -->
 		<mapper resource="com/wear/basket/mapper/BasketMapper.xml" />
 		<mapper resource="com/wear/wishlist/mapper/WishListMapper.xml" />
+		<mapper resource="com/wear/basket/mapper/CerBoardMapper.xml" />
 		<!-- 동규 -->
 		<mapper resource="com/wear/member/mapper/Member.xml" />
 	</mappers>
