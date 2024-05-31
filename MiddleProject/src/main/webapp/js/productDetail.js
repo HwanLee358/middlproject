@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				.catch(err => console.log(err));
 		});
 
-		//location.href = 'basketList1.do';
+		location.href = 'basketList1.do';
 	})
 
 	// wish-list
@@ -141,111 +141,105 @@ document.addEventListener("DOMContentLoaded", () => {
 				.then(result => {
 
 				})
-			if (result.retCode == 'success') {
-				alert('성공');
-			} else {
-				alert('처리실패!');
-
-			}
-
-		})
-			.catch(err => console.log(err));
-
-	})
-	location.href = 'basketList1.do';
-})
-
-//buy-now
-document.querySelector('.buy-now').addEventListener('click', function() {
-	document.querySelectorAll('.selected-options div').forEach(item => {
-
-
-	})
-	location.href = 'orderForm.do?form=direct&pno=' + '';
-})
-
-// review.
-document.forms.reviewFrm.addEventListener('submit', function(e) {
-	e.preventDefault();
-
-	let score = document.querySelectorAll('div.rating span.filled').length;
-	const content = document.querySelector('textarea[name="content"]').value;
-	const fileField = document.querySelector('#file-input');
-
-	let fdata = new FormData();
-	fdata.append('pno', productNo);
-	fdata.append('score', score);
-	fdata.append("reviewImg", fileField.files[0]);
-	fdata.append('content', content);
-	console.log('productNo', productNo);
-	fdata.forEach(item => {
-		console.log(item);
-	})
-
-	fetch(this.action, {
-		method: 'post',
-		body: fdata
-	})
-		.then(result => result.json())
-		.then(result => {
-			console.log(result)
-			document.querySelector('#myModal').style.display = 'none';
-			location.href = 'productDetail.do?pno=' + productNo + '&page=1#reviewTop';
-		})
-		.catch(err => {
-			console.log(err)
 		});
-})
-
-
-/* 여기부터모달 */
-// 모달가져오기
-var modal = document.getElementById("myModal");
-
-// 모달버튼 가져오기
-var btn = document.getElementById("myBtn");
-
-//  <span> 닫기
-var span = document.getElementsByClassName("close")[0];
-
-// 모달열기 
-btn.onclick = function() {
-	modal.style.display = "block";
-}
-
-// x 누름 닫히게
-span.onclick = function() {
-	modal.style.display = "none";
-}
-
-// 모달밖클릭스 닫히게
-window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-	}
-}
-
-// 별점
-const stars = document.querySelectorAll(".rating span");
-stars.forEach(star => {
-	star.addEventListener("click", () => {
-		const value = star.getAttribute("data-value");
-		stars.forEach(s => s.classList.remove("filled"));
-		for (let i = 0; i < value; i++) {
-			stars[i].classList.add("filled");
-		}
-	});
 });
 
-// 사진추가
-const fileInput = document.getElementById("file-input");
-const fileLabel = document.getElementById("file-label");
 
-fileInput.addEventListener("change", (event) => {
-	const file = event.target.files[0];
-	const reader = new FileReader();
-	reader.onload = (e) => {
-		fileLabel.innerHTML = `<img src="${e.target.result}" alt="Image">`;
-	};
-	reader.readAsDataURL(file);
+		//buy-now
+		document.querySelector('.buy-now').addEventListener('click', function() {
+			document.querySelectorAll('.selected-options div').forEach(item => {
+
+
+			})
+			location.href = 'orderForm.do?form=direct&pno=' + '';
+		})
+
+		// review.
+		document.forms.reviewFrm.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			let score = document.querySelectorAll('div.rating span.filled').length;
+			const content = document.querySelector('textarea[name="content"]').value;
+			const fileField = document.querySelector('#file-input');
+
+			let fdata = new FormData();
+			fdata.append('pno', productNo);
+			fdata.append('score', score);
+			fdata.append("reviewImg", fileField.files[0]);
+			fdata.append('content', content);
+			console.log('productNo', productNo);
+			fdata.forEach(item => {
+				console.log(item);
+			})
+
+			fetch(this.action, {
+				method: 'post',
+				body: fdata
+			})
+				.then(result => result.json())
+				.then(result => {
+					console.log(result)
+					document.querySelector('#myModal').style.display = 'none';
+					location.href = 'productDetail.do?pno=' + productNo + '&page=1#reviewTop';
+				})
+				.catch(err => {
+					console.log(err)
+				});
+		})
+
+
+		/* 여기부터모달 */
+		// 모달가져오기
+		var modal = document.getElementById("myModal");
+
+		// 모달버튼 가져오기
+		var btn = document.getElementById("myBtn");
+
+		//  <span> 닫기
+		var span = document.getElementsByClassName("close")[0];
+
+		// 모달열기 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// x 누름 닫히게
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// 모달밖클릭스 닫히게
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		// 별점
+		const stars = document.querySelectorAll(".rating span");
+		stars.forEach(star => {
+			star.addEventListener("click", () => {
+				const value = star.getAttribute("data-value");
+				stars.forEach(s => s.classList.remove("filled"));
+				for (let i = 0; i < value; i++) {
+					stars[i].classList.add("filled");
+				}
+			});
+		});
+
+		// 사진추가
+		const fileInput = document.getElementById("file-input");
+		const fileLabel = document.getElementById("file-label");
+
+		fileInput.addEventListener("change", (event) => {
+			const file = event.target.files[0];
+			const reader = new FileReader();
+			reader.onload = (e) => {
+				fileLabel.innerHTML = `<img src="${e.target.result}" alt="Image">`;
+			};
+			reader.readAsDataURL(file);
+		});
+
+
+
 });
