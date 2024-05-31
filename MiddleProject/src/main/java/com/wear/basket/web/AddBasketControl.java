@@ -18,17 +18,17 @@ public class AddBasketControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String basketNo = req.getParameter("pno");
+		String basketNo = req.getParameter("bno");
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
 		
 		BasketService svc = new BasketServiceImpl();
 		BasketVO vo = new BasketVO();
 		vo.setBasketNo(Integer.parseInt(basketNo));
-		vo.setProductInfoNo(Integer.parseInt(userId));
+		vo.setUserId(userId);
 		
 		if(svc.addBasket(vo)) {
-			resp.getWriter().print("{\"productNo\": "+basketNo+ "}");
+			resp.getWriter().print("{\"basketNo\": "+basketNo+ "}");
 		}
 	}
 

@@ -2,7 +2,7 @@
  * 
  */
 
- function insertBasket(){
+ function wishtobasket(){
 	
 	let bno = event.target.parentElement.dataset.product_no;
 	console.log(bno);

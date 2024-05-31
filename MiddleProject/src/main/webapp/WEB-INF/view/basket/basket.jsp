@@ -50,9 +50,10 @@
 					<img src="images/과테말라 안티구아.jpg" width="60">
 				</div>
 				<div class="pname">
-					<span>찜마마(XJ-92214/1)</span><br>
-					<span class=""><a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
-					<img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_option.gif" alt="옵션변경"></a></span>
+					<span>찜마마(XJ-92214/1)</span><br><br>
+					<span>사이즈 : L</span><span>색깔 : RED</span>
+					<!-- <span class=""><a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
+					<img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_option.gif" alt="옵션변경"></a></span> -->
 				</div>
 			</div>
 			<div class="subdiv">
@@ -91,8 +92,6 @@
 			</div>
 			<div class="subdiv">
 				<div class="basketcmd">
-					<!--   <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">주문하기</a>
-            <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">관심상품등록</a>-->
 					<a href="javascript:void(0)" class="abutton"
 						onclick="javascript:basket.delItem();">삭제</a>
 				</div>

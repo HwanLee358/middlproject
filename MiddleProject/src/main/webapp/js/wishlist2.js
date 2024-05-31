@@ -73,12 +73,12 @@ let wishlist = {
 			result => {
 				if (result.retCode == 'OK') {
 					console.log(result);
-					let price = document.querySelector('#p_price' + no).value; // 단가
-					let cnt = document.querySelector('#p_num' + no).value; // 현재수량
+				//	let price = document.querySelector('#p_price' + no).value; // 단가
+				//	let cnt = document.querySelector('#p_num' + no).value; // 현재수량
 					// 합계반영
-					wishlist.wishlistCount -= cnt;
-					wishlist.wishlistTotal -= price * cnt;
-					wishlist.reCalc();
+				//	wishlist.wishlistCount -= cnt;
+				//	wishlist.wishlistTotal -= price * cnt;
+				//	wishlist.reCalc();
 					// 화면에서 지우기
 					document.querySelector('div[data-id="' + no + '"]').remove();
 				}
