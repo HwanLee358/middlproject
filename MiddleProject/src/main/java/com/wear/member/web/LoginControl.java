@@ -32,10 +32,10 @@ public class LoginControl implements Control {
 
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
-				resp.sendRedirect("joinForm.do");
+				resp.sendRedirect("memberList.do");
 		
 			else
-				resp.sendRedirect("list.do");
+				resp.sendRedirect("main.do");
 			
 		} else {
 			resp.sendRedirect("logForm.do");
