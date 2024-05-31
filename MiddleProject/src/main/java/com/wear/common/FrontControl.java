@@ -37,6 +37,7 @@ import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
 import com.wear.member.web.LogoutControl;
 import com.wear.member.web.deleteControl;
+import com.wear.member.web.deleteFailControl;
 import com.wear.member.web.deleteFormControl;
 import com.wear.member.web.deleteResultControl;
 import com.wear.member.web.findIdControl;
@@ -146,6 +147,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/delete.do", new deleteControl());
 		map.put("/deleteForm.do", new deleteFormControl());
 		map.put("/deleteResult.do", new deleteResultControl());
+		map.put("/deleteFail.do", new deleteFailControl());
 	//	map.put("/info.do", new memberinfoControl());
 	//	map.put("/infoForm.do", new memberinfoFormControl());
 		//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)

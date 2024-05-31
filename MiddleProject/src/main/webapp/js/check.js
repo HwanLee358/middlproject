@@ -9,6 +9,7 @@
                 window.alert('비밀번호는 4글자 이상, 16글자 이하만 이용 가능합니다.');
                 document.getElementById('pw').value='';
             }
+        // 비번일치
             for(var i=0;i<SC.length;i++){
                 if(pw.indexOf(SC[i]) != -1){
                     check_SC = 1;
@@ -26,14 +27,15 @@
                 else{
                     document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
                     document.getElementById('check').style.color='red';
-                    
+                     var input = document.getElementById("pw2");
+    	               input.value = "";
+    	               
                 }
             }
         }
 
         
         
-        // 비번일치
         
         // 중복체크
         function checkUserId() {
@@ -47,7 +49,10 @@
     	        if (xhr.readyState === 4 && xhr.status === 200) {
     	            var response = JSON.parse(xhr.responseText);
     	            if (response.status === "DUPLICATED") {
-    	                alert("아이디가 이미 존재합니다.");    	                
+    	                alert("아이디가 이미 존재합니다.");    	
+    	               var input = document.getElementById("member_id");
+    	               input.value = "";
+    	               
     	            } else {
     	                alert("사용 가능한 아이디입니다.");
     	            }

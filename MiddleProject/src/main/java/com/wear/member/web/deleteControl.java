@@ -32,9 +32,12 @@ public class deleteControl implements Control {
 			resp.sendRedirect("deleteResult.do");
 			System.out.println("난최강이다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
 		} else {
+			resp.sendRedirect("deleteFail.do");
 			System.out.println("실패.");
 
 		}
 	}
+
+
 
 }

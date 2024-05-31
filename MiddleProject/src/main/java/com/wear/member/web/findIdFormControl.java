@@ -13,7 +13,8 @@ public class findIdFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "WEB-INF/view/member/findId.jsp";
+		//String path = "WEB-INF/view/member/findId.jsp";
+		String path = "member/findId.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 		
 		

@@ -28,6 +28,9 @@ public interface MemberMapper {
 	
 	List<MemberVo> MemberList();
 	int updateMember(MemberVo userId); //수정
-	int deleteMember(MemberVo member);//삭제
+	int deleteMember(MemberVo member);//탈퇴
+
+	
+	
 	
 }

@@ -26,4 +26,5 @@ public interface MemberService {
 	boolean modifyMember(MemberVo userId);	
 	//삭제
 	boolean deleteMember(MemberVo user);
+
 }

@@ -59,6 +59,7 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.deleteMember(user)==1;
 	}
+
 	
 	
 }

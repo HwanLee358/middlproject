@@ -13,8 +13,8 @@ public class findPWResultFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "WEB-INF/view/member/findPWResult.jsp";
-	//	String path = "member/findPWResult.tiles";
+		//String path = "WEB-INF/view/member/findPWResult.jsp";
+		String path = "member/findPWResult.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 
 	}
