@@ -13,7 +13,8 @@ public class findPWFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "WEB-INF/view/member/findPW.jsp";
+		//String path = "WEB-INF/view/member/findPW.jsp";
+		String path = "member/findPW.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 
 	}
