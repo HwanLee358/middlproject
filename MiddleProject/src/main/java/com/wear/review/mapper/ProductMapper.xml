@@ -21,5 +21,11 @@
       values(basket_seq.nextval, #{userId}, #{productInfoNo}, #{productCnt})
 	</insert>
 	
+	<insert id="insertWish" parameterType="com.wear.wishlist.vo.WishVO">
+		insert into wishlist(wishlist_no, product_no,user_id)
+		values(WISHLIST_SEQ.nextval, #{productNo}, #{userId})
+	</insert>
+	
+
 	
 </mapper>

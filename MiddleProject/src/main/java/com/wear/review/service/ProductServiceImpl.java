@@ -7,6 +7,7 @@ import com.wear.review.mapper.ProductMapper;
 import com.wear.review.vo.BasketVO;
 import com.wear.review.vo.ProductInfoVO;
 import com.wear.review.vo.ProductVO;
+import com.wear.wishlist.vo.WishVO;
 
 public class ProductServiceImpl implements ProductService {
 	// 주소패킹
@@ -27,6 +28,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public boolean addBasket(BasketVO bvo) {
 		return mapper.insertBasket(bvo) == 1;
+	}
+
+	@Override
+	public boolean addWish(WishVO wvo) {
+		return mapper.insertWish(wvo) == 1;
 	}
 
 }

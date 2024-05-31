@@ -55,10 +55,12 @@ import com.wear.member.web.memberinfoResultControl;
 import com.wear.order.web.WearOrderCompleteControl;
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
+import com.wear.review.web.BuyNow;
 import com.wear.review.web.ModifyReviewFormControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ProductInfoControl;
 import com.wear.review.web.RegisterBasket;
+import com.wear.review.web.RegisterWish;
 import com.wear.review.web.ReviewFormControl;
 import com.wear.review.web.ReviewListControl;
 import com.wear.review.web.ReviewWriteControl;
@@ -103,9 +105,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/reviewWrite.do", new ReviewWriteControl());
 		map.put("/reviewList.do", new ReviewListControl());
+		
 		map.put("/getProductInfoNo.do", new ProductInfoControl()); // 상품옵션포함딘 번호.
 		map.put("/registerBasket.do", new RegisterBasket()); // 장바구니에 등록.
-		// 제품상세
+		map.put("/registerWisht.do", new RegisterWish());//위시리스트에 등록
+		map.put("/registerBuy.do", new BuyNow());//바로구매에 등록
+		
 		map.put("/productDetail.do", new ProductDetailControl());
 		map.put("/reviewModify", new ModifyReviewFormControl());
 		

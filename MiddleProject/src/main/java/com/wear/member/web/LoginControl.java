@@ -29,11 +29,12 @@ public class LoginControl implements Control {
 		if (mvo != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("logId", mvo.getUserId());
-
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
+				
+				//관리자 로그인하면 바로 회원관리& 재고관리 버튼 2개만 있는 페이지로
+				
 				resp.sendRedirect("joinForm.do");
-		
 			else
 				resp.sendRedirect("list.do");
 			
