@@ -4,7 +4,8 @@ create sequence product_info_no_seq;
 create sequence basket_seq;
 create sequence product_order_seq;
 create sequence view_no_seq;
-
+create sequence order_no_seq;
+create sequence order_info_seq;
 
 
 

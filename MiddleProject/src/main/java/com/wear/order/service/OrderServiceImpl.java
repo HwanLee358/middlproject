@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.wear.basket.vo.BasketVO;
 import com.wear.common.DataSource;
 import com.wear.order.mapper.OrderMapper;
+import com.wear.order.vo.OrderInfoVO;
 import com.wear.order.vo.OrderVO;
 import com.wear.order.vo.SaveOrderVO;
 
@@ -36,5 +37,17 @@ public class OrderServiceImpl implements OrderService{
 	public Boolean remove(BasketVO basket) {
 		// TODO Auto-generated method stub
 		return mapper.delOrderBasket(basket) == 1;
+	}
+
+	@Override
+	public int getProductNo() {
+		// TODO Auto-generated method stub
+		return mapper.getProductNo();
+	}
+
+	@Override
+	public Boolean OrderInfo(OrderInfoVO orderInfo) {
+		// TODO Auto-generated method stub
+		return mapper.insertOrderInfo(orderInfo) == 1;
 	}	
 }
