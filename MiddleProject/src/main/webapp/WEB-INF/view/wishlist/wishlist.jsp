@@ -81,7 +81,7 @@
     <div id="goorder" class="">
       <div class="clear"></div>
       <div class="buttongroup center-align cmd">
-        <a href="javascript:void(0);" onclick="javascript:wishlist.orderAllItem()">전체 상품 장바구니</a>
+        <a href="javascript:void(0);" onclick='wishtobasket()'>전체 상품 장바구니</a>
         <a href="javascript:void(0);" onclick="javascript:wishlist.orderSelectedItem()">선택한 상품 장바구니</a>
       </div>
     </div>
@@ -89,5 +89,6 @@
   </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/addBasket.js"></script>
   <script src="js/cartService.js"></script>
   <script src="js/wishlist2.js"></script>

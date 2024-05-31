@@ -36,9 +36,9 @@ let basket = {
 					const rowDiv = document.querySelector('div[data-id="0"]').cloneNode(true);
 					rowDiv.style.display = 'block';
 					rowDiv.setAttribute('data-id', basket1.basketNo);
-					rowDiv.querySelector('div.img>img').setAttribute('src', './images/' + basket1.productName + '.jpg');
+					rowDiv.querySelector('div.img>img').setAttribute('src', './images/wear/' + basket1.productImg + '.jpg');
 					rowDiv.querySelector('div.pname>span').innerText = basket1.productName;
-					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = basket1.productPrice.numberFormat() + "원";
+					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = basket1.productPrice + "원";
 					// 배송비
 					rowDiv.querySelector('div.delivery_fee').value = basket1.deliveryfee;
 
@@ -52,7 +52,7 @@ let basket = {
 					rowDiv.querySelector('div.updown span').onclick = () => basket.changePNum(basket1.basketNo);
 					rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => basket.changePNum(basket1.basketNo);
 					// 개별합계
-					rowDiv.querySelector('div.sum').textContent = (basket.productCnt * basket.productPrice).numberFormat() + "원";
+					rowDiv.querySelector('div.sum').textContent = (basket1.productCnt * basket1.productPrice).numberFormat() + "원";
 					rowDiv.querySelector('div.sum').setAttribute('id', 'p_sum' + basket1.basketNo);
 					document.querySelector('#basket').append(rowDiv);
 				});

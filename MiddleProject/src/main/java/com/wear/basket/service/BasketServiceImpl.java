@@ -54,9 +54,9 @@ public class BasketServiceImpl implements BasketService {
 	}
 
 	@Override
-	public List<BasVO> selectbasket(int productNo) {
+	public List<BasketVO> selectbasket(int productNo) {
 		// TODO Auto-generated method stub
-		return mapper.sBasket(productNo);
+		return mapper.wishtobasket(productNo);
 	}
 
 
