@@ -28,17 +28,22 @@ public class ProductInfoControl implements Control {
 		pvo.setProductNo(Integer.parseInt(pno));
 		pvo.setProductColor(color);
 		pvo.setProductSize(size);
-
+		
 		System.out.println(pvo);
 
 		ProductService svc = new ProductServiceImpl();
 		pvo = svc.getProductInfoNo(pvo);
 		System.out.println(pvo);
 
+		req.setAttribute("productInfoNo", pvo);
+		
 		Gson gson = new GsonBuilder().create();
 
 		resp.getWriter().print(gson.toJson(pvo));
 
+		
 	}
 
 }
+
+

@@ -113,6 +113,7 @@
 	const price = "${result.productPrice }";
 	const productNo = "${result.productNo }";
 	console.log('productNo,,,,', productNo)
+	const productInfoNo = "${productInfoNo.productInfoNo }";
 </script>
 <script src="js/productDetail.js"></script>
 

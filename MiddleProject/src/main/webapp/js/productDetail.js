@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				//console.log(que);
 				//console.log(newQuantity);
 				optionDiv.dataset.option = optionText;
-				optionDiv.innerHTML = '<span>' + optionText + '</span>' +
+				optionDiv.innerHTML = '<div class="option"><span>' + optionText + '</span>' +
 					'<input type="number" value="1" min="1" style="width: 50px; margin-right: 10px;">' +
 					'<span class="option-price">' + price.toLocaleString() + '원</span>' +
 					'<span class="option-qty">' + '개</span>' +
-					'<button type="button" onclick="this.parentElement.remove(); updateTotal();">x</button>';
+					'<button type="button" onclick="this.parentElement.remove(); updateTotal();">x</button></div>';
 
 				selectedOptionsContainer.appendChild(optionDiv);
 
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				.then(resolve => resolve.json())
 				.then(result => {
 					console.log('result', result);
+					console.log('productInfoNo',productInfoNo);
 				/*	result.forEach(product => {
 						//옵션 여러개 상품이 장바구니 데이터로 담기게하기 BasketVO에 
 						//옵션에 표시되는 제품옵션번호와,유저아이디,하나의 옵션당 선택된 갯수 보내줘야함 
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				.catch(err => console.log(err));
 		});
 
-		location.href = 'basketList1.do';
+		//location.href = 'basketList1.do';
 	})
 
 	// wish-list
@@ -179,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 	})
 });
-
 
 /* 여기부터모달 */
 // 모달가져오기
