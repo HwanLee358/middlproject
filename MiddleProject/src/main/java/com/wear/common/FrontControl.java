@@ -121,6 +121,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/addbasket.do", new AddBasketControl()); // 위시리스트에서 장바구니로 이동
 		map.put("/orderbasket.do", new BasketOrderControl()); // 주문버튼 클릭 시 주문 페이지로 이동
 		map.put("/cerBoardList.do", new CerBoardControl()); // 취소/교환/반품 목록
+		
 
 		// 배동규
 		map.put("/joinForm.do", new joinFormControl());

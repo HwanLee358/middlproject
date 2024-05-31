@@ -9,6 +9,18 @@
     <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
   </definition>
   
+  <definition name="myweb.admin" template="/WEB-INF/admin/template.jsp">
+	<put-attribute name="nav" value="/WEB-INF/admin/nav.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/admin/menu.jsp" />
+	<put-attribute name="content" value="/WEB-INF/admin/content.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/admin/footer.jsp" />		
+  </definition>
+  <definition name="WILDCARD:admin/*" extends="myweb.admin">
+		<put-attribute name="content" value="/WEB-INF/admin/{1}.jsp" />
+  </definition>
+  
+  
+  
   <!-- Junghwan -->
   <definition name="WILDCARD:wearboard/*" extends="myapp.homepage">
   	<put-attribute name="body" value="/WEB-INF/view/wearboard/{1}.jsp" />
