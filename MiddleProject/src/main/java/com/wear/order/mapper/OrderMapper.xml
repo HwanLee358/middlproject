@@ -15,9 +15,18 @@
 	where pi.product_info_no = #{productInfoNo}
   </select>
   <insert id="insertOrder" parameterType="com.wear.order.vo.SaveOrderVO">
-  	insert into product_order(order_no, user_id, product_info_no, user_name, user_email, address1, address2, address3, address4)
-  	values(order_no_seq.nextval, #{user_id}, #{product_info_no}, #{user_name}, #{user_email}, #{address1}, #{address2}, #{address3}, #{address4})
+  	insert into product_order(order_no, user_id, user_name, user_phone, user_email, address1, address2, address3, address4)
+  	values(order_no_seq.nextval, #{userId}, #{userName}, #{userPhone}, #{userEmail}, #{address1}, #{address2}, #{address3}, #{address4})
   </insert>
+  <insert id="insertOrderInfo">
+  	insert into product_order_info(order_info_no, order_no, product_cnt, product_price, product_info_no)
+  	values(order_info_seq.nextval, #{orderNo}, #{productCnt}, #{productPrice}, #{productInfoNo})
+  </insert>
+  <select id="getProductNo" resultType="int">
+  	select * 
+	from product_order
+	where order_no = (select MAX(order_no) from product_order)
+  </select>
   <delete id="delOrderBasket" parameterType="com.wear.basket.vo.BasketVO">
   	delete from basket
   	where product_info_no = #{productInfoNo}

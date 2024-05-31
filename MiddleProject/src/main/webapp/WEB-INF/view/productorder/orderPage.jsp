@@ -229,12 +229,12 @@ function sample4_execDaumPostcode() {
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productPrice }</span>
+										<span class="reviewnum pprice" data-pPrice="${oList.productPrice }">${oList.productPrice }</span>
 									</div>
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productCnt eq 0 ? 1 : oList.productCnt }개</span>
+										<span class="reviewnum pcnt" data-pCnt="${oList.productCnt eq 0 ? 1 : oList.productCnt }">${oList.productCnt eq 0 ? 1 : oList.productCnt }개</span>
 									</div>
 								</td>
 								<td>
