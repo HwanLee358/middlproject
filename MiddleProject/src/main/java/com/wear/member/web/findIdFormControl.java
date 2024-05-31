@@ -16,8 +16,7 @@ public class findIdFormControl implements Control {
 		//String path = "WEB-INF/view/member/findId.jsp";
 		String path = "member/findId.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-		
-		
+
 	}
 
 }
