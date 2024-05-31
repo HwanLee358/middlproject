@@ -127,11 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	// wish-list
 	document.querySelector('.wish-list').addEventListener('click', function() {
 		fetch('registerWisht.do?pno=' + productNo+ '&userId=' + userId)
-		console.log('제품번호!!!!!',productNo)
 			.then(resolve => resolve.json())
 			.then(result => {
 				console.log('result', result);
-				if (result.retCode == 'success') {
+				if (result.status == 'success') {
 					alert('성공');
 				} else {
 					alert('처리실패!');

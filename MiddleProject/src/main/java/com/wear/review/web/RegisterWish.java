@@ -17,7 +17,7 @@ public class RegisterWish implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
-	
+		
 		
 		String pno = req.getParameter("pno");
 		String userId = req.getParameter("userId");
