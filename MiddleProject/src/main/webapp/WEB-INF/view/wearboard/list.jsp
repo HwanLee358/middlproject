@@ -38,58 +38,6 @@
 				</ul>
 			</div>
 		</div>
-		<!-- 추천상품 -->
-		<c:if test="${empty categoryName && categoryNo ne 1 && categoryNo ne 2}">
-		<div class="xans-element- xans-product xans-product-listrecommend recommend_wrap">
-			<div class="ec-base-product">
-				<div class="title">
-					<h3><span>BEST ITEM</span></h3>
-				</div>
-				<ul class="prdList grid3">
-					<li class="xans-record-">
-						<div class="thumbnail">
-							<div class="prdlmg">
-								<a href="#" name=""><img src="images/리모라운드넥니트.gif" id="" alt=""></a>
-							</div>
-							<div class="icon">
-								<div class="button">
-										<span>
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="">
-										</span>
-										<span>
-											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart">
-										</span>
-								</div>									
-							</div>
-						</div>
-						<div class="description">
-							<strong class="name">
-								<a href="#">
-									<span class="title displaynone"></span>
-									<b>
-										<span style="font-size:12px;color:#555555;">리모라운드넥니트</span><b></b>
-									</b>
-								</a>
-							</strong>
-							<ul class="xans-element- xans-product xans-product-listitem spec">
-								<li class="xans-record-">
-									<span style="font-size:12px;color:#000000;font-weight:bold;">
-									<fmt:formatNumber>12900</fmt:formatNumber> 
-									</span>
-								</li>
-								<li class="xans-record-">
-									<strong class="title">
-										<span style="font-size:10px;color:#333333;font-weight:bold;">리뷰</span> :
-									</strong>
-									<span style="font-size:10px;color:#333333;font-weight:bold;">1</span>
-								</li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		</c:if>
 		<!-- 일반상품 -->
 		<div class="list_normal">
 			<div class="ec-base-product">
