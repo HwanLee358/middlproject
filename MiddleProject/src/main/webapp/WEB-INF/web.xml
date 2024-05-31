@@ -9,7 +9,6 @@
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
 	</listener>
 
-
 	<!-- 서블릿과 url매칭 -->
 	<servlet>
 		<servlet-name>FrontControl</servlet-name>

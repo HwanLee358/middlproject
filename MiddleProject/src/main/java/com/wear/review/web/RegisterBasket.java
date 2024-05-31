@@ -15,6 +15,8 @@ public class RegisterBasket implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("application/json");
 		
 		String cnt = req.getParameter("cnt");
 		String pino = req.getParameter("pino");
@@ -29,17 +31,15 @@ public class RegisterBasket implements Control {
 		
 		if(svc.addBasket(bvo)) {
 			System.out.println("등록성공");
-			resp.sendRedirect("basketList1.do");
+			resp.getWriter().write("{\"status\":\"success\"}");
+			//resp.sendRedirect("basketList1.do");
 		}else {
 			System.out.println("실패");
-			resp.sendRedirect("productDetail.do");
+			resp.getWriter().write("{\"status\":\"fail\"}");
+			//resp.sendRedirect("productDetail.do");
 		}
 		
-
-
-		resp.setContentType("application/json");
-		resp.setCharacterEncoding("UTF-8");
-		resp.getWriter().write("{\"status\":\"success\"}");
+		
 		
 	}
 
