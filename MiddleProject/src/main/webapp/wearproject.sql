@@ -19,17 +19,6 @@ modify views number default 0;
 alter table qna
 modify creation_date default sysdate;
 
-ALTER TABLE basket ADD CONSTRAINT FK_product_info_TO_basket_1 FOREIGN KEY (
-	product_info_no
-)
-REFERENCES product_info (
-	product_info_no
-);
-
-
-
-
-
 
 CREATE TABLE MEMBERS (
 	user_id	varchar2(30)		NOT NULL,
@@ -50,7 +39,7 @@ CREATE TABLE PRODUCT (
 	product_name	varchar2(100)		NOT NULL,
 	product_price	number		NOT NULL,
 	product_img	varchar2(200)		NOT NULL,
-	product_date	date	DEFAULT sysdate	NULL,
+	product_date	date	DEFAULT sysdate,
 	product_detail_img	varchar2(200)		NOT NULL
 );
 
@@ -58,6 +47,7 @@ CREATE TABLE product_order (
 	order_no	number		NOT NULL,
 	user_id	varchar2(30)		NOT NULL,
 	product_info_no	number		NOT NULL,
+	user_name	varchar2(30)		NOT NULL,
 	product_date	date	DEFAULT sysdate,
 	user_phone	varchar(20)		NOT NULL,
 	user_email	varchar2(100)		NOT NULL,
@@ -83,18 +73,12 @@ CREATE TABLE basket (
 
 CREATE TABLE product_review (
 	view_no	number		NOT NULL,
+	user_id	varchar2(30)		NOT NULL,
 	product_no	number		NOT NULL,
-	view_like_cnt	number	DEFAULT 0,
 	view_score	number		NULL,
 	content	varchar2(200)		NOT NULL,
 	view_date	date	DEFAULT sysdate,
 	review_img	varchar2(200)		NULL
-);
-
-CREATE TABLE product_like (
-	like_no	number		NOT NULL,
-	view_no	number		NOT NULL,
-	user_id	varchar2(30)		NOT NULL
 );
 
 CREATE TABLE QNA (
@@ -103,8 +87,8 @@ CREATE TABLE QNA (
 	product_no	number		NOT NULL,
 	post_title	varchar2(50)		NOT NULL,
 	content	varchar2(100)		NOT NULL,
-	creation_date	date		default sysdate,
-	views	number	DEFAULT 0	NULL
+	creation_date	date		NULL,
+	views	number	DEFAULT 0
 );
 
 CREATE TABLE cancel_echange_return (
@@ -163,11 +147,6 @@ ALTER TABLE basket ADD CONSTRAINT PK_BASKET PRIMARY KEY (
 );
 
 ALTER TABLE product_review ADD CONSTRAINT PK_PRODUCT_REVIEW PRIMARY KEY (
-	view_no
-);
-
-ALTER TABLE product_like ADD CONSTRAINT PK_PRODUCT_LIKE PRIMARY KEY (
-	like_no,
 	view_no,
 	user_id
 );
@@ -211,6 +190,14 @@ ALTER TABLE wishlist ADD CONSTRAINT FK_MEMBERS_TO_wishlist_1 FOREIGN KEY (
 REFERENCES MEMBERS (
 	user_id
 );
+
+ALTER TABLE basket ADD CONSTRAINT FK_product_info_TO_basket_1 FOREIGN KEY (
+	product_info_no
+)
+REFERENCES product_info (
+	product_info_no
+);
+
 ALTER TABLE basket ADD CONSTRAINT FK_MEMBERS_TO_basket_1 FOREIGN KEY (
 	user_id
 )
@@ -218,14 +205,7 @@ REFERENCES MEMBERS (
 	user_id
 );
 
-ALTER TABLE product_like ADD CONSTRAINT FK_product_review_TO_product_like_1 FOREIGN KEY (
-	view_no
-)
-REFERENCES product_review (
-	view_no
-);
-
-ALTER TABLE product_like ADD CONSTRAINT FK_MEMBERS_TO_product_like_1 FOREIGN KEY (
+ALTER TABLE product_review ADD CONSTRAINT FK_MEMBERS_TO_product_review_1 FOREIGN KEY (
 	user_id
 )
 REFERENCES MEMBERS (

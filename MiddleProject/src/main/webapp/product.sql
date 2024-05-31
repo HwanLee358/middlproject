@@ -1,6 +1,3 @@
-create sequence product_seq;
-
-
 insert into product(product_no, category_no, product_name, product_price, product_img, product_detail_img)
 values(product_seq.nextval, 8,'투포켓바스락셔츠', 12900,'투포켓바스락셔츠', '투포켓바스락셔츠_1');
 insert into product(product_no, category_no, product_name, product_price, product_img, product_detail_img)

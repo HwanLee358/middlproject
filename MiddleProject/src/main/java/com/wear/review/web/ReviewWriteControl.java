@@ -50,7 +50,8 @@ public class ReviewWriteControl implements Control {
 		ReviewService svr = new ReviewServiceImpl();
 		ReviewVO rvo = new ReviewVO();
 		// MemberVO mvo = svr.checkMember();
-
+		
+		rvo.setProductNo(Integer.parseInt(pno));
 		rvo.setContent(content);
 		rvo.setViewScore(Integer.parseInt(score));
 		rvo.setReviewImg(img);
