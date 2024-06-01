@@ -22,10 +22,11 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public List<OrderVO> directList(int productInfoNo) {
+	public OrderVO directList(int productInfoNo) {
 		// TODO Auto-generated method stub
 		return mapper.directOrder(productInfoNo);
-	}
+	}	
+	
 
 	@Override
 	public Boolean addOrder(SaveOrderVO order) {
@@ -49,5 +50,8 @@ public class OrderServiceImpl implements OrderService{
 	public Boolean OrderInfo(OrderInfoVO orderInfo) {
 		// TODO Auto-generated method stub
 		return mapper.insertOrderInfo(orderInfo) == 1;
-	}	
+	}
+
+
+
 }

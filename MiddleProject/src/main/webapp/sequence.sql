@@ -15,3 +15,5 @@ drop sequence product_info_no_seq;
 drop sequence basket_seq;
 drop sequence product_order_seq;
 drop sequence view_no_seq;
+drop sequence order_no_seq;
+drop sequence order_info_seq;

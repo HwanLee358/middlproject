@@ -12,6 +12,9 @@ public interface ProductMapper {
 
 	// 장바구니 데이터 생성.
 	int insertBasket(BasketVO bvo);
+	int getBasket(BasketVO gb);
+	
+	
 	// 위시리스트 데이터 추가
 	int insertWish(WishVO wvo);
 	

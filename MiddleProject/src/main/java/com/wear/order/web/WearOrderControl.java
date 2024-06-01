@@ -56,15 +56,18 @@ public class WearOrderControl implements Control {
 				ovo.setOrderNo(productNo);
 				ovo.setProductCnt(Integer.parseInt(productCnt[i]));
 				ovo.setProductPrice(Integer.parseInt(productPrice[i]));
+				ovo.setProductInfoNo(Integer.parseInt(postNo[i]));
+				
 				if (svc.OrderInfo(ovo)) {
 					BasketVO bvo = new BasketVO();
 					bvo.setProductInfoNo(Integer.parseInt(postNo[i]));
 					bvo.setUserId(id);
 					if (svc.remove(bvo)) {
-						resp.getWriter().print("{\"retCode\": \"OK\"}");
+						
 					}
 				}
 			}
+			resp.getWriter().print("{\"retCode\": \"OK\"}");
 		}
 	}
 

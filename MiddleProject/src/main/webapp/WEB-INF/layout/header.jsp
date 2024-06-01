@@ -41,7 +41,7 @@
 									<a href="logout.do"><span><strong>로그아웃</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
-									<a href="#"><span><strong>주문조회</strong></span></a>
+									<a href="orderInfo.do"><span><strong>주문조회</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
 									<a href="info.do?id=${logId }"><span><strong>마이페이지</strong></span></a>

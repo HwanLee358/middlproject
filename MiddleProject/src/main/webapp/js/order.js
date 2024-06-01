@@ -19,17 +19,14 @@ document.querySelector('.payMent').addEventListener('click',function(){
 	let address3 = f.address3.value;
 	let address4 = f.address4.value;
 
-	document.querySelectorAll('.productInfo').forEach(e=>{
-		postNo[i] = e.defaultValue;
-		i++;
+	document.querySelectorAll('.productInfo').forEach((e,idex)=>{
+		postNo[idex] = e.defaultValue;
 	})
-	document.querySelectorAll('.pprice').forEach(e=>{
-		pPrice[j] = e.dataset.pprice;
-		j++;
+	document.querySelectorAll('.pprice').forEach((e,idex)=>{
+		pPrice[idex] = e.dataset.pprice;
 	})
-	document.querySelectorAll('.pcnt').forEach(e=>{
-		pCnt[k] = e.dataset.pcnt;
-		k++;
+	document.querySelectorAll('.pcnt').forEach((e,idex)=>{
+		pCnt[idex] = e.dataset.pcnt;
 	})
 	
 	fetch('order.do',{
@@ -39,8 +36,9 @@ document.querySelector('.payMent').addEventListener('click',function(){
 	})
 		.then(resolve => resolve.json())
 		.then(result => {
+			console.log(result);
 			if (result.retCode == 'OK') {
-				location.href = "";
+				location.href = "orderComplete.do";
 			}})
 		.catch(errorCall => console.log(errorCall));
 })

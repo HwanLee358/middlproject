@@ -1,6 +1,7 @@
 package com.wear.order.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,10 +35,16 @@ public class WearOrderFormControl implements Control {
 		}
 		MemberService mvc = new MemberServiceImpl();
 		OrderService svc = new OrderServiceImpl();
-		List<OrderVO> list;
+		List<OrderVO> list = new ArrayList<OrderVO>();
 		
 		if(form.equals("direct")) {
-			list = svc.directList(2);
+			String pNo = req.getParameter("pno");
+			String[] postNo = pNo.split(",");
+			for(int i =0; i<postNo.length; i++) {
+				OrderVO vo = new OrderVO();
+				vo = svc.directList(Integer.parseInt(postNo[i]));
+				list.add(vo);
+			}							
 		}else if(form.equals("basket")){
 			list = svc.selectList(id);			
 		}else {

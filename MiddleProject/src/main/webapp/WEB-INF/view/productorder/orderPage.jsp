@@ -45,6 +45,37 @@ em {
 	position: relative;
 	margin-top: 60px;
 }
+
+.list-btm{
+	margin-top : 10px;
+	display: block;
+	text-align: center;
+}
+
+.payMent {
+	 width: 235px;
+    background: #000;
+    border-color: #000;
+    color: #fff;
+    font-weight: 600;
+    
+    min-width: 142px;
+    height: 46px;
+    border: 1px solid #d0d0d0;
+    line-height: 46px;
+    text-align: center;
+    font-size: 14px;
+}
+.calCel{
+	min-width: 142px;
+    height: 46px;
+    border: 1px solid #d0d0d0;
+    line-height: 46px;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    box-sizing: border-box;
+}
 </style>
 <script>
 function sample4_execDaumPostcode() {
@@ -263,7 +294,7 @@ function sample4_execDaumPostcode() {
 					</tfoot>
 				</table>
 				<div class="list-btm">
-					<button>취소</button>
+					<button class="calCel">취소</button>
 					<button class="payMent">결제하기</button>
 				</div>
 			</div>

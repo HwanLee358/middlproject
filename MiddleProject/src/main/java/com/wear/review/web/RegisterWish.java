@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wear.common.Control;
 import com.wear.review.service.ProductService;
@@ -18,9 +19,10 @@ public class RegisterWish implements Control {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		
-		
 		String pno = req.getParameter("pno");
-		String userId = req.getParameter("userId");
+		HttpSession session = req.getSession();
+		String userId = (String)session.getAttribute("logId");
+//		String userId = req.getParameter("userId");
 
 		WishVO wvo = new WishVO();
 		wvo.setProductNo(Integer.parseInt(pno));

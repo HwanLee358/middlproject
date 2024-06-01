@@ -115,13 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
 					console.log('productInfoNo', productInfoNo);
 					if (result.retCode == 'success') {
 						alert('성공');
+						location.href = 'basketList1.do';
 					} else {
 						alert('처리실패!');
 					}
 				})
 				.catch(err => console.log(err));
 		});
-		location.href = 'basketList1.do';
+		alert("장바구니에 동일한 제품이 이미 존재합니다");
 	})
 
 	// wish-list
@@ -131,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			.then(result => {
 				console.log('result', result);
 				if (result.status == 'success') {
-					alert('성공');
+					alert('관심상품으로 등록되었습니다');
 				} else {
 					alert('처리실패!');
 				}
@@ -144,12 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	//buy-now
 	document.querySelector('.buy-now').addEventListener('click', function() {
-		document.querySelectorAll('.selected-options div').forEach(item => {
-
-
+		const pno = new Array;
+		document.querySelectorAll('.selected-options div').forEach((item,idex) => {
+			pno[idex] = item.dataset.pno;
 		})
 		//pinfono, cnt Array 로 넘기기
-		location.href = 'orderForm.do?form=direct&p=' + '';
+		location.href = `orderForm.do?form=direct&pno=${pno}`;
 	})
 
 

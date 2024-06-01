@@ -26,6 +26,10 @@
 		values(WISHLIST_SEQ.nextval, #{productNo}, #{userId})
 	</insert>
 	
-
-	
+	<select id="getBasket" resultType="int">
+		select count(*) 
+		from basket 
+		where product_info_no = #{productInfoNo}
+		and user_id = #{userId}
+	</select>
 </mapper>

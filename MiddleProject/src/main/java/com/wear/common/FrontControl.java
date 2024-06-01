@@ -55,6 +55,7 @@ import com.wear.member.web.memberinfoResultControl;
 import com.wear.order.web.WearOrderCompleteControl;
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
+import com.wear.order.web.WearOrderInfoControl;
 import com.wear.review.web.BuyNow;
 import com.wear.review.web.ModifyReviewFormControl;
 import com.wear.review.web.ProductDetailControl;
@@ -87,6 +88,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/orderForm.do", new WearOrderFormControl());
 		map.put("/order.do", new WearOrderControl());
 		map.put("/orderComplete.do", new WearOrderCompleteControl());
+		map.put("/orderInfo.do", new WearOrderInfoControl());
+		
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
 		map.put("/addWish.do", new WearaddWishControl());

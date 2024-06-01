@@ -12,7 +12,7 @@ public class WearOrderCompleteControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "productorder/orderComplete.tiles";
+		String path = "productorder/orderCompleate.tiles";
 		
 		req.getRequestDispatcher(path).forward(req, resp);
 	}

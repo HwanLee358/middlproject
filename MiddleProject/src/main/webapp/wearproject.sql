@@ -1,9 +1,7 @@
 drop table members;
 drop table qna;
-drop table product_like;
 drop table product_order;
 drop table product_info;
-drop table product_in_out;
 drop table product_review;
 drop table product;
 drop table category;
@@ -11,6 +9,7 @@ drop table wishlist;
 drop table basket;
 drop table cancel_echange_return;
 drop table product_order_info;
+drop table product_order;
 
 
 alter table qna

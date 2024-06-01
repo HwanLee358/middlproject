@@ -11,7 +11,7 @@ public interface OrderMapper {
 	//전체 구매
 	List<OrderVO> selectList(String id);
 	//직접 구매
-	List<OrderVO> directOrder(int productInfo);
+	OrderVO directOrder(int productInfo);
 	
 	int getProductNo();
 	int insertOrder(SaveOrderVO order);

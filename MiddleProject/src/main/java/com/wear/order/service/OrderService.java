@@ -10,7 +10,7 @@ import com.wear.order.vo.SaveOrderVO;
 public interface OrderService {
 	List<OrderVO> selectList(String id);
 	
-	List<OrderVO> directList(int productInfoNo);
+	OrderVO directList(int productInfoNo);
 	Boolean addOrder(SaveOrderVO order);
 	Boolean OrderInfo(OrderInfoVO orderInfo);
 	
