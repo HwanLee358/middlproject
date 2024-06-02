@@ -1,13 +1,16 @@
 package com.wear.order.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.wear.basket.vo.BasketVO;
 import com.wear.common.DataSource;
 import com.wear.order.mapper.OrderMapper;
+import com.wear.order.vo.OrderCheckVO;
 import com.wear.order.vo.OrderInfoVO;
+import com.wear.order.vo.OrderNoVo;
 import com.wear.order.vo.OrderVO;
 import com.wear.order.vo.SaveOrderVO;
 
@@ -52,6 +55,25 @@ public class OrderServiceImpl implements OrderService{
 		return mapper.insertOrderInfo(orderInfo) == 1;
 	}
 
+	
+	
+	@Override
+	public List<Map<String, Object>> getOrderNo(String id) {
+		// TODO Auto-generated method stub
+		return mapper.getOrderNo(id);
+	}
 
+	@Override
+	public List<OrderCheckVO> getOrderCheck(OrderNoVo no) {
+		// TODO Auto-generated method stub
+		return mapper.getOrderCheck(no);
+	}
+
+	@Override
+	public int getOrderCnt(int productNo) {
+		// TODO Auto-generated method stub
+		return mapper.getOrderCount(productNo);
+	}
+	
 
 }

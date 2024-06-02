@@ -63,9 +63,9 @@
 
 	<!-- reviewList.jsp가져와서 붙이기 -->
 	<jsp:include page="reviewList.jsp" />
-	<c:if test="${empty logId }">
-		<button id="myBtn">리뷰 작성</button>
-	</c:if>
+	
+	<button id="myBtn">리뷰 작성</button>
+	
 
 </div>
 

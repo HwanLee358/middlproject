@@ -32,4 +32,31 @@
   	where product_info_no = #{productInfoNo}
   	and user_id = #{userId}
   </delete>
+  
+  
+  <select id="getOrderNo" resultType="map" parameterType="String">
+  	select order_no, product_date 
+	from product_order
+	where user_id = #{userId}
+  </select>
+  <select id="getOrderCount" resultType="int" parameterType="int">
+  	select count(*) 
+	from product_order_info
+	where order_no = #{orderNo}
+  </select>
+  <select id="getOrderCheck" resultType="com.wear.order.vo.OrderCheckVO" parameterType="com.wear.order.vo.OrderVO">
+  	select p.product_no, poi.order_no, po.product_date, 
+       	   p.product_name, p.product_img, 
+           pi.product_color, pi.product_size, 
+           poi.product_cnt, poi.product_price, 
+           po.address1, po.address2, po.address3, po.address4
+	from product_order_info poi join product_order po
+                              on poi.order_no = po.order_no
+                            join product_info pi
+                              on poi.product_info_no = pi.product_info_no
+                            join product p
+                              on p.product_no = pi.product_no
+	where po.user_id = #{userId}
+	and poi.order_no = #{orderNo}   
+  </select>
 </mapper>
