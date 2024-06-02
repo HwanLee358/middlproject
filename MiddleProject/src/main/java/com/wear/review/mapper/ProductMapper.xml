@@ -26,6 +26,24 @@
 		values(WISHLIST_SEQ.nextval, #{productNo}, #{userId})
 	</insert>
 	
-
+	<select id="memberList"  resultType="com.wear.member.vo.MemberVo">
+		select * from members 
+		where user_resp = 'user'
+		order by user_id
+	</select>
+	
+	<delete id="deleteMember" parameterType="com.wear.member.vo.MemberVo">
+		delete from members 
+		where user_id = #{userId}
+	</delete>
+	
+	
+	
+	
+	
 	
 </mapper>
+
+
+
+

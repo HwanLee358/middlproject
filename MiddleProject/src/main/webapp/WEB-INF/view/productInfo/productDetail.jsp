@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <link href="css/productDetail.css" rel="stylesheet" />
-<p>${result}</p>
 <div class="detail-container">
 	<!-- Main Product Image -->
 	<div class="main-product-image">
@@ -16,7 +15,7 @@
 			<span class="product-description">간절기 필수 아우터 ! 단독 셔츠느낌으로도 활용해보세요</span>
 			<div class="product-pricing">
 				<span class="price-label">판매가</span>
-				<span class="price">${result.productPrice }</span>
+				<span class="price">${result.productPrice } 원</span>
 			</div>
 		</div>
 		<div class="product-options">
@@ -62,6 +61,7 @@
 	</div>
 
 	<!-- reviewList.jsp가져와서 붙이기 -->
+	<a id="review"></a>
 	<jsp:include page="reviewList.jsp" />
 
 	<button id="myBtn">리뷰 작성</button>
@@ -71,7 +71,6 @@
 <!-- 여기부터 모달 -->
 <div class="product-actions">
 </div>
-<a id="review"></a>
 
 
 <form action="reviewWrite.do" enctype="multipart/form-data" method="post" name="reviewFrm">
@@ -80,8 +79,8 @@
 			<span class="close">&times;</span>
 			<h2>리뷰 작성</h2>
 			<div>
-				<img src="resources/images/v4_7.png" alt="Product Image" style="width: 100px; height: 100px;">
-				<span>${product.productName }</span>
+				<img src="images/wear/${result.productImg }.jpg" alt="Product Image" style="width: 100px; height: 100px;">
+				<span>${result.productName }</span>
 			</div>
 			<hr>
 			<div>
@@ -121,6 +120,7 @@
 <!-- QnA -->
 <link href="css/qnaboard.css" rel="stylesheet" />
 <link href="css/wearList.css" rel="stylesheet" />
+<a id="qna"></a>
 <div class="detailQnaList">
 	<div class="wrapper">
 		<div class="xans-product-menupackage">
