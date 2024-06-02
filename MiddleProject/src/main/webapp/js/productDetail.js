@@ -146,11 +146,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	//buy-now
 	document.querySelector('.buy-now').addEventListener('click', function() {
 		const pno = new Array;
+		const pCnt = new Array;
 		document.querySelectorAll('.selected-options div').forEach((item,idex) => {
 			pno[idex] = item.dataset.pno;
+			pCnt[idex] = item.children[1].value;
 		})
 		//pinfono, cnt Array 로 넘기기
-		location.href = `orderForm.do?form=direct&pno=${pno}`;
+		location.href = `orderForm.do?form=direct&pno=${pno}&pCnt=${pCnt}`;
 	})
 
 

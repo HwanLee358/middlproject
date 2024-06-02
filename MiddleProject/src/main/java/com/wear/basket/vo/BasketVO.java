@@ -12,4 +12,7 @@ public class BasketVO {
 	private String productNo;
 	private String productPrice;
 	private String productName;
+	
+	private String productColor;
+	private String productSize;
 }

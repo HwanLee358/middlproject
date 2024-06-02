@@ -29,7 +29,7 @@ let basket = {
 			result => {
 				console.log(result);
 				result.forEach(basket1 => {
-					console.log(basket1.basketNo);
+					console.log(basket1);
 					basket.basketCount += basket1.productCnt;
 					basket.basketTotal += (basket1.productCnt * basket1.productPrice);
 
@@ -38,7 +38,9 @@ let basket = {
 					rowDiv.setAttribute('data-id', basket1.basketNo);
 					rowDiv.querySelector('div.img>img').setAttribute('src', './images/wear/' + basket1.productImg + '.jpg');
 					rowDiv.querySelector('div.pname>span').innerText = basket1.productName;
-					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = basket1.productPrice + "원";
+					rowDiv.querySelector('div.pname').children[3].innerText = `사이즈 : ${basket1.productSize}`;
+					rowDiv.querySelector('div.pname').children[4].innerText = `색깔 : ${basket1.productColor}`;
+					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = Number(basket1.productPrice).numberFormat() + "원";
 					// 배송비
 					rowDiv.querySelector('div.delivery_fee').value = basket1.deliveryfee;
 
@@ -49,8 +51,8 @@ let basket = {
 					rowDiv.querySelector('div.updown input').setAttribute('id', 'p_num' + basket1.basketNo);
 					// event
 					rowDiv.querySelector('div.updown input').onkeyup = () => basket.changePNum(basket1.basketNo);
-					rowDiv.querySelector('div.updown span').onclick = () => basket.changePNum(basket1.basketNo);
-					rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => basket.changePNum(basket1.basketNo);
+					//rowDiv.querySelector('div.updown span').onclick = () => basket.changePNum(basket1.basketNo);
+					//rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => basket.changePNum(basket1.basketNo);
 					// 개별합계
 					rowDiv.querySelector('div.sum').textContent = (basket1.productCnt * basket1.productPrice).numberFormat() + "원";
 					rowDiv.querySelector('div.sum').setAttribute('id', 'p_sum' + basket1.basketNo);
@@ -99,31 +101,30 @@ let basket = {
 	},
 
 	changePNum: function(basketNo) {
-		console.log(event);
-		let productCnt = -1;
-		if (event.target.nodeName == "I") {
-			if (event.target.className.indexOf("up") != -1) {
-				productCnt = 1;
-			}
-		} else if (event.target.nodeName == "INPUT") {
-			if (event.key == "ArrowUp") {
-				productCnt = 1;
-			}
-		}
+		let productCnt = document.querySelector(`#p_num${basketNo}`).value;
+		let s = event.code;
 		let productPrice = document.querySelector('#p_price' + basketNo).value; // 금액
-		let cntElem = document.querySelector('#p_num' + basketNo);
+		let cntElem = document.querySelector('#p_num' + basketNo).value;
 		let sumElem = document.querySelector('#p_sum' + basketNo);
 
 		let bvo = { basketNo, productCnt }
 		svc.basketUpdate(bvo, //
 			result => {
-				console.log(result);
-				cntElem.value = parseInt(cntElem.value) + productCnt; // 수량변경
-				sumElem.innerText = (productPrice * cntElem.value).numberFormat() + "원";
-				// 전체수량, 금액
-				basket.basketCount += productCnt;
-				basket.basketTotal += (productPrice * productCnt);
-				basket.reCalc();
+				if(result.retCode == "OK"){
+					console.log(result);
+					cntElem = Number(productCnt); // 수량변경
+					sumElem.innerText = (Number(productPrice) * cntElem).numberFormat() + "원";
+					// 전체수량, 금액
+					if(s == 'ArrowUp'){
+						basket.basketCount += 1;
+						basket.basketTotal += (productPrice * 1);				
+					}
+					if(s == 'ArrowDown'){
+						basket.basketCount -= 1;
+						basket.basketTotal -= (productPrice * 1);	
+					}
+					basket.reCalc();	
+				}
 			},
 			err => {
 				console.log(err);

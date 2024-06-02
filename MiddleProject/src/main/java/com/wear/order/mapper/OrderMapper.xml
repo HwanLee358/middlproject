@@ -38,6 +38,7 @@
   	select order_no, product_date 
 	from product_order
 	where user_id = #{userId}
+	order by order_no desc
   </select>
   <select id="getOrderCount" resultType="int" parameterType="int">
   	select count(*) 

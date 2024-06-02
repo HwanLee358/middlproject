@@ -40,9 +40,12 @@ public class WearOrderFormControl implements Control {
 		if(form.equals("direct")) {
 			String pNo = req.getParameter("pno");
 			String[] postNo = pNo.split(",");
+			String pCnt = req.getParameter("pCnt");
+			String[] productCnt = pCnt.split(",");
 			for(int i =0; i<postNo.length; i++) {
 				OrderVO vo = new OrderVO();
 				vo = svc.directList(Integer.parseInt(postNo[i]));
+				vo.setProductCnt(Integer.parseInt(productCnt[i]));
 				list.add(vo);
 			}							
 		}else if(form.equals("basket")){
