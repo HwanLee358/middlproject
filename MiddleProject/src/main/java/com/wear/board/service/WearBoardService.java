@@ -27,4 +27,9 @@ public interface WearBoardService {
 	List<CategoryVO> searchOption();
 	//category menu
 	List<Map<String, String>> categoryList();
+	
+	
+	//cnt
+	int getWishCnts(String id);
+	int getCartCnt(String id);
 }

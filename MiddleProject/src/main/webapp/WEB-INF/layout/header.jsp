@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="wishlist">
-							<a href="wishList1.do"> 
+							<a href="wishList1.do" class="wish-btn"> 
 								<i class="lni lni-heart"></i> <span class="total-items">0</span>
 							</a>
 						</div>
@@ -86,4 +86,4 @@
 			</div>
 		</div>
 	</div>
-	
+<script type="text/javascript" src="js/getCartWishCnt.js"></script>	

@@ -33,4 +33,10 @@ public interface WearBoardMapper {
 	
 	//QnA
 	int addQnA(QnaVO board);
+	
+	
+	
+	//갯수
+	int getWishCnts(String id);
+	int getCartCnt(String id);
 }

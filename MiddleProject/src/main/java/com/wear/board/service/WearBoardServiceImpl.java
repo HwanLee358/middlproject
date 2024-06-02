@@ -92,6 +92,19 @@ public class WearBoardServiceImpl implements WearBoardService{
 		return mapper.bestList();
 	}
 
+	
+	@Override
+	public int getWishCnts(String id) {
+		// TODO Auto-generated method stub
+		return mapper.getWishCnts(id);
+	}
+
+	@Override
+	public int getCartCnt(String id) {
+		// TODO Auto-generated method stub
+		return mapper.getCartCnt(id);
+	}
+
 
 
 }

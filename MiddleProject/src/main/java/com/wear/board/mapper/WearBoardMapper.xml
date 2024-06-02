@@ -236,4 +236,19 @@
 		connect by category_no_ref = prior category_no
 		order siblings by category_no
 	</select>
+	
+	<select id="getWishCnts" resultType="int" parameterType="String">
+		select count(*)
+		from wishlist
+		where user_id = #{userId}
+	</select>
+	
+	<select id="getCartCnt" resultType="int" parameterType="String">
+		select count(*)
+		from basket
+		where user_id = #{userId}
+	</select>
+	
+	
+	
 </mapper>

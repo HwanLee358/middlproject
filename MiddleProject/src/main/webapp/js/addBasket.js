@@ -17,6 +17,7 @@
 			result => {
 				if(result.productNo == pno){
 					alert("관심상품 등록되었습니다.");
+					wishCnt();
 				}
 				},
 			err => console.log(err)
