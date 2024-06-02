@@ -10,6 +10,7 @@ import com.wear.board.vo.SearchVO;
 public interface WearBoardService {
 	//recent
 	List<ProductVO> RecentList();
+	List<ProductVO> bestList();
 	// category main
 	List<ProductVO> WearBoardList(SearchVO search);
 	List<CategoryVO> categorytitle(String no);

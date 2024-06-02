@@ -53,9 +53,11 @@
 										<span data-product_no="${List.productNo }">
 											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="${List.productImg }" onclick='insertWishList()'>
 										</span>
+										<!-- 
 										<span data-product_no="${List.productNo }">
 											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart" >
 										</span>
+										 -->
 								</div>									
 							</div>
 						</div>
@@ -74,12 +76,14 @@
 									<fmt:formatNumber>${List.productPrice }</fmt:formatNumber> 
 									</span>
 								</li>
+								<!--  
 								<li class="xans-record-">
 									<strong class="title">
 										<span style="font-size:10px;color:#333333;font-weight:bold;">리뷰</span> :
 									</strong>
 									<span style="font-size:10px;color:#333333;font-weight:bold;">1</span>
 								</li>
+								-->
 							</ul>
 						</div>
 					</li>
@@ -116,4 +120,3 @@
 		</div>
 	</div>
 <script src="js/addBasket.js"></script>
-<script src="js/addWishlist.js"></script>

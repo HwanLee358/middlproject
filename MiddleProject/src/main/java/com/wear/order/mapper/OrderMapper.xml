@@ -9,6 +9,13 @@
                          left join basket b on (pi.product_info_no = b.product_info_no)
 	where b.user_id = #{userId} 
   </select>
+  <select id="getOrderBasket" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
+  	select p.product_name, p.product_price, pi.product_color, pi.product_size, b.product_cnt, pi.product_info_no
+	from product_info pi left join product p on (pi.product_no = p.product_no)
+                     left join basket b on (pi.product_info_no = b.product_info_no)
+	where b.user_id = #{userId}
+	and b.basket_no = #{basketNo}
+  </select>
   <select id="directOrder" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
   	select p.product_no, p.product_name, p.product_price, pi.product_color, pi.product_size, pi.product_info_no
 	from product_info pi left join product p on (pi.product_no = p.product_no)
@@ -34,11 +41,26 @@
   </delete>
   
   
-  <select id="getOrderNo" resultType="map" parameterType="String">
-  	select order_no, product_date 
+  
+  <select id="getOrderNo" resultType="map" parameterType="com.wear.order.vo.OrderNoVo">
+  	select r.* 
+	from ( select rownum rn, a.*
+       	   from (select *
+                 from product_order
+                 where user_id = #{userId}
+                 order by order_no desc)a
+                  <![CDATA[	 
+                 where rownum <= #{page} * 5)r
+                 ]]>
+	where r.rn > (#{page} - 1)*5
+	and user_id = #{userId}
+	order by order_no desc
+  </select>
+  
+  <select id="getPageOrderCount" resultType="int" parameterType="String">
+  	select count(*)
 	from product_order
 	where user_id = #{userId}
-	order by order_no desc
   </select>
   <select id="getOrderCount" resultType="int" parameterType="int">
   	select count(*) 

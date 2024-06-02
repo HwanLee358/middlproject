@@ -18,7 +18,12 @@
   	insert into wishlist(wishlist_no, product_no, user_id)
 	values(wishlist_seq.nextval, #{productNo}, #{userId})
   </insert>
-  
+  <select id="getSelectWish" resultType="int" parameterType="wishlist">
+  	select count(*) 
+  	from wishlist
+  	where user_id = #{userId}
+  	and product_no = #{productNo}
+  </select>
   <select id="sWishList" resultType = "com.wear.wishlist.vo.WishVO" parameterType="int">
   	select p.product_name, pi.product_color, pi.product_size, p.product_price, pi.product_info_no
 	from product p left join product_info pi on (p.product_no = pi.product_no)

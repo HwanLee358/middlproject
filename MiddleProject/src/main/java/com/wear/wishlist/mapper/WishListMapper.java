@@ -10,6 +10,6 @@ public interface WishListMapper {
 	int deletewishList(int wishlistno);
 	
 	int insertWishlist(WishListVO wishlist);
-	
+	int getSelectWish(WishListVO wishlist);
 	List<WishVO> sWishList(int productNo);
 }

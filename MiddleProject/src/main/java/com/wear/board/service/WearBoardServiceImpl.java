@@ -86,6 +86,12 @@ public class WearBoardServiceImpl implements WearBoardService{
 		return mapper.RecentList();
 	}
 
+	@Override
+	public List<ProductVO> bestList() {
+		// TODO Auto-generated method stub
+		return mapper.bestList();
+	}
+
 
 
 }

@@ -49,7 +49,20 @@ public class WearOrderFormControl implements Control {
 				list.add(vo);
 			}							
 		}else if(form.equals("basket")){
-			list = svc.selectList(id);			
+			String sel = req.getParameter("selete");
+			if(sel.equals("seleted")) {
+				String bno = req.getParameter("bno");
+				String[] basketNo = bno.split(",");
+				for(int i = 0; i < basketNo.length; i++) {
+					OrderVO vo = new OrderVO();
+					vo.setBasketNo(Integer.parseInt(basketNo[i]));
+					vo.setUserId(id);
+					vo = svc.getOrderBasket(vo);
+					list.add(vo);
+				}
+			}else {
+				list = svc.selectList(id);							
+			}
 		}else {
 			resp.sendRedirect("main.do");
 			return;

@@ -166,11 +166,8 @@ input, select, textarea {
 							</div>
 							<div class="icon">
 								<div class="button">
-										<span>
-											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="">
-										</span>
-										<span>
-											<img src="images/icon_202204071148220700.png" class="ec-admin-icon cart">
+										<span data-product_no="${search.productNo }">
+											<img src="images/icon_202204071148303300.png" class="icon_img ec-product-listwishicon" alt="" onclick='insertWishList()'>
 										</span>
 								</div>									
 							</div>
@@ -190,12 +187,14 @@ input, select, textarea {
 									<fmt:formatNumber>${search.productPrice }</fmt:formatNumber> 
 									</span>
 								</li>
+								<!--  
 								<li class="xans-record-">
 									<strong class="title">
 										<span style="font-size:10px;color:#333333;font-weight:bold;">리뷰</span> :
 									</strong>
 									<span style="font-size:10px;color:#333333;font-weight:bold;">1</span>
 								</li>
+								-->
 							</ul>
 						</div>
 					</li>
@@ -223,3 +222,4 @@ input, select, textarea {
 			</c:if>
 		</div>
 	</div>
+<script src="js/addBasket.js"></script>	

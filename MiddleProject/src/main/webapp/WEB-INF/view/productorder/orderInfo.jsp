@@ -88,5 +88,25 @@
 				</table>
 			</div>
 		</div>
+		<!-- paging -->
+		<div class="xans-element- xans-product xans-product-normalpaging ec-base-paginate">
+			<c:if test="${orderPaging.prev }">
+			<a href="#" class="first">
+				<img src="images/btn_page_prev.png" />
+			</a>
+			</c:if>
+			<ol>
+				<c:forEach var="p" begin="${orderPaging.startPage }" end="${orderPaging.endPage }">
+				<li class="xans-record-">							
+					<a href="orderInfo.do?page=${p }" class="${p == orderPaging.page ? 'this' : 'other' }">${p }</a>					
+				</li>
+				</c:forEach>
+			</ol>
+			<c:if test="${orderPaging.next }">
+			<a href="#" class="last" style="center">
+				<img src="images/btn_page_next.png" />
+			</a>
+			</c:if>
+		</div>
 	</div>
 </div>

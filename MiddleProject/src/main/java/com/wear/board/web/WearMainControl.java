@@ -19,8 +19,10 @@ public class WearMainControl implements Control {
 		String path = "wearboard/main.tiles";
 		WearBoardService svc = new WearBoardServiceImpl();
 		List<ProductVO> list = svc.RecentList();
-		
+		List<ProductVO> bestList = svc.bestList();
+		System.out.println(bestList);
 		req.setAttribute("wearList", list);
+		req.setAttribute("WearBest", bestList);
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 

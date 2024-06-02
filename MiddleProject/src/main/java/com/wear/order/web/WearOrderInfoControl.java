@@ -16,6 +16,7 @@ import com.wear.order.service.OrderService;
 import com.wear.order.service.OrderServiceImpl;
 import com.wear.order.vo.OrderCheckVO;
 import com.wear.order.vo.OrderNoVo;
+import com.wear.review.vo.PageDTO;
 
 public class WearOrderInfoControl implements Control {
 
@@ -26,10 +27,17 @@ public class WearOrderInfoControl implements Control {
 		if(userId == null) {
 			resp.sendRedirect("logForm.do");
 		}
+		String page = req.getParameter("page");
+		page = page == null ? "1" : page;
+		
 		OrderService svo = new OrderServiceImpl();
-		List<Map<String, Object>> list = svo.getOrderNo(userId);
+		OrderNoVo nvo = new OrderNoVo();
+		nvo.setUserId(userId);
+		nvo.setPage(Integer.parseInt(page));
+		List<Map<String, Object>> list = svo.getOrderNo(nvo);
 		List<Map<String, Object>> orlist = new ArrayList<Map<String,Object>>();
 		System.out.println(list);
+		
 		for(Map<String, Object> map : list) {
 			Map<String, Object> ormap = new HashMap<String, Object>();
 			ormap.put("order_no", map.get("ORDER_NO"));
@@ -47,7 +55,11 @@ public class WearOrderInfoControl implements Control {
 			orlist.add(ormap);
 		}
 		System.out.println(orlist);
+		
+		PageDTO paing = new PageDTO(Integer.parseInt(page), svo.getPageOrderCnt(userId));
+		
 		req.setAttribute("orList", orlist);
+		req.setAttribute("orderPaging", paing);
 		String path = "productorder/orderInfo.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}

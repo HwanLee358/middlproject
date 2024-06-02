@@ -9,7 +9,14 @@
 		from product
 		order by product_date
 	</select>
-	
+	<select id="bestList" resultType="com.wear.board.vo.ProductVO">
+		select p.product_no, p.product_name, p.category_no, p.product_price, p.product_img, p.product_date, p.product_detail_img, count(p.product_no) as cnt 
+		from product_order_info poi join product_info pi 
+                              on poi.product_info_no = pi.product_info_no
+                            join product p
+                              on p.product_no = pi.product_no
+		GROUP by p.product_no, p.product_name, p.category_no, p.product_price, p.product_img, p.product_date, p.product_detail_img
+	</select>
 	<!-- category main -->
 	<select id="boardcateList" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
 		select r.*

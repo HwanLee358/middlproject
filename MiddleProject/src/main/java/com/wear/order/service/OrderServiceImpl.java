@@ -58,9 +58,9 @@ public class OrderServiceImpl implements OrderService{
 	
 	
 	@Override
-	public List<Map<String, Object>> getOrderNo(String id) {
+	public List<Map<String, Object>> getOrderNo(OrderNoVo no) {
 		// TODO Auto-generated method stub
-		return mapper.getOrderNo(id);
+		return mapper.getOrderNo(no);
 	}
 
 	@Override
@@ -73,6 +73,18 @@ public class OrderServiceImpl implements OrderService{
 	public int getOrderCnt(int productNo) {
 		// TODO Auto-generated method stub
 		return mapper.getOrderCount(productNo);
+	}
+
+	@Override
+	public int getPageOrderCnt(String id) {
+		// TODO Auto-generated method stub
+		return mapper.getPageOrderCount(id);
+	}
+
+	@Override
+	public OrderVO getOrderBasket(OrderVO ov) {
+		// TODO Auto-generated method stub
+		return mapper.getOrderBasket(ov);
 	}
 	
 

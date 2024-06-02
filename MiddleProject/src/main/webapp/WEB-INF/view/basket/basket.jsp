@@ -117,7 +117,7 @@
 	<div id="goorder" class="">
 		<div class="clear"></div>
 		<div class="buttongroup center-align cmd">
-			<a href="orderForm.do?form=basket"
+			<a href="orderForm.do?form=basket&selete=all"
 				onclick="javascript:basket.orderAllItem()">전체 상품 주문</a> <a
 				href="javascript:void(0);"
 				onclick="javascript:basket.orderSelectedItem()">선택한 상품 주문</a>

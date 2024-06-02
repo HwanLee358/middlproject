@@ -6,4 +6,5 @@ import lombok.Data;
 public class OrderNoVo {
 	private String userId;
 	private int orderNo;
+	private int page;
 }
