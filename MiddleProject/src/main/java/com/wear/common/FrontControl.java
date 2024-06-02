@@ -31,7 +31,6 @@ import com.wear.board.web.WearQnamodifyControl;
 import com.wear.board.web.WearSearchControl;
 import com.wear.board.web.WearTotalControl;
 import com.wear.board.web.WearWishCntControl;
-import com.wear.board.web.WearaddWishControl;
 import com.wear.member.web.CheckIdControl;
 import com.wear.member.web.LoginControl;
 import com.wear.member.web.LoginForm;
@@ -92,7 +91,6 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/wishCnt.do", new WearWishCntControl());
 		map.put("/basketCnt.do", new WearBasketCntControl());
-		map.put("/addWish.do", new WearaddWishControl());
 		
 		
 		map.put("/qnaList.do", new WearQnAControl()); //qnaList

@@ -63,29 +63,24 @@
 				</div>
 				<div class="num">
 					<div class="updown">
-						<input type="text" name="p_num0" id="p_num0" size="1"
-							maxlength="2" class="p_num" value="2"
-							onkeyup="javascript: basket.changePNum(0);"> <span
-							class="updown-btn" onclick="javascript: basket.changePNum(0);">
-							<a href="javascript:;"
-							onmousedown="javascript:try{AW_F_D('4303','i',1);}catch(e){}">
-								<img
-								src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
-								alt="수량증가" class="up">
+						<input type="number" name="p_num0" id="p_num0" size="1" min="1" class="p_num" value="1" onkeyup="javascript: basket.changePNum(this);"> 
+						<!-- 
+						<span class="updown-btn" onclick="javascript: basket.changePNum(0);">
+						<a href="javascript:;" onmousedown="javascript:try{AW_F_D('4303','i',1);}catch(e){}">
+						<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
 						</a>
-						</span> <span class="updown-btn"
-							onclick="javascript: basket.changePNum(0);"> <a
-							href="javascript:;"
-							onmousedown="javascript:try{AW_F_D('4303','o',1);}catch(e){}">
-								<img
-								src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
-								alt="수량감소" class="down">
-						</a>
+						</span> 
+						
+						<span class="updown-btn" onclick="javascript: basket.changePNum(0);"> 
+						<a href="javascript:;" onmousedown="javascript:try{AW_F_D('4303','o',1);}catch(e){}">
+						<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
+						</a> 
 						</span>
+						-->
 					</div>
 				</div>
 				<!-- 에러나면 지울곳 -->
-				<div class="delivery_fee">3000원</div>
+				<div class="delivery_fee">무료</div>
 				<!-- 에러나면 지울곳 -->
 
 				<div class="sum" id="p_sum">40,000원</div>
@@ -122,7 +117,7 @@
 	<div id="goorder" class="">
 		<div class="clear"></div>
 		<div class="buttongroup center-align cmd">
-			<a href="orderForm.do?form=basket"
+			<a href="orderForm.do?form=basket&selete=all"
 				onclick="javascript:basket.orderAllItem()">전체 상품 주문</a> <a
 				href="javascript:void(0);"
 				onclick="javascript:basket.orderSelectedItem()">선택한 상품 주문</a>

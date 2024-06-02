@@ -10,4 +10,6 @@ public class ProductVO {
 	private int productPrice;
 	private String productImg;
 	private String productDate;
+	
+	private int cnt;
 }

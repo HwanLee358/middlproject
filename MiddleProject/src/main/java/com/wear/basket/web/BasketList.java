@@ -27,7 +27,7 @@ public class BasketList implements Control {
 		String id = (String) session.getAttribute("logId");
 		
 		List<BasketVO> list = svc.basketList(id);		
-
+		System.out.println(list);
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(list));
 	}

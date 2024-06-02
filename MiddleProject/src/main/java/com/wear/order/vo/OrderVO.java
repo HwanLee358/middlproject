@@ -12,4 +12,6 @@ public class OrderVO {
 	private int productCnt;
 	
 	private int productInfoNo;
+	private int basketNo;
+	private String userId;
 }

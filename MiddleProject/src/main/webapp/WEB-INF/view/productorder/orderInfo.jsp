@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>	
 <link href="css/qnaboard.css" rel="stylesheet" />
 <link href="css/wearList.css" rel="stylesheet" />
 <style>
@@ -78,14 +79,34 @@
 								</div>
 							</th>
 							<td><div class="tb-center">${list2.productCnt } 개</div></td>
-							<td><div class="tb-center"></div></td>
-							<td><div class="tb-center">${list2.productPrice }원</div></td>
+							<td><div class="tb-center">${list2.orderNo }</div></td>
+							<td><div class="tb-center"><fmt:formatNumber>${list2.productPrice * list2.productCnt}</fmt:formatNumber>원</div></td>
 						</tr>
 						</c:forEach>
 						</c:forEach>									
 					</tbody>
 				</table>
 			</div>
+		</div>
+		<!-- paging -->
+		<div class="xans-element- xans-product xans-product-normalpaging ec-base-paginate">
+			<c:if test="${orderPaging.prev }">
+			<a href="#" class="first">
+				<img src="images/btn_page_prev.png" />
+			</a>
+			</c:if>
+			<ol>
+				<c:forEach var="p" begin="${orderPaging.startPage }" end="${orderPaging.endPage }">
+				<li class="xans-record-">							
+					<a href="orderInfo.do?page=${p }" class="${p == orderPaging.page ? 'this' : 'other' }">${p }</a>					
+				</li>
+				</c:forEach>
+			</ol>
+			<c:if test="${orderPaging.next }">
+			<a href="#" class="last" style="center">
+				<img src="images/btn_page_next.png" />
+			</a>
+			</c:if>
 		</div>
 	</div>
 </div>
