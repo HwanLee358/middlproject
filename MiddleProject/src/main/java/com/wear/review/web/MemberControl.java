@@ -17,12 +17,12 @@ public class MemberControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+
 		MemberVo mvo = new MemberVo();
 		ProductService svp = new ProductServiceImpl();
 		
 		List<MemberVo> list = svp.getMemberList();
 		req.setAttribute("memberList", list);
-		
 		
 		String path = "productInfo/memberManagement.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);

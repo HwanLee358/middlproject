@@ -49,8 +49,10 @@ import com.wear.member.web.findPWResultFormControl;
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFailControl;
 import com.wear.member.web.joinFormControl;
+
 import com.wear.member.web.joinResultControl;
 import com.wear.member.web.logFailControl;
+
 import com.wear.member.web.memberinfoControl;
 import com.wear.member.web.memberinfoFormControl;
 import com.wear.member.web.memberinfoResultControl;
@@ -126,7 +128,9 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/adminpage.do", new AdminPage()); //관리자 페이지
 		map.put("/memberManagement.do", new MemberControl()); //관리자 회원관리
-		map.put("/memberRemove", new MemberRemoveControl()); //멤버삭제
+
+		map.put("/memberRemove.do", new MemberRemoveControl()); //멤버삭제
+
 		
 		// 맹선우
 		map.put("/basketList1.do", new BasketList1()); // 장바구니 화면 출력
@@ -151,12 +155,16 @@ public class FrontControl extends HttpServlet {
 		map.put("/logForm.do", new LoginForm()); // 로그인 관련
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
+
 		map.put("/check.do", new CheckIdControl());// 중복체크	
 		map.put("/logFail.do", new logFailControl());
+
 		
 		map.put("/findId.do", new findIdControl()); // 아이디찾기
 		map.put("/findIdForm.do", new findIdFormControl());
 		map.put("/findIdResultForm.do", new findIdResultFormControl()); // 결과창
+		
+		map.put("/findFail.do", new findFailControl()); //실패결과
 
 		map.put("/findPW.do", new findPWControl()); // 패스워드찾기
 		map.put("/findPWForm.do", new findPWFormControl());
@@ -172,6 +180,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/deleteForm.do", new deleteFormControl());
 		map.put("/deleteResult.do", new deleteResultControl());
 		map.put("/deleteFail.do", new deleteFailControl());
+		
 	//	map.put("/info.do", new memberinfoControl());
 	//	map.put("/infoForm.do", new memberinfoFormControl());
 		//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)

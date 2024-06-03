@@ -16,6 +16,7 @@ public class MemberRemoveControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uid = req.getParameter("userId");
+
 		String pNo = req.getParameter("pNo");
 
 		ProductService svp = new ProductServiceImpl();
@@ -23,9 +24,9 @@ public class MemberRemoveControl implements Control {
 		mvo.setUserId(uid);
 		
 		if(svp.removeMember(mvo)) {
-			resp.sendRedirect("productDetail.do?pno="+pNo);
+			resp.sendRedirect("memberManagement.do");
 		}else {
-			resp.sendRedirect("");
+			resp.sendRedirect("memberManagement.do");
 		}
 	}
 

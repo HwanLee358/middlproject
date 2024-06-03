@@ -24,16 +24,12 @@ public class deleteControl implements Control {
 		MemberVo vo = svc.sList(userId);
 		vo.setUserId(userId);
 		vo.setUserPW(userPW);
-		System.out.println(vo);
-		System.out.println(userId+"@@@@@아디");
-		System.out.println(userPW+"@@@@@비번");
+
 		
 		if (svc.deleteMember(vo)) { 
 			resp.sendRedirect("deleteResult.do");
-			System.out.println("난최강이다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
 		} else {
 			resp.sendRedirect("deleteFail.do");
-			System.out.println("실패.");
 
 		}
 	}

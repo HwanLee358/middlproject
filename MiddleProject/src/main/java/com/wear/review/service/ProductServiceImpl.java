@@ -39,12 +39,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<MemberVo> getMemberList() {
-		return mapper.memberList();
-	}
-
-
-	@Override
 	public boolean removeMember(MemberVo mvo) {
 		return mapper.deleteMember(mvo);
 	}
@@ -54,5 +48,9 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return mapper.getBasket(gb);
 	}
-
+	
+	@Override
+	public List<MemberVo> getMemberList() {
+		return mapper.memberList();
+	}
 }

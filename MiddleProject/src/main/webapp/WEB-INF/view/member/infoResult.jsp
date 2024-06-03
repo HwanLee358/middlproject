@@ -45,7 +45,6 @@ a{
 
 		<div class="links">
 		<a href="main.do">메인페이지</a> 
-	
 	</div>
 </div>
 </body>

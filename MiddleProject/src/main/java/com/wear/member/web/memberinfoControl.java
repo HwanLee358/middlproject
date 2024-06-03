@@ -32,8 +32,6 @@ public class memberinfoControl implements Control {
 		String userPhone = req.getParameter("phone");
 		String userEmail = req.getParameter("email");
 
-		System.out.println(userName+"그리워하다 하루가 다지났어");
-
 		MemberService svc = new MemberServiceImpl();
 		MemberVo member = new MemberVo();
 		
@@ -46,15 +44,14 @@ public class memberinfoControl implements Control {
 		member.setAddress4(address4);
 		member.setUserPhone(userPhone);
 		member.setUserEmail(userEmail);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		
+	
 		if (svc.modifyMember(member)) { // 수정...
 			resp.sendRedirect("infoResult.do");
-			System.out.println("성공@@@@@@@@@@@@@이닷@@@@@@");
+			System.out.println("성공");
 			
 		} else {
 			resp.sendRedirect("info.do");
-			System.out.println("비투비 그리워하다.");
+			System.out.println("실패");
 
 		}
 	

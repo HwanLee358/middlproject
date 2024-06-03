@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			fetch('registerBasket.do?cnt=' + cnt + '&pino=' + pno + '&userId=' + userId)
 				.then(resolve => resolve.json())
 				.then(result => {
-					console.log('productInfoNo', productInfoNo);
-					if (result.retCode == 'success') {
+					console.log(result);
+					if (result.status == 'success') {
 						alert('성공');
 						location.href = 'basketList1.do';
 					} else {
@@ -122,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				})
 				.catch(err => console.log(err));
 		});
-		alert("장바구니에 동일한 제품이 이미 존재합니다");
 	})
 
 	// wish-list

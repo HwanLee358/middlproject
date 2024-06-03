@@ -15,10 +15,11 @@ public interface ProductService {
 	ProductInfoVO getProductInfoNo(ProductInfoVO pvo);
 
 	boolean addBasket(BasketVO bvo);
+
 	int getBasket(BasketVO gb);
-	
-	
+
 	boolean addWish(WishVO wvo);
+
 	
 	//관리자페이지
 	List<MemberVo> getMemberList();

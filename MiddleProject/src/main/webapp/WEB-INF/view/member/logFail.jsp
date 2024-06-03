@@ -33,8 +33,6 @@
         <div class="links">
          <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'logForm.do' "><b>로그인화면</b></button>
          <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'main.do' "><b>메인페이지</b></button>
-
-
         </div>
 	</div>
    

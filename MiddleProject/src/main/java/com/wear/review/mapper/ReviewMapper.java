@@ -13,4 +13,5 @@ public interface ReviewMapper {
 	int getCnt(ReviewVO rvo);	//totalCnt[40]
 	int insertReview(ReviewVO review);
 	
+	
 }

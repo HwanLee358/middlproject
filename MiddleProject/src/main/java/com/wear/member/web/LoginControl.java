@@ -31,14 +31,11 @@ public class LoginControl implements Control {
 			session.setAttribute("logId", mvo.getUserId());
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
-				
-				//관리자 로그인하면 바로 회원관리& 재고관리 버튼 2개만 있는 페이지로
 				resp.sendRedirect("adminpage.do");
 			else
-				resp.sendRedirect("list.do");
+				resp.sendRedirect("logFail.do");
 			
 		} else {
-			System.out.println("히얼");
 			resp.sendRedirect("logFail.do");
 		}
 	}

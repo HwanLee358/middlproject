@@ -56,6 +56,7 @@
         <p class="text">아이디</p>
         <input type="text" name="userId" id="member_id"  class="form-control" placeholder="입력해주세요" required>
         &nbsp; &nbsp;
+
         <input type="button" id="overlay"  required placeholder="입력해주세요" onclick="checkUserId()" value="중복 체크"/><br/>
         <p id="idch" class="check"> </p><br/>
         <p class="text">비밀번호</p>

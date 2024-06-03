@@ -44,7 +44,6 @@
 		where product_info_no = #{productInfoNo}
 		and user_id = #{userId}
 	</select>
-
 </mapper>
 
 

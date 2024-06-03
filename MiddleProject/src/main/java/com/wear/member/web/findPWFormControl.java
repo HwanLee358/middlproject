@@ -16,6 +16,6 @@ public class findPWFormControl implements Control {
 		//String path = "WEB-INF/view/member/findPW.jsp";
 		String path = "member/findPW.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-
+		System.out.println("1번체크");
 	}
 }

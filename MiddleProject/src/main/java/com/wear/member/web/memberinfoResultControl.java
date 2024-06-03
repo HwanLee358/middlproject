@@ -16,7 +16,7 @@ public class memberinfoResultControl implements Control {
 	//	String path = "WEB-INF/view/member/infoResult.jsp";
 		String path = "member/infoResult.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-		System.out.println("@@@@@@@@@@@끝@@@@@@@@");
+
 	}
 
 }
