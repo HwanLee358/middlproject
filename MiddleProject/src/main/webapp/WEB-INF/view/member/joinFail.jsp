@@ -15,7 +15,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/findId.css" rel="stylesheet" type="text/css">
-    <title>로그인실패</title>
+    <title>회원가입 실패</title>
    
   </head>
 
@@ -28,11 +28,13 @@
 		</div>
 		
 		<div class="card-body">
-     		 <h4> 입력된 회원정보가 일치하지않습니다.</h4>
+     		 <h4> 회원가입에 실패했습니다. <br>중복체크를 해주세요.</h4>
       		</div>
         <div class="links">
-         <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'logForm.do' "><b>로그인화면</b></button>
+         <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'joinForm.do' "><b>회원가입</b></button>
          <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'main.do' "><b>메인페이지</b></button>
+
+
         </div>
 	</div>
    

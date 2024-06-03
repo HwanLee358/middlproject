@@ -28,12 +28,11 @@
 		</div>
 		
 		<div class="card-body">
-     		 <h4> 등록된정보가 일치하지않습니다.</h4>
+     		 <h4> 등록된 정보가 없습니다.</h4>
       		</div>
         <div class="links">
-         <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'list.do?id=${logId }' "><b>메인페이지</b></button>
-
-
+         <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'main.do' "><b>메인페이지</b></button>
+      <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'logForm.do' "><b>로그인</b></button>
         </div>
 	</div>
    

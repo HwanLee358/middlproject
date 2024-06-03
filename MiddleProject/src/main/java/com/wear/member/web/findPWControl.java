@@ -33,7 +33,6 @@ public class findPWControl implements Control {
 		} else {
 			
 			resp.sendRedirect("findFail.do");
-
 		}
 
 	}

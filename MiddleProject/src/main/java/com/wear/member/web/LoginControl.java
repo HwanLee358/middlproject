@@ -36,7 +36,6 @@ public class LoginControl implements Control {
 				resp.sendRedirect("logFail.do");
 			
 		} else {
-			System.out.println("여기아닌가");
 			resp.sendRedirect("logFail.do");
 		}
 	}

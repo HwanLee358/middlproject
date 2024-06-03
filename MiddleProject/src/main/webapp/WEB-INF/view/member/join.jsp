@@ -21,6 +21,11 @@
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
    	<script src="js/daum.js"></script>
 	<script src="js/check.js"></script>
+	
+	
+	
+	
+	
     <title>회원가입 폼</title>
     
  <link href="css/findId.css" rel="stylesheet" type="text/css">
@@ -51,7 +56,8 @@
         <p class="text">아이디</p>
         <input type="text" name="userId" id="member_id"  class="form-control" placeholder="입력해주세요" required>
         &nbsp; &nbsp;
-        <input type="button" id="overlay"  required placeholder="입력해주세요" onclick="checkUserId()" required value="중복 체크"/><br/>
+
+        <input type="button" id="overlay"  required placeholder="입력해주세요" onclick="checkUserId()" value="중복 체크"/><br/>
         <p id="idch" class="check"> </p><br/>
         <p class="text">비밀번호</p>
         <input type="password" name="userPW" id="pw" placeholder="입력해주세요" class="form-control" onchange="check_pw()"><br>
@@ -76,10 +82,10 @@
         <input type="text" name="phone" id="phone" class="form-control" placeholder="010-0000-0000형식"required><br><br>
        <p id="phonech" class="check"> </p><br/>
        
-        <input type="submit" id="btn-Yes" class="btn btn-lg btn-primary btn-block" value="회원가입">
+        <input type="submit" id="btn-Yes" class="btn btn-lg btn-primary btn-block"  value="회원가입">
     </form>
     
-    <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'list.do' "><b>메인페이지</b></button>
+    <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'main.do' "><b>메인페이지</b></button>
         
 		</div>
        

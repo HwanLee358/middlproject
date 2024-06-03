@@ -41,10 +41,12 @@ a{
 <div class="container">
 <img src="images/체크.jpg" />
 
-		<h2> 수정이 완료되었습니다 </h2>
+		<h2> 회원가입이 완료되었습니다 </h2>
 
 		<div class="links">
-		<a href="main.do">메인페이지</a> 
+		<a href="main.do">메인페이지      |    </a> 
+		<a href="logForm.do">로그인</a> 
+	
 	</div>
 </div>
 </body>

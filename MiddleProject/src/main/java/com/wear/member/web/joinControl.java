@@ -52,11 +52,11 @@ public class joinControl implements Control {
 		
 		if (svc.MemberJoin(vo)) {
 			System.out.println("등록성공.");
-			resp.sendRedirect("login.do");
+			resp.sendRedirect("joinResult.do");
 
 		} else {
 			System.out.println("등록실패.");
-			resp.sendRedirect("join.do");
+			resp.sendRedirect("joinFail.do");
 
 		}
 

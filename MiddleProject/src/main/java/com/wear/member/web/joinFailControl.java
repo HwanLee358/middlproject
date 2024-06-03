@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class logFailControl implements Control {
+public class joinFailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String path = "member/logFail.tiles";
+		String path = "member/joinFail.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
