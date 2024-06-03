@@ -17,15 +17,13 @@ public class deleteResultControl implements Control {
 		
 		HttpSession session = req.getSession();
 		session.invalidate(); // 세션객체 삭제
-		System.out.println("ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅎㅎㅎ");
 		
 		//String path ="WEB-INF/view/member/deleteResult.jsp";
 		String path = "member/deleteResult.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
+	
 		
-		
-		
-		System.out.println("으악!!!!!!!!!!!!!!!");
+	
 	}
 
 }

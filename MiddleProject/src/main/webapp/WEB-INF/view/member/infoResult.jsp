@@ -44,8 +44,8 @@ a{
 		<h2> 수정이 완료되었습니다 </h2>
 
 		<div class="links">
-		<a href="list.do">메인페이지   | </a> 
-		<a class="second" href="deleteForm.do?id=${logId }">회원탈퇴</a>
+		<a href="list.do">메인페이지</a> 
+		
 	</div>
 </div>
 </body>
