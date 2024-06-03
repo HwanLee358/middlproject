@@ -22,7 +22,7 @@
 		<div class="headerWrap">
 			<div class="headerTop">
 				<div class="logo">
-					<a href="main.do"> <span style="display: inline;">MONOLOGUE</span>
+					<a href="main.do"> <span style="display: inline;">WHERE WEAR</span>
 					</a>
 				</div>
 				<div class="memb_menu">

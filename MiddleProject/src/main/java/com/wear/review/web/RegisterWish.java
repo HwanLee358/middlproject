@@ -23,7 +23,10 @@ public class RegisterWish implements Control {
 		HttpSession session = req.getSession();
 		String userId = (String)session.getAttribute("logId");
 //		String userId = req.getParameter("userId");
-
+		if(userId == null) {
+			resp.getWriter().write("{\"status\":\"nuse\"}");
+			return;
+		}
 		WishVO wvo = new WishVO();
 		wvo.setProductNo(Integer.parseInt(pno));
 		wvo.setUserId(userId);

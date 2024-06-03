@@ -116,8 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
 					if (result.status == 'success') {
 						alert('성공');
 						location.href = 'basketList1.do';
-					} else {
-						alert('처리실패!');
+					} else if(result.status == 'nuse') {
+						alert('로그인후에 가능합니다');
+						location.href = 'logForm.do';
+					} else{
+						alert('실패');
 					}
 				})
 				.catch(err => console.log(err));
@@ -132,8 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				console.log('result', result);
 				if (result.status == 'success') {
 					alert('관심상품으로 등록되었습니다');
-				} else {
-					alert('처리실패!');
+				} else if(result.status == 'nuse') {
+					alert('로그인후에 가능합니다');
+					location.href = 'logForm.do';
+				} else{
+					alert('실패');
 				}
 			})
 			.catch(err => console.log(err));

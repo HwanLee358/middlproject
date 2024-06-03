@@ -23,7 +23,10 @@ public class RegisterBasket implements Control {
 		String pino = req.getParameter("pino");
 		HttpSession session = req.getSession();
 		String userId = (String)session.getAttribute("logId");
-		
+		if(userId == null) {
+			resp.getWriter().write("{\"status\":\"nuse\"}");
+			return;
+		}
 		
 		//String userId = req.getParameter("userId");
 		
