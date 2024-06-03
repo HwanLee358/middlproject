@@ -33,8 +33,7 @@ public class LoginControl implements Control {
 			if (mvo.getUserResp().equals("Admin"))
 				resp.sendRedirect("memberManagement.do");
 			else
-				resp.sendRedirect("logFail.do");
-			
+				resp.sendRedirect("main.do");
 		} else {
 			resp.sendRedirect("logFail.do");
 		}

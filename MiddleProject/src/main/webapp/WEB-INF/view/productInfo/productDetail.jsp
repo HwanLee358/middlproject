@@ -49,7 +49,7 @@
 	<a id="detail"></a>
 	<!-- Detailed Product Image -->
 	<div class="detailed-product-image">
-		<img src="images/wear/${result.productImg}.jpg" alt="벨르바스락자켓 상세 이미지" />
+		<img src="images/wear/${result.productImg}_1.jpg" alt="벨르바스락자켓 상세 이미지" />
 	</div>
 	<!-- 탭 메뉴 -->
 	<div class="detail-tab-wrap">

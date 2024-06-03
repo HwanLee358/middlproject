@@ -29,7 +29,6 @@ public class AddWishlistControl implements Control {
 		vo.setUserId(userId);
 		
 		
-		
 		if(svc.getSelectWish(vo) ==1 ) {
 			resp.getWriter().print("{\"productNo\": "+productNo+ "}");
 			return;
