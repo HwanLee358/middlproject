@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="member-container">
-<<<<<<< HEAD
 	<form name="myFrm" action="memberRemove.do">
 		<c:forEach var="member" items="${memberList }">
 			<input type="hidden" name="userId" value="${member.userId }">
@@ -93,7 +92,6 @@ td, th {
 	padding: 1em .5em;
 	vertical-align: middle;
 	text-align: center;
-=======
 	<form name="myFrm">
 		<input type="hidden" name="qno" value="${qnaInfo.postNo }"> 
 		<input type="hidden" name="write" value="${qnaInfo.userId }"> 
@@ -192,7 +190,6 @@ thead {
 td, th {
 	padding: 1em .5em;
 	vertical-align: middle;
->>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 }
 
 td {
