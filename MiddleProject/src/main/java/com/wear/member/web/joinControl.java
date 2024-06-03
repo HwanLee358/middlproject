@@ -56,7 +56,7 @@ public class joinControl implements Control {
 
 		} else {
 			System.out.println("등록실패.");
-			resp.sendRedirect("join.do");
+			resp.sendRedirect("joinFail.do");
 
 		}
 
