@@ -52,8 +52,6 @@
 				<div class="pname">
 					<span>찜마마(XJ-92214/1)</span><br><br>
 					<span>사이즈 : L</span><span>색깔 : RED</span>
-					<!-- <span class=""><a href="#none" onclick="Basket.showOptionChangeLayer('option_modify_layer_0', $(this))" class="">
-					<img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_option.gif" alt="옵션변경"></a></span> -->
 				</div>
 			</div>
 			<div class="subdiv">
@@ -64,19 +62,6 @@
 				<div class="num">
 					<div class="updown">
 						<input type="number" name="p_num0" id="p_num0" size="1" min="1" class="p_num" value="1" onkeyup="javascript: basket.changePNum(this);"> 
-						<!-- 
-						<span class="updown-btn" onclick="javascript: basket.changePNum(0);">
-						<a href="javascript:;" onmousedown="javascript:try{AW_F_D('4303','i',1);}catch(e){}">
-						<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
-						</a>
-						</span> 
-						
-						<span class="updown-btn" onclick="javascript: basket.changePNum(0);"> 
-						<a href="javascript:;" onmousedown="javascript:try{AW_F_D('4303','o',1);}catch(e){}">
-						<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
-						</a> 
-						</span>
-						-->
 					</div>
 				</div>
 				<!-- 에러나면 지울곳 -->
@@ -122,53 +107,7 @@
 				href="javascript:void(0);"
 				onclick="javascript:basket.orderSelectedItem()">선택한 상품 주문</a>
 		</div>
-	</div><!--  
-	<div class="Total">
-		<table border="1" summary="">
-			<caption>총 주문금액</caption>
-			<colgroup>
-				<col style="width: 23%;">
-				<col style="width: 24%;">
-				<col style="width: 23%;" class="">
-				<col style="width: auto;">
-			</colgroup>
-			<thead>
-				<tr>
-					<th scope="col"><strong>총 상품금액</strong></th>
-					<th scope="col"><strong>총 배송비</strong></th>
-					<th scope="col"><strong>결제예정금액</strong></th>
-				</tr>
-			</thead>
-			<tbody class="center">
-				<tr>
-					<td><div class="box txt16">
-							<strong><span class="txt21"><span
-									class="total_product_price_display_front">47,700</span></span>원</strong> <span
-								class="txt14 displaynone"><span
-								class="total_product_price_display_back"></span></span>
-						</div></td>
-					<td>
-						<div class="box shipping txt16">
-							<strong><span class="txt21"><span
-									class="total_delv_price_front">3,000</span></span>원</strong> <span
-								class="txt14 displaynone"><span
-								class="total_delv_price_back"></span></span>
-							<div class="shippingArea displaynone">
-								<span></span>
-								
-								</div>
-							</div>
-						</div>
-					</td>
-					<td><div class="box txtEm txt16">
-							<strong><span class="txt21">41,700</span>원</strong> <span
-								class="txt14 displaynone"></span>
-						</div></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>-->	
-	
+	</div>
 </form>
 
 <script
