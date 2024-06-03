@@ -44,7 +44,7 @@ a{
 		<h2> 수정이 완료되었습니다 </h2>
 
 		<div class="links">
-		<a href="maid.do">메인페이지</a> 
+		<a href="list.do">메인페이지</a> 
 		
 	</div>
 </div>

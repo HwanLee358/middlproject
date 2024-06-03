@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.wear.common.Control;
 
-public class findPWFormControl implements Control {
+public class logFailControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//String path = "WEB-INF/view/member/findPW.jsp";
-		String path = "member/findPW.tiles";
+		System.out.println("경로잘못인가?");
+		String path = "member/logFail.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-		System.out.println("1번체크");
 	}
+
 }

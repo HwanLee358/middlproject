@@ -35,10 +35,11 @@ public class LoginControl implements Control {
 				resp.sendRedirect("joinForm.do");
 		
 			else
-				resp.sendRedirect("list.do");
+				resp.sendRedirect("logFail.do");
 			
 		} else {
-			resp.sendRedirect("logForm.do");
+			System.out.println("여기아닌가");
+			resp.sendRedirect("logFail.do");
 		}
 	}
 

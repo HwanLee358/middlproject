@@ -29,10 +29,10 @@ public class findPWControl implements Control {
 		if (mvo != null) {
 			session.setAttribute("userPW", mvo.getUserPW());
 			resp.sendRedirect("findPWResultForm.do");
-
+			System.out.println("급하다 급해");
 		} else {
 			
-			resp.sendRedirect("findPWForm.do");
+			resp.sendRedirect("findFail.do");
 
 		}
 

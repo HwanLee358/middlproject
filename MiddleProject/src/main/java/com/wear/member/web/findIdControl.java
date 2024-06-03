@@ -33,7 +33,7 @@ public class findIdControl implements Control {
 			
 		}else{
 			session.setAttribute("message","아이디를 찾을수 없습니다.");
-//			resp.sendRedirect("findId.do");
+			resp.sendRedirect("findFail.do");
 
 	}
 
