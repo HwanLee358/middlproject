@@ -21,6 +21,11 @@
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
    	<script src="js/daum.js"></script>
 	<script src="js/check.js"></script>
+	
+	
+	
+	
+	
     <title>회원가입 폼</title>
     
  <link href="css/findId.css" rel="stylesheet" type="text/css">
@@ -76,10 +81,10 @@
         <input type="text" name="phone" id="phone" class="form-control" placeholder="010-0000-0000형식"required><br><br>
        <p id="phonech" class="check"> </p><br/>
        
-        <input type="submit" id="btn-Yes" class="btn btn-lg btn-primary btn-block" value="회원가입">
+        <input type="submit" id="btn-Yes" class="btn btn-lg btn-primary btn-block"  value="회원가입">
     </form>
     
-    <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'list.do' "><b>메인페이지</b></button>
+    <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href = 'main.do' "><b>메인페이지</b></button>
         
 		</div>
        

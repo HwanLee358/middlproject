@@ -48,6 +48,7 @@ import com.wear.member.web.findPWFormControl;
 import com.wear.member.web.findPWResultFormControl;
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
+import com.wear.member.web.joinResultControl;
 import com.wear.member.web.logFailControl;
 import com.wear.member.web.memberinfoControl;
 import com.wear.member.web.memberinfoFormControl;
@@ -143,6 +144,7 @@ public class FrontControl extends HttpServlet {
 		// 배동규
 		map.put("/joinForm.do", new joinFormControl());
 		map.put("/join.do", new joinControl()); // 회원가입화면
+		map.put("/joinResult.do", new joinResultControl());
 
 		map.put("/logForm.do", new LoginForm()); // 로그인 관련
 		map.put("/login.do", new LoginControl());

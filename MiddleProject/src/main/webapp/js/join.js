@@ -73,35 +73,5 @@ $('#signin').click(function() {
   $('.signin').removeClass('nodisplay');
 });
 
-      function regist(){
-			
-			
-			var id = $("#member_id").val();
-			var pw = $("#pw").val();
-			var pw2 = $("#pw2").val();
-			var phone = $("#phone").val();
-			var name = $("#name").val();
-			var email = $("#email").val();
-			var addr = $("#sample4_jibunAddress").val();
-			var addr2 =  $("#sample4_detailAddress").val();
-			
-				
-	  if(idc == false || id === ""){
-	      alert('아이디를 확인 해 주세요')
-	  }else if(overChk == false){
-	      alert('아이디 중복 검사를 해주세요')
-	  }else if(pwc == false|| pw2 === "" || pwc2 == false){
-	      alert('비밀번호를 확인 해 주세요')
-	  }else if(namec == false || name === ""){
-	  	alert('이름을 입력해주세요')
-	  }else if(addr == ""){
-		  	alert('주소를 선택해주세요')
-	  }else if(addr2 == ""){
-		  	alert('상세주소를 입력해주세요')
-	  }else if(phonec == false || phone === ""){
-	      alert('전화번호를 입력해주세요.')
-	  }else{
-	      $('form').submit();
-	  } 
-	} ;
+
 

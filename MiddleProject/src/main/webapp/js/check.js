@@ -60,4 +60,18 @@
     	    };
     	    xhr.send("userId=" + userId);
     	}
+    	
+ 			function regist(){
+			
+		var id = $("#member_id").val();
+		
+				
+	  if(idc == false || id === ""){
+	      alert('아이디를 확인 해 주세요')
+	  }else if(overChk == false){
+	      alert('아이디 중복 검사를 해주세요')
+	  }else{
+	      $('form').submit();
+	  } 
+	} ;
         
