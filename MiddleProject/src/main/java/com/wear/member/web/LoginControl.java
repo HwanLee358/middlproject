@@ -31,7 +31,7 @@ public class LoginControl implements Control {
 			session.setAttribute("logId", mvo.getUserId());
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
-				resp.sendRedirect("adminpage.do");
+				resp.sendRedirect("memberManagement.do");
 			else
 				resp.sendRedirect("logFail.do");
 			

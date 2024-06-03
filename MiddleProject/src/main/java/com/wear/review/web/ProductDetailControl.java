@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.wear.common.Control;
 import com.wear.review.service.ProductService;
 import com.wear.review.service.ProductServiceImpl;
@@ -17,6 +15,7 @@ import com.wear.review.service.ReviewService;
 import com.wear.review.service.ReviewServiceImpl;
 import com.wear.review.vo.PageDTO;
 import com.wear.review.vo.ProductVO;
+import com.wear.review.vo.ReviewOrderVO;
 import com.wear.review.vo.ReviewVO;
 import com.wear.review.vo.SearchVO;
 
@@ -50,8 +49,11 @@ public class ProductDetailControl implements Control {
 		List<ReviewVO> img = svr.imgList(rvo.getProductNo()); // 이미지 전체 가져오기
 		int reviewCnt = svr.totalCnt(rvo); // 전체 리뷰갯수 [40] 적히는 부분
 		System.out.println(reviewCnt);
-
-		List<ReviewVO> list = svr.ReviewList(search); // 목록
+		
+		ReviewOrderVO rov = new ReviewOrderVO();
+		rov.setPage(Integer.parseInt(page));
+		rov.setProductNo(Integer.parseInt(pno));
+		List<ReviewVO> list = svr.ReviewList(rov); // 목록
 
 		PageDTO pdto = new PageDTO(Integer.parseInt(page), svr.getReviewCnt(rvo.getProductNo()));
 		System.out.println(pdto);
