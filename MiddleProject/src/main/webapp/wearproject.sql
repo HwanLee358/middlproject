@@ -85,19 +85,8 @@ CREATE TABLE QNA (
 	product_no	number		NOT NULL,
 	post_title	varchar2(50)		NOT NULL,
 	content	varchar2(100)		NOT NULL,
-	creation_date	date       default sysdate,
+	creation_date	date	DEFAULT sysdate,
 	views	number	DEFAULT 0
-);
-
-CREATE TABLE cancel_echange_return (
-	cancel_echange_return_no	number		NOT NULL,
-	user_id	varchar2(30)		NOT NULL,
-	order_no	number		NOT NULL,
-	order_state	varchar2(50)		NOT NULL,
-	receipt_title	varchar2(50)		NOT NULL,
-	receipt_date	date	DEFAULT sysdate	NULL,
-	order_progress	varchar2(50)		NOT NULL,
-	completion_date	date		NULL
 );
 
 CREATE TABLE CATEGORY (
@@ -154,12 +143,6 @@ ALTER TABLE QNA ADD CONSTRAINT PK_QNA PRIMARY KEY (
 	post_no,
 	user_id,
 	product_no
-);
-
-ALTER TABLE cancel_echange_return ADD CONSTRAINT PK_CANCEL_ECHANGE_RETURN PRIMARY KEY (
-	cancel_echange_return_no,
-	user_id,
-	order_no
 );
 
 ALTER TABLE CATEGORY ADD CONSTRAINT PK_CATEGORY PRIMARY KEY (
@@ -225,20 +208,6 @@ REFERENCES PRODUCT (
 	product_no
 );
 
-ALTER TABLE cancel_echange_return ADD CONSTRAINT FK_MEMBERS_TO_cancel_echange_return_1 FOREIGN KEY (
-	user_id
-)
-REFERENCES MEMBERS (
-	user_id
-);
-
-ALTER TABLE cancel_echange_return ADD CONSTRAINT FK_product_order_TO_cancel_echange_return_1 FOREIGN KEY (
-	order_no
-)
-REFERENCES product_order (
-	order_no
-);
-
 ALTER TABLE product_info ADD CONSTRAINT FK_PRODUCT_TO_product_info_1 FOREIGN KEY (
 	product_no
 )
@@ -252,6 +221,8 @@ ALTER TABLE product_order_info ADD CONSTRAINT FK_product_order_TO_product_order_
 REFERENCES product_order (
 	order_no
 );
+
+
 
 
 
