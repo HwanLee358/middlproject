@@ -38,7 +38,8 @@ public class LoginControl implements Control {
 				resp.sendRedirect("list.do");
 			
 		} else {
-			resp.sendRedirect("logForm.do");
+			System.out.println("히얼");
+			resp.sendRedirect("logFail.do");
 		}
 	}
 

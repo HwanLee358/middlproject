@@ -51,7 +51,7 @@
         <p class="text">아이디</p>
         <input type="text" name="userId" id="member_id"  class="form-control" placeholder="입력해주세요" required>
         &nbsp; &nbsp;
-        <input type="button" id="overlay"  required placeholder="입력해주세요" onclick="checkUserId()"  value="중복 체크"/><br/>
+        <input type="button" id="overlay"  required placeholder="입력해주세요" onclick="checkUserId()" value="중복 체크"/><br/>
         <p id="idch" class="check"> </p><br/>
         <p class="text">비밀번호</p>
         <input type="password" name="userPW" id="pw" placeholder="입력해주세요" class="form-control" onchange="check_pw()"><br>
@@ -68,7 +68,7 @@
            	<input type="text"  name="address2" id="sample4_roadAddress" class="form-control" placeholder="도로명주소" required> <br>
             <input type="text" name="address3" id="sample4_jibunAddress" class="form-control" placeholder="지번주소" required> 
 				<span id="guide" style="color: #999; display: none"></span> <br> 
-			<input type="text" name="address4" id="sample4_detailAddress" class="form-control" placeholder="상세주소"><br>
+			<input type="text" name="address4" id="sample4_detailAddress" class="form-control" placeholder="상세주소" required><br>
         <p class="text">이메일</p>
         <input type="email" name="email" id="email" class="form-control" placeholder="입력해주세요" required>
 

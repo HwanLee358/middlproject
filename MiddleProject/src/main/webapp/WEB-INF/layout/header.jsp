@@ -30,7 +30,7 @@
 						<c:choose>
 							<c:when test="${empty logId }">
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
-									<a href="login.do"><span><strong>로그인</strong></span></a>
+									<a href="logForm.do"><span><strong>로그인</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
 									<a href="joinForm.do"><span><strong>회원가입</strong></span></a>

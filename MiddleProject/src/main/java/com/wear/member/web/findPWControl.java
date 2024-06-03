@@ -32,7 +32,7 @@ public class findPWControl implements Control {
 			System.out.println("아아아아아ㅏㅇ아이스크림 짜잔");
 		} else {
 			
-			resp.sendRedirect("findPWForm.do");
+			resp.sendRedirect("findFail.do");
 			System.out.println("동서남북어디에서도");
 		}
 
