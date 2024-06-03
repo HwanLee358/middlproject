@@ -1,9 +1,7 @@
 drop table members;
 drop table qna;
-drop table product_like;
 drop table product_order;
 drop table product_info;
-drop table product_in_out;
 drop table product_review;
 drop table product;
 drop table category;
@@ -11,6 +9,7 @@ drop table wishlist;
 drop table basket;
 drop table cancel_echange_return;
 drop table product_order_info;
+drop table product_order;
 
 
 alter table qna
@@ -46,7 +45,6 @@ CREATE TABLE PRODUCT (
 CREATE TABLE product_order (
 	order_no	number		NOT NULL,
 	user_id	varchar2(30)		NOT NULL,
-	product_info_no	number		NOT NULL,
 	user_name	varchar2(30)		NOT NULL,
 	product_date	date	DEFAULT sysdate,
 	user_phone	varchar(20)		NOT NULL,
@@ -87,7 +85,7 @@ CREATE TABLE QNA (
 	product_no	number		NOT NULL,
 	post_title	varchar2(50)		NOT NULL,
 	content	varchar2(100)		NOT NULL,
-	creation_date	date		NULL,
+	creation_date	date       default sysdate,
 	views	number	DEFAULT 0
 );
 
@@ -97,7 +95,7 @@ CREATE TABLE cancel_echange_return (
 	order_no	number		NOT NULL,
 	order_state	varchar2(50)		NOT NULL,
 	receipt_title	varchar2(50)		NOT NULL,
-	receipt_date	date	DEFAULT sysdate,
+	receipt_date	date	DEFAULT sysdate	NULL,
 	order_progress	varchar2(50)		NOT NULL,
 	completion_date	date		NULL
 );
@@ -118,8 +116,9 @@ CREATE TABLE product_info (
 CREATE TABLE product_order_info (
 	order_info_no	number		NOT NULL,
 	order_no	number		NOT NULL,
+	product_info_no	number		NOT NULL,
 	product_cnt	number		NOT NULL,
-	product_price	varchar2(50)		NOT NULL
+	product_price	number		NOT NULL
 );
 
 ALTER TABLE MEMBERS ADD CONSTRAINT PK_MEMBERS PRIMARY KEY (
@@ -253,4 +252,6 @@ ALTER TABLE product_order_info ADD CONSTRAINT FK_product_order_TO_product_order_
 REFERENCES product_order (
 	order_no
 );
+
+
 

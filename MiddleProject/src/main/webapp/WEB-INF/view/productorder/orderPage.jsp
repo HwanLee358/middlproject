@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link href="css/qnaboard.css" rel="stylesheet" />
 <link href="css/wearList.css" rel="stylesheet" />
 <style>
@@ -44,6 +45,37 @@ em {
 .info_section {
 	position: relative;
 	margin-top: 60px;
+}
+
+.list-btm{
+	margin-top : 10px;
+	display: block;
+	text-align: center;
+}
+
+.payMent {
+	 width: 235px;
+    background: #000;
+    border-color: #000;
+    color: #fff;
+    font-weight: 600;
+    
+    min-width: 142px;
+    height: 46px;
+    border: 1px solid #d0d0d0;
+    line-height: 46px;
+    text-align: center;
+    font-size: 14px;
+}
+.calCel{
+	min-width: 142px;
+    height: 46px;
+    border: 1px solid #d0d0d0;
+    line-height: 46px;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    box-sizing: border-box;
 }
 </style>
 <script>
@@ -229,33 +261,33 @@ function sample4_execDaumPostcode() {
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productPrice }</span>
+										<span class="reviewnum pprice" data-pPrice="${oList.productPrice }"><fmt:formatNumber>${oList.productPrice }</fmt:formatNumber> 원</span>
 									</div>
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productCnt eq 0 ? 1 : oList.productCnt }개</span>
+										<span class="reviewnum pcnt" data-pCnt="${oList.productCnt eq 0 ? 1 : oList.productCnt }">${oList.productCnt eq 0 ? 1 : oList.productCnt }개</span>
 									</div>
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">3,000원</span>
+										<span class="reviewnum">무료</span>
 									</div>
 								</td>
 								<td>
 									<div class="tb-center">
-										<span class="reviewnum">${oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt) + 3000}원</span>
+										<span class="reviewnum"><fmt:formatNumber>${oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt)}</fmt:formatNumber>원</span>
 									</div>
 								</td>
 							</tr>
-							<c:set var="total" value="${total + (oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt) + 3000) }" />
+							<c:set var="total" value="${total + (oList.productPrice * (oList.productCnt eq 0 ? 1 : oList.productCnt)) }" />
 						</c:forEach>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="6">
 								<div class="money_tot">
-									<em>총 주문금액</em> <span class="int_black_big"> <em><c:out value="${total }" />원</em>
+									<em>총 주문금액</em> <span class="int_black_big"> <em><fmt:formatNumber><c:out value="${total }" /></fmt:formatNumber>원</em>
 									</span>
 								</div>
 							</td>
@@ -263,7 +295,7 @@ function sample4_execDaumPostcode() {
 					</tfoot>
 				</table>
 				<div class="list-btm">
-					<button>취소</button>
+					<button class="calCel">취소</button>
 					<button class="payMent">결제하기</button>
 				</div>
 			</div>

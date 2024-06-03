@@ -63,8 +63,9 @@
 	<!-- reviewList.jsp가져와서 붙이기 -->
 	<a id="review"></a>
 	<jsp:include page="reviewList.jsp" />
-
+	
 	<button id="myBtn">리뷰 작성</button>
+	
 
 </div>
 

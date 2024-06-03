@@ -20,5 +20,5 @@ public interface BasketService {
 		// orderbasket
 		boolean orderbasket(BasketVO basket);
 		
-		List<BasVO> selectbasket(int productNo);
+		List<BasketVO> selectbasket(int productNo);
 }

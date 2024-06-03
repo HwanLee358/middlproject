@@ -29,16 +29,18 @@ let basket = {
 			result => {
 				console.log(result);
 				result.forEach(basket1 => {
-					console.log(basket1.basketNo);
+					console.log(basket1);
 					basket.basketCount += basket1.productCnt;
 					basket.basketTotal += (basket1.productCnt * basket1.productPrice);
 
 					const rowDiv = document.querySelector('div[data-id="0"]').cloneNode(true);
 					rowDiv.style.display = 'block';
 					rowDiv.setAttribute('data-id', basket1.basketNo);
-					rowDiv.querySelector('div.img>img').setAttribute('src', './images/' + basket1.productName + '.jpg');
+					rowDiv.querySelector('div.img>img').setAttribute('src', './images/wear/' + basket1.productImg + '.jpg');
 					rowDiv.querySelector('div.pname>span').innerText = basket1.productName;
-					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = basket1.productPrice.numberFormat() + "원";
+					rowDiv.querySelector('div.pname').children[3].innerText = `사이즈 : ${basket1.productSize}`;
+					rowDiv.querySelector('div.pname').children[4].innerText = `색깔 : ${basket1.productColor}`;
+					rowDiv.querySelector('div.basketprice').childNodes[2].textContent = Number(basket1.productPrice).numberFormat() + "원";
 					// 배송비
 					rowDiv.querySelector('div.delivery_fee').value = basket1.deliveryfee;
 
@@ -49,10 +51,10 @@ let basket = {
 					rowDiv.querySelector('div.updown input').setAttribute('id', 'p_num' + basket1.basketNo);
 					// event
 					rowDiv.querySelector('div.updown input').onkeyup = () => basket.changePNum(basket1.basketNo);
-					rowDiv.querySelector('div.updown span').onclick = () => basket.changePNum(basket1.basketNo);
-					rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => basket.changePNum(basket1.basketNo);
+					//rowDiv.querySelector('div.updown span').onclick = () => basket.changePNum(basket1.basketNo);
+					//rowDiv.querySelector('div.updown span:nth-of-type(2)').onclick = () => basket.changePNum(basket1.basketNo);
 					// 개별합계
-					rowDiv.querySelector('div.sum').textContent = (basket.productCnt * basket.productPrice).numberFormat() + "원";
+					rowDiv.querySelector('div.sum').textContent = (basket1.productCnt * basket1.productPrice).numberFormat() + "원";
 					rowDiv.querySelector('div.sum').setAttribute('id', 'p_sum' + basket1.basketNo);
 					document.querySelector('#basket').append(rowDiv);
 				});
@@ -99,31 +101,30 @@ let basket = {
 	},
 
 	changePNum: function(basketNo) {
-		console.log(event);
-		let productCnt = -1;
-		if (event.target.nodeName == "I") {
-			if (event.target.className.indexOf("up") != -1) {
-				productCnt = 1;
-			}
-		} else if (event.target.nodeName == "INPUT") {
-			if (event.key == "ArrowUp") {
-				productCnt = 1;
-			}
-		}
+		let productCnt = document.querySelector(`#p_num${basketNo}`).value;
+		let s = event.code;
 		let productPrice = document.querySelector('#p_price' + basketNo).value; // 금액
-		let cntElem = document.querySelector('#p_num' + basketNo);
+		let cntElem = document.querySelector('#p_num' + basketNo).value;
 		let sumElem = document.querySelector('#p_sum' + basketNo);
 
 		let bvo = { basketNo, productCnt }
 		svc.basketUpdate(bvo, //
 			result => {
-				console.log(result);
-				cntElem.value = parseInt(cntElem.value) + productCnt; // 수량변경
-				sumElem.innerText = (productPrice * cntElem.value).numberFormat() + "원";
-				// 전체수량, 금액
-				basket.basketCount += productCnt;
-				basket.basketTotal += (productPrice * productCnt);
-				basket.reCalc();
+				if(result.retCode == "OK"){
+					console.log(result);
+					cntElem = Number(productCnt); // 수량변경
+					sumElem.innerText = (Number(productPrice) * cntElem).numberFormat() + "원";
+					// 전체수량, 금액
+					if(s == 'ArrowUp'){
+						basket.basketCount += 1;
+						basket.basketTotal += (productPrice * 1);				
+					}
+					if(s == 'ArrowDown'){
+						basket.basketCount -= 1;
+						basket.basketTotal -= (productPrice * 1);	
+					}
+					basket.reCalc();	
+				}
 			},
 			err => {
 				console.log(err);
@@ -199,52 +200,18 @@ let basket = {
 	
 	// 선택된 상품 주문
     orderSelectedItem: function() {
-        var form = document.createElement('form');
-        form.method = 'post';
-        form.action = "main.do"; // 임시로 main.do
-
+        const basketNo = new Array();
+        let i = 0;
         var selectedItems = document.querySelectorAll('.row.data .check input[type="checkbox"]:checked');
         selectedItems.forEach(function(checkbox, index) {
-            var item = checkbox.closest('.row.data');
-
-            // 상품번호
-            var itemId = document.createElement('input');
-            itemId.type = 'hidden';
-            itemId.name = 'item_id' + index;
-            itemId.value = checkbox.value;
-            form.appendChild(itemId);
-
-            // 상품명
-            var itemName = document.createElement('input');
-            itemName.type = 'hidden';
-            itemName.name = 'item_name' + index;
-            itemName.value = item.querySelector('.pname span').textContent;
-            form.appendChild(itemName);
-
-            // 상품가격
-            var itemPrice = document.createElement('input');
-            itemPrice.type = 'hidden';
-            itemPrice.name = 'item_price' + index;
-            itemPrice.value = item.querySelector('.p_price').value;
-            form.appendChild(itemPrice);
-
-            // 상품수량
-            var itemQuantity = document.createElement('input');
-            itemQuantity.type = 'hidden';
-            itemQuantity.name = 'item_quantity' + index;
-            itemQuantity.value = item.querySelector('.p_num').value;
-            form.appendChild(itemQuantity);
-
-            // 배송비
-            var deliveryFee = document.createElement('input');
-            deliveryFee.type = 'hidden';
-            deliveryFee.name = 'delivery_fee' + index;
-            deliveryFee.value = item.querySelector('.delivery_fee').textContent;
-            form.appendChild(deliveryFee);
+			let s = checkbox.parentElement.parentElement.parentElement.dataset.id;
+            if(s > 0){
+				basketNo[i] = s;
+				i++;
+			}
         });
-
-        document.body.appendChild(form);
-        form.submit();
+        location.href = `orderForm.do?form=basket&selete=seleted&bno=${basketNo}`;
+        //form.submit();
     }
 };
 

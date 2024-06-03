@@ -19,6 +19,6 @@ public interface BasketMapper {
 		
 		int orderbasket(BasketVO basket);
 		
-		List<BasVO> sBasket(int productNo);
+		List<BasketVO> wishtobasket(int productNo);
 		
 }

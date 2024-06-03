@@ -11,6 +11,6 @@ public interface WishListService {
 	
 	boolean addWishlist(WishListVO wishlist);
 	int wishlistTotalCnt();
-	
+	int getSelectWish(WishListVO wishlist);
 	List<WishVO> selectWishList(int productNo);
 }

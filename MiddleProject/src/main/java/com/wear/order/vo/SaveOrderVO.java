@@ -6,7 +6,6 @@ import lombok.Data;
 public class SaveOrderVO {
 	private int orderNo;
 	private String userId;
-	private int productInfoNo;
 	private String userName;
 	private String productDate;
 	private String userPhone;

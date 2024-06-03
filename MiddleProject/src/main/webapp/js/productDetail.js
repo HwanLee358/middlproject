@@ -115,24 +115,24 @@ document.addEventListener("DOMContentLoaded", () => {
 					console.log('productInfoNo', productInfoNo);
 					if (result.retCode == 'success') {
 						alert('성공');
+						location.href = 'basketList1.do';
 					} else {
 						alert('처리실패!');
 					}
 				})
 				.catch(err => console.log(err));
 		});
-		location.href = 'basketList1.do';
+		alert("장바구니에 동일한 제품이 이미 존재합니다");
 	})
 
 	// wish-list
 	document.querySelector('.wish-list').addEventListener('click', function() {
 		fetch('registerWisht.do?pno=' + productNo+ '&userId=' + userId)
-		console.log('제품번호!!!!!',productNo)
 			.then(resolve => resolve.json())
 			.then(result => {
 				console.log('result', result);
-				if (result.retCode == 'success') {
-					alert('성공');
+				if (result.status == 'success') {
+					alert('관심상품으로 등록되었습니다');
 				} else {
 					alert('처리실패!');
 				}
@@ -145,12 +145,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	//buy-now
 	document.querySelector('.buy-now').addEventListener('click', function() {
-		document.querySelectorAll('.selected-options div').forEach(item => {
-
-
+		const pno = new Array;
+		const pCnt = new Array;
+		document.querySelectorAll('.selected-options div').forEach((item,idex) => {
+			pno[idex] = item.dataset.pno;
+			pCnt[idex] = item.children[1].value;
 		})
 		//pinfono, cnt Array 로 넘기기
-		location.href = 'orderForm.do?form=direct&p=' + '';
+		location.href = `orderForm.do?form=direct&pno=${pno}&pCnt=${pCnt}`;
 	})
 
 

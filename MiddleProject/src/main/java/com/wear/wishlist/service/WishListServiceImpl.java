@@ -38,4 +38,9 @@ public class WishListServiceImpl implements WishListService{
 		// TODO Auto-generated method stub
 		return mapper.sWishList(productNo);
 	}
+	@Override
+	public int getSelectWish(WishListVO wishlist) {
+		// TODO Auto-generated method stub
+		return mapper.getSelectWish(wishlist);
+	}
 }

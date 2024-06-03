@@ -9,18 +9,77 @@
                          left join basket b on (pi.product_info_no = b.product_info_no)
 	where b.user_id = #{userId} 
   </select>
+  <select id="getOrderBasket" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
+  	select p.product_name, p.product_price, pi.product_color, pi.product_size, b.product_cnt, pi.product_info_no
+	from product_info pi left join product p on (pi.product_no = p.product_no)
+                     left join basket b on (pi.product_info_no = b.product_info_no)
+	where b.user_id = #{userId}
+	and b.basket_no = #{basketNo}
+  </select>
   <select id="directOrder" resultType="com.wear.order.vo.OrderVO" parameterType="com.wear.order.vo.OrderVO">
   	select p.product_no, p.product_name, p.product_price, pi.product_color, pi.product_size, pi.product_info_no
 	from product_info pi left join product p on (pi.product_no = p.product_no)
 	where pi.product_info_no = #{productInfoNo}
   </select>
   <insert id="insertOrder" parameterType="com.wear.order.vo.SaveOrderVO">
-  	insert into product_order(order_no, user_id, product_info_no, user_name, user_email, address1, address2, address3, address4)
-  	values(order_no_seq.nextval, #{user_id}, #{product_info_no}, #{user_name}, #{user_email}, #{address1}, #{address2}, #{address3}, #{address4})
+  	insert into product_order(order_no, user_id, user_name, user_phone, user_email, address1, address2, address3, address4)
+  	values(order_no_seq.nextval, #{userId}, #{userName}, #{userPhone}, #{userEmail}, #{address1}, #{address2}, #{address3}, #{address4})
   </insert>
+  <insert id="insertOrderInfo">
+  	insert into product_order_info(order_info_no, order_no, product_cnt, product_price, product_info_no)
+  	values(order_info_seq.nextval, #{orderNo}, #{productCnt}, #{productPrice}, #{productInfoNo})
+  </insert>
+  <select id="getProductNo" resultType="int">
+  	select * 
+	from product_order
+	where order_no = (select MAX(order_no) from product_order)
+  </select>
   <delete id="delOrderBasket" parameterType="com.wear.basket.vo.BasketVO">
   	delete from basket
   	where product_info_no = #{productInfoNo}
   	and user_id = #{userId}
   </delete>
+  
+  
+  
+  <select id="getOrderNo" resultType="map" parameterType="com.wear.order.vo.OrderNoVo">
+  	select r.* 
+	from ( select rownum rn, a.*
+       	   from (select *
+                 from product_order
+                 where user_id = #{userId}
+                 order by order_no desc)a
+                  <![CDATA[	 
+                 where rownum <= #{page} * 5)r
+                 ]]>
+	where r.rn > (#{page} - 1)*5
+	and user_id = #{userId}
+	order by order_no desc
+  </select>
+  
+  <select id="getPageOrderCount" resultType="int" parameterType="String">
+  	select count(*)
+	from product_order
+	where user_id = #{userId}
+  </select>
+  <select id="getOrderCount" resultType="int" parameterType="int">
+  	select count(*) 
+	from product_order_info
+	where order_no = #{orderNo}
+  </select>
+  <select id="getOrderCheck" resultType="com.wear.order.vo.OrderCheckVO" parameterType="com.wear.order.vo.OrderVO">
+  	select p.product_no, poi.order_no, po.product_date, 
+       	   p.product_name, p.product_img, 
+           pi.product_color, pi.product_size, 
+           poi.product_cnt, poi.product_price, 
+           po.address1, po.address2, po.address3, po.address4
+	from product_order_info poi join product_order po
+                              on poi.order_no = po.order_no
+                            join product_info pi
+                              on poi.product_info_no = pi.product_info_no
+                            join product p
+                              on p.product_no = pi.product_no
+	where po.user_id = #{userId}
+	and poi.order_no = #{orderNo}   
+  </select>
 </mapper>

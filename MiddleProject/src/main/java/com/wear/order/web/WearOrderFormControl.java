@@ -1,6 +1,7 @@
 package com.wear.order.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,12 +35,34 @@ public class WearOrderFormControl implements Control {
 		}
 		MemberService mvc = new MemberServiceImpl();
 		OrderService svc = new OrderServiceImpl();
-		List<OrderVO> list;
+		List<OrderVO> list = new ArrayList<OrderVO>();
 		
 		if(form.equals("direct")) {
-			list = svc.directList(2);
+			String pNo = req.getParameter("pno");
+			String[] postNo = pNo.split(",");
+			String pCnt = req.getParameter("pCnt");
+			String[] productCnt = pCnt.split(",");
+			for(int i =0; i<postNo.length; i++) {
+				OrderVO vo = new OrderVO();
+				vo = svc.directList(Integer.parseInt(postNo[i]));
+				vo.setProductCnt(Integer.parseInt(productCnt[i]));
+				list.add(vo);
+			}							
 		}else if(form.equals("basket")){
-			list = svc.selectList(id);			
+			String sel = req.getParameter("selete");
+			if(sel.equals("seleted")) {
+				String bno = req.getParameter("bno");
+				String[] basketNo = bno.split(",");
+				for(int i = 0; i < basketNo.length; i++) {
+					OrderVO vo = new OrderVO();
+					vo.setBasketNo(Integer.parseInt(basketNo[i]));
+					vo.setUserId(id);
+					vo = svc.getOrderBasket(vo);
+					list.add(vo);
+				}
+			}else {
+				list = svc.selectList(id);							
+			}
 		}else {
 			resp.sendRedirect("main.do");
 			return;

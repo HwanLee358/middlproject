@@ -49,6 +49,10 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.deleteMember(mvo);
 	}
 
-
+  @Override
+	public int getBasket(BasketVO gb) {
+		// TODO Auto-generated method stub
+		return mapper.getBasket(gb);
+	}
 
 }

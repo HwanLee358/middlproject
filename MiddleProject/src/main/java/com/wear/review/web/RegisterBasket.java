@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.wear.common.Control;
 import com.wear.review.service.ProductService;
@@ -20,7 +21,11 @@ public class RegisterBasket implements Control {
 		
 		String cnt = req.getParameter("cnt");
 		String pino = req.getParameter("pino");
-		String userId = req.getParameter("userId");
+		HttpSession session = req.getSession();
+		String userId = (String)session.getAttribute("logId");
+		
+		
+		//String userId = req.getParameter("userId");
 		
 		BasketVO bvo = new BasketVO();
 		bvo.setProductCnt(Integer.parseInt(cnt));
@@ -28,6 +33,10 @@ public class RegisterBasket implements Control {
 		bvo.setUserId(userId);
 		
 		ProductService svc = new ProductServiceImpl();
+		int s = svc.getBasket(bvo);
+		if(s > 0) {
+			return;
+		}
 		
 		if(svc.addBasket(bvo)) {
 			System.out.println("등록성공");
