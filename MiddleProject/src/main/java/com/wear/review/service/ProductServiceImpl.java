@@ -39,6 +39,17 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public List<MemberVo> getMemberList() {
+		return mapper.memberList();
+	}
+
+
+	@Override
+	public boolean removeMember(MemberVo mvo) {
+		return mapper.deleteMember(mvo);
+	}
+
+  @Override
 	public int getBasket(BasketVO gb) {
 		// TODO Auto-generated method stub
 		return mapper.getBasket(gb);

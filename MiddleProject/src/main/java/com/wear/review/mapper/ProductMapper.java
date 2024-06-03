@@ -20,6 +20,7 @@ public interface ProductMapper {
 
 	// 위시리스트 데이터 추가
 	int insertWish(WishVO wvo);
+<<<<<<< HEAD
 
 	// 멤버리스트 불러오기
 	List<MemberVo> memberList();
@@ -29,4 +30,13 @@ public interface ProductMapper {
 
 	int deleteMember(String userId);
 
+=======
+	
+	//멤버리스트 불러오기
+	List<MemberVo> memberList();
+	
+	//멤버삭제
+	boolean deleteMember(MemberVo mvo);
+	
+>>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 }

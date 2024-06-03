@@ -16,6 +16,7 @@ public class MemberRemoveControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uid = req.getParameter("userId");
+<<<<<<< HEAD
 
 		ProductService svp = new ProductServiceImpl();
 		MemberVo mvo = new MemberVo();
@@ -30,6 +31,19 @@ public class MemberRemoveControl implements Control {
 			resp.sendRedirect("memberManagement.do");
             resp.getWriter().write("Failure");
         }
+=======
+		String pNo = req.getParameter("pNo");
+
+		ProductService svp = new ProductServiceImpl();
+		MemberVo mvo = new MemberVo();
+		mvo.setUserId(uid);
+		
+		if(svp.removeMember(mvo)) {
+			resp.sendRedirect("productDetail.do?pno="+pNo);
+		}else {
+			resp.sendRedirect("");
+		}
+>>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 	}
 
 }

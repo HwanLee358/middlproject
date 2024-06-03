@@ -17,10 +17,19 @@ public class MemberControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+<<<<<<< HEAD
 		ProductService svp = new ProductServiceImpl();
 		
 		List<MemberVo> list = svp.getMemberList();
 		req.setAttribute("memberList", list);
+=======
+		MemberVo mvo = new MemberVo();
+		ProductService svp = new ProductServiceImpl();
+		
+		List<MemberVo> list = svp.getMemberList();
+		req.setAttribute("memberList", list);
+		
+>>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 		
 		String path = "productInfo/memberManagement.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);

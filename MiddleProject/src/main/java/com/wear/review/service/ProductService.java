@@ -19,6 +19,7 @@ public interface ProductService {
 	int getBasket(BasketVO gb);
 
 	boolean addWish(WishVO wvo);
+<<<<<<< HEAD
 
 	// 관리자페이지
 	List<MemberVo> getMemberList();
@@ -27,4 +28,11 @@ public interface ProductService {
 
 	boolean removeMember(String userId);
 
+=======
+	
+	//관리자페이지
+	List<MemberVo> getMemberList();
+	boolean removeMember(MemberVo mvo);
+	
+>>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 }
