@@ -10,17 +10,19 @@
 	</select>
 
 	<select id="reviewListPaging" resultType="review"
-		parameterType="com.wear.review.vo.SearchVO">
+		parameterType="com.wear.review.vo.ReviewOrderVO">
 		select r.*
 		from (select rownum rn,a.*
 		from(select *
 		from PRODUCT_REVIEW p
-		where product_no = #{productNo}
+			where product_no = #{productNo}
 		order by p.view_no desc)a
 		    <![CDATA[
 		    where rownum <=(#{page}*5))r
 	    ]]>
 		where r.rn>(#{page}-1)*5
+		and product_no = #{productNo}
+		order by view_no desc
 	</select>
 
 	<select id="getReviewTotalCnt" resultType="int"

@@ -2,12 +2,12 @@ package com.wear.review.service;
 
 import java.util.List;
 
+import com.wear.review.vo.ReviewOrderVO;
 import com.wear.review.vo.ReviewVO;
-import com.wear.review.vo.SearchVO;
 
 public interface ReviewService {
 
-	List<ReviewVO> ReviewList(SearchVO search);
+	List<ReviewVO> ReviewList(ReviewOrderVO rvo);
 	int getReviewCnt(int reviewNo);
 	List<ReviewVO> imgList(int pno);
 	boolean addReview(ReviewVO rvo);	//리뷰등록

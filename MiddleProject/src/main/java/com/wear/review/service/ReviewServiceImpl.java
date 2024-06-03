@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.wear.common.DataSource;
 import com.wear.review.mapper.ReviewMapper;
+import com.wear.review.vo.ReviewOrderVO;
 import com.wear.review.vo.ReviewVO;
 import com.wear.review.vo.SearchVO;
 
@@ -15,10 +16,7 @@ public class ReviewServiceImpl implements ReviewService {
 	// 인터페이스
 	ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 
-	@Override
-	public List<ReviewVO> ReviewList(SearchVO search) {
-		return mapper.reviewListPaging(search);
-	}
+	
 
 	@Override
 	public int getReviewCnt(int reviewNo) {
@@ -38,6 +36,12 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int totalCnt(ReviewVO rvo) {
 		return mapper.getCnt(rvo);
+	}
+
+	@Override
+	public List<ReviewVO> ReviewList(ReviewOrderVO rvo) {
+		// TODO Auto-generated method stub
+		return mapper.reviewListPaging(rvo);
 	}
 
 }

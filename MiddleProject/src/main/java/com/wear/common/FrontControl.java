@@ -53,11 +53,7 @@ import com.wear.member.web.memberinfoResultControl;
 import com.wear.order.web.WearOrderCompleteControl;
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
-
-import com.wear.review.web.AdminPage;
-
 import com.wear.order.web.WearOrderInfoControl;
-
 import com.wear.review.web.BuyNow;
 import com.wear.review.web.MemberControl;
 import com.wear.review.web.MemberRemoveControl;
@@ -67,7 +63,6 @@ import com.wear.review.web.ProductInfoControl;
 import com.wear.review.web.RegisterBasket;
 import com.wear.review.web.RegisterWish;
 import com.wear.review.web.ReviewFormControl;
-import com.wear.review.web.ReviewListControl;
 import com.wear.review.web.ReviewWriteControl;
 import com.wear.wishlist.web.AddWishlistControl;
 import com.wear.wishlist.web.DelWishList;
@@ -110,7 +105,7 @@ public class FrontControl extends HttpServlet {
 		// 정유진
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/reviewWrite.do", new ReviewWriteControl());
-		map.put("/reviewList.do", new ReviewListControl());
+		//map.put("/reviewList.do", new ReviewListControl());
 		
 		map.put("/getProductInfoNo.do", new ProductInfoControl()); // 상품옵션포함딘 번호.
 		map.put("/registerBasket.do", new RegisterBasket()); // 장바구니에 등록.
@@ -120,7 +115,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/productDetail.do", new ProductDetailControl());
 		map.put("/reviewModify", new ModifyReviewFormControl());
 		
-		map.put("/adminpage.do", new AdminPage()); //관리자 페이지
+		//map.put("/adminpage.do", new AdminPage()); //관리자 페이지
 		map.put("/memberManagement.do", new MemberControl()); //관리자 회원관리
 
 		map.put("/memberRemove.do", new MemberRemoveControl()); //멤버삭제

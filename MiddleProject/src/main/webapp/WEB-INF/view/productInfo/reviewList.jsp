@@ -36,7 +36,7 @@
 							<div class="bi-star-fill">★</div>
 						</c:forEach>
 					</div>
-					<span class="review-user">${review.userId } : Id</span> <span
+					<span class="review-user">회원ID : ${review.userId }</span> <span
 						class="review-date">${review.viewDate }</span> <span
 						class="review-option">사이즈 : free </span>
 					<span class="review-body">컬러 : white </span>
