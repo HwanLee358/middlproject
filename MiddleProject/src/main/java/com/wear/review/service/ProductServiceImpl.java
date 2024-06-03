@@ -39,12 +39,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<MemberVo> getMemberList() {
-		return mapper.memberList();
-	}
-
-
-	@Override
 	public boolean removeMember(MemberVo mvo) {
 		return mapper.deleteMember(mvo);
 	}
@@ -59,19 +53,4 @@ public class ProductServiceImpl implements ProductService {
 	public List<MemberVo> getMemberList() {
 		return mapper.memberList();
 	}
-
-	@Override
-	public boolean removeMember(String userId) {
-		int result = mapper.deleteMember(userId);
-        return result > 0;	
-    }
-
-	@Override
-	public boolean removeMemberQnA(String userId) {
-		int result = mapper.deleteQnAByUserId(userId);
-		return result > 0;
-	}
-	
-	
-
 }

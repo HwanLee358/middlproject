@@ -63,17 +63,6 @@ ON DELETE CASCADE;
 
 select * from members;
 
-insert into members (user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email,user_resp)
-values('admin','관리자','1234',12345,'대구시어쩌고','저쩌고동','몇백몇호','010-0100-0100','QWER@qwer','Admin');
-insert into members (user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email,user_resp)
-values('aaa','회원a','1234',12345,'대구시어쩌고','저쩌고동','몇백몇호','010-0100-0100','QWER@qwer','user');
-insert into members (user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email,user_resp)
-values('bbb','회원b','1234',12345,'대구시어쩌고','저쩌고동','몇백몇호','010-0100-0100','QWER@qwer','user');
-insert into members (user_id,user_name,user_pw,address1,address2,address3,address4,user_phone,user_email,user_resp)
-values('ccc','회원c','1234',12345,'대구시어쩌고','저쩌고동','몇백몇호','010-0100-0100','QWER@qwer','user');
 
-
-
-create sequence qna_seq;
 
 

@@ -31,12 +31,6 @@ public class LoginControl implements Control {
 			session.setAttribute("logId", mvo.getUserId());
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
-				
-				//관리자 로그인하면 바로 회원관리& 재고관리 버튼 2개만 있는 페이지로
-<<<<<<< HEAD
-				
-=======
->>>>>>> branch 'master' of https://github.com/HwanLee358/middlproject.git
 				resp.sendRedirect("adminpage.do");
 			else
 				resp.sendRedirect("list.do");
