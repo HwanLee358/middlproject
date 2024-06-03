@@ -33,8 +33,7 @@ public class LoginControl implements Control {
 			if (mvo.getUserResp().equals("Admin"))
 				
 				//관리자 로그인하면 바로 회원관리& 재고관리 버튼 2개만 있는 페이지로
-				
-				resp.sendRedirect("joinForm.do");
+				resp.sendRedirect("adminpage.do");
 			else
 				resp.sendRedirect("list.do");
 			
