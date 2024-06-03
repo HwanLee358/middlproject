@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제목</title>
+<title>어디든 Wear</title>
 <style type="text/css">
 #JD-Container {
 	padding-top: 120px;
