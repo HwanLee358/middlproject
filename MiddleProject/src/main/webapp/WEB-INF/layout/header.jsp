@@ -38,6 +38,9 @@
 							</c:when>
 							<c:otherwise>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
+									<span><strong>[${userName }]님 어서오세요.</strong></span>
+								</li>
+								<li class="xans-element- xans-layout xans-layout-statelogoff">
 									<a href="logout.do"><span><strong>로그아웃</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">

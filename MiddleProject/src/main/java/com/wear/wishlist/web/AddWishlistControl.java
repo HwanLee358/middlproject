@@ -22,17 +22,19 @@ public class AddWishlistControl implements Control {
 		String productNo = req.getParameter("pno");
 		HttpSession session = req.getSession();
 		String userId = (String) session.getAttribute("logId");
+		System.out.println(userId);
 		
 		WishListService svc = new WishListServiceImpl();
 		WishListVO vo = new WishListVO();
 		vo.setProductNo(Integer.parseInt(productNo));
 		vo.setUserId(userId);
+		System.out.println(svc.getSelectWish(vo));
 		
-		
-		if(svc.getSelectWish(vo) ==1 ) {
+		if(svc.getSelectWish(vo) > 0 ) {
 			resp.getWriter().print("{\"productNo\": "+productNo+ "}");
 			return;
 		}
+		
 		if(svc.addWishlist(vo)) {
 			resp.getWriter().print("{\"productNo\": "+productNo+ "}");				
 		}else {

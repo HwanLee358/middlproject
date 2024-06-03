@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// wish-list
 	document.querySelector('.wish-list').addEventListener('click', function() {
-		fetch('registerWisht.do?pno=' + productNo+ '&userId=' + userId)
+		fetch('registerWisht.do?pno=' + productNo)
 			.then(resolve => resolve.json())
 			.then(result => {
 				console.log('result', result);
