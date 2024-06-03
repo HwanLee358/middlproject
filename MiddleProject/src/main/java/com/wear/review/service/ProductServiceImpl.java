@@ -1,8 +1,11 @@
 package com.wear.review.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.wear.common.DataSource;
+import com.wear.member.vo.MemberVo;
 import com.wear.review.mapper.ProductMapper;
 import com.wear.review.vo.BasketVO;
 import com.wear.review.vo.ProductInfoVO;
@@ -40,5 +43,24 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return mapper.getBasket(gb);
 	}
+	
+	@Override
+	public List<MemberVo> getMemberList() {
+		return mapper.memberList();
+	}
+
+	@Override
+	public boolean removeMember(String userId) {
+		int result = mapper.deleteMember(userId);
+        return result > 0;	
+    }
+
+	@Override
+	public boolean removeMemberQnA(String userId) {
+		int result = mapper.deleteQnAByUserId(userId);
+		return result > 0;
+	}
+	
+	
 
 }

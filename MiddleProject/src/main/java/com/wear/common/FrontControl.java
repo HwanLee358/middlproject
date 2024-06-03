@@ -47,7 +47,6 @@ import com.wear.member.web.findPWFormControl;
 import com.wear.member.web.findPWResultFormControl;
 import com.wear.member.web.joinControl;
 import com.wear.member.web.joinFormControl;
-
 import com.wear.member.web.memberinfoControl;
 import com.wear.member.web.memberinfoFormControl;
 import com.wear.member.web.memberinfoResultControl;
@@ -55,7 +54,10 @@ import com.wear.order.web.WearOrderCompleteControl;
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
 import com.wear.order.web.WearOrderInfoControl;
+import com.wear.review.web.AdminPage;
 import com.wear.review.web.BuyNow;
+import com.wear.review.web.MemberControl;
+import com.wear.review.web.MemberRemoveControl;
 import com.wear.review.web.ModifyReviewFormControl;
 import com.wear.review.web.ProductDetailControl;
 import com.wear.review.web.ProductInfoControl;
@@ -114,6 +116,11 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/productDetail.do", new ProductDetailControl());
 		map.put("/reviewModify", new ModifyReviewFormControl());
+		
+		map.put("/adminpage.do", new AdminPage()); //관리자 페이지
+		map.put("/memberManagement.do", new MemberControl()); //관리자 회원관리
+		map.put("/memberRemove.do", new MemberRemoveControl()); //멤버삭제
+		
 		
 		// 맹선우
 		map.put("/basketList1.do", new BasketList1()); // 장바구니 화면 출력

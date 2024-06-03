@@ -32,4 +32,25 @@
 		where product_info_no = #{productInfoNo}
 		and user_id = #{userId}
 	</select>
+	
+	<select id="memberList" resultType="com.wear.member.vo.MemberVo">
+		select * from members
+		where user_resp = 'user'
+		order by user_id
+	</select>
+
+	<delete id="deleteQnAByUserId" parameterType="String">
+		delete from product_review
+		where user_id = #{userId}
+	</delete>
+
+	<delete id="deleteMember" parameterType="String">
+		delete from members
+		where user_id = #{userId}
+
+	</delete>
+	
+	
+	
+	
 </mapper>
