@@ -29,12 +29,11 @@ public class findIdControl implements Control {
 		if (mvo != null) {
 			session.setAttribute("userId",mvo.getUserId());
 			resp.sendRedirect("findIdResultForm.do");
-			System.out.println("ㅎㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
+
 			
 		}else{
 			session.setAttribute("message","아이디를 찾을수 없습니다.");
-//			resp.sendRedirect("findId.do");
-			System.out.println("쮓ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ@ㅅ");
+			resp.sendRedirect("findFail.do");
 	}
 
 }

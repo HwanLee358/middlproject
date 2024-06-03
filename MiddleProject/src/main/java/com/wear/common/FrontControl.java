@@ -39,6 +39,7 @@ import com.wear.member.web.deleteControl;
 import com.wear.member.web.deleteFailControl;
 import com.wear.member.web.deleteFormControl;
 import com.wear.member.web.deleteResultControl;
+import com.wear.member.web.findFailControl;
 import com.wear.member.web.findIdControl;
 import com.wear.member.web.findIdFormControl;
 import com.wear.member.web.findIdResultFormControl;
@@ -46,7 +47,12 @@ import com.wear.member.web.findPWControl;
 import com.wear.member.web.findPWFormControl;
 import com.wear.member.web.findPWResultFormControl;
 import com.wear.member.web.joinControl;
+import com.wear.member.web.joinFailControl;
 import com.wear.member.web.joinFormControl;
+
+import com.wear.member.web.joinResultControl;
+import com.wear.member.web.logFailControl;
+
 import com.wear.member.web.memberinfoControl;
 import com.wear.member.web.memberinfoFormControl;
 import com.wear.member.web.memberinfoResultControl;
@@ -54,6 +60,7 @@ import com.wear.order.web.WearOrderCompleteControl;
 import com.wear.order.web.WearOrderControl;
 import com.wear.order.web.WearOrderFormControl;
 import com.wear.order.web.WearOrderInfoControl;
+
 import com.wear.review.web.BuyNow;
 import com.wear.review.web.MemberControl;
 import com.wear.review.web.MemberRemoveControl;
@@ -138,21 +145,29 @@ public class FrontControl extends HttpServlet {
 		// 배동규
 		map.put("/joinForm.do", new joinFormControl());
 		map.put("/join.do", new joinControl()); // 회원가입화면
+		map.put("/joinResult.do", new joinResultControl());
+		map.put("/joinFail.do", new joinFailControl());
 
 		map.put("/logForm.do", new LoginForm()); // 로그인 관련
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
-		map.put("/check.do", new CheckIdControl());// 중복체크
 
+		map.put("/check.do", new CheckIdControl());// 중복체크	
+		map.put("/logFail.do", new logFailControl());
+
+		
 		map.put("/findId.do", new findIdControl()); // 아이디찾기
 		map.put("/findIdForm.do", new findIdFormControl());
 		map.put("/findIdResultForm.do", new findIdResultFormControl()); // 결과창
+		
+		map.put("/findFail.do", new findFailControl()); //실패결과
 
 		map.put("/findPW.do", new findPWControl()); // 패스워드찾기
 		map.put("/findPWForm.do", new findPWFormControl());
-
+		
 		map.put("/findPWResultForm.do", new findPWResultFormControl());		//결과창
-
+		map.put("/findFail.do", new findFailControl());
+		
 		map.put("/info.do", new memberinfoFormControl());
 		map.put("/infoForm.do", new memberinfoControl());
 		map.put("/infoResult.do", new memberinfoResultControl());
@@ -161,6 +176,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/deleteForm.do", new deleteFormControl());
 		map.put("/deleteResult.do", new deleteResultControl());
 		map.put("/deleteFail.do", new deleteFailControl());
+		
 	//	map.put("/info.do", new memberinfoControl());
 	//	map.put("/infoForm.do", new memberinfoFormControl());
 		//	map.put("/updatePW.do", new updatePWControl()); // 찾은 비밀번호변경)

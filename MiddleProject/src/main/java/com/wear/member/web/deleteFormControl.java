@@ -23,8 +23,6 @@ public class deleteFormControl implements Control {
 		
 		MemberService svc = new MemberServiceImpl();
 		MemberVo vo = svc.sList(userId);
-			
-		System.out.println(vo+"@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		req.setAttribute("result", vo);
 		req.getRequestDispatcher(path).forward(req, resp);
