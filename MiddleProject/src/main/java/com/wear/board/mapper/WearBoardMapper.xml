@@ -3,6 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.board.mapper.WearBoardMapper">
+	<!-- main -->
+	<select id="RecentList" resultType="com.wear.board.vo.ProductVO">
+		select *
+		from product
+		order by product_date
+	</select>
+	<select id="bestList" resultType="com.wear.board.vo.ProductVO">
+		select p.product_no, p.product_name, p.category_no, p.product_price, p.product_img, p.product_date, p.product_detail_img, count(p.product_no) as cnt 
+		from product_order_info poi join product_info pi 
+                              on poi.product_info_no = pi.product_info_no
+                            join product p
+                              on p.product_no = pi.product_no
+		GROUP by p.product_no, p.product_name, p.category_no, p.product_price, p.product_img, p.product_date, p.product_detail_img
+	</select>
 	<!-- category main -->
 	<select id="boardcateList" resultType="com.wear.board.vo.ProductVO" parameterType="com.wear.board.vo.SearchVO">
 		select r.*
@@ -11,8 +25,11 @@
             	    from product b
             	    order by product_no) a
               <![CDATA[	    
-              where rownum <= #{page}*8)r
+              where rownum <= #{page}*8
               ]]>
+              and category_no IN (select category_no
+							from category
+							where category_no_ref = #{categoryNo}))r
         where r.rn > (#{page}-1) *8
         and category_no IN (select category_no
 							from category
@@ -41,8 +58,9 @@
             	    from product b
             	    order by product_no) a
               <![CDATA[	    
-              where rownum <= #{page}*8)r
+              where rownum <= #{page}*8
               ]]>
+              and category_no = #{categoryNo})r
         where r.rn > (#{page}-1) *8
 		and category_no = #{categoryNo}
 	</select>
@@ -218,4 +236,19 @@
 		connect by category_no_ref = prior category_no
 		order siblings by category_no
 	</select>
+	
+	<select id="getWishCnts" resultType="int" parameterType="String">
+		select count(*)
+		from wishlist
+		where user_id = #{userId}
+	</select>
+	
+	<select id="getCartCnt" resultType="int" parameterType="String">
+		select count(*)
+		from basket
+		where user_id = #{userId}
+	</select>
+	
+	
+	
 </mapper>

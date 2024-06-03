@@ -21,17 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		totalDisplay.innerHTML = 'TOTAL: ' + totalPrice.toLocaleString() + ' 원 ' + '(' + totalCount + '개' + ')';
 	}
 
+	let newQuantity = 0;
 	async function updateSelectedOptions() {
 		const color = colorSelect.value;
 		const size = sizeSelect.value;
-
 		// product_info_no 값을 가져오기.
 		let proInfoNo = '';
 		let result = await fetch('getProductInfoNo.do?pno=' + productNo + '&color=' + color + '&size=' + size);
 		result = await result.json();
 		console.log('result: ', result);
 		proInfoNo = result.productInfoNo;
-
 		// 옵션이 둘 다 선택된 경우
 		if (color && size) {
 			const optionText = '색상 : ' + color + ' / 사이즈 : ' + size;
@@ -42,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			const existingOption = Array.from(selectedOptionsContainer.children).find(
 				option => option.dataset.option === optionText
 			);
-
 			// 동일한 옵션이 이미 선택된 경우 업데이트하지 않음
 			if (!existingOption) {
 				console.log(price)
 				const optionDiv = document.createElement('div');
 				optionDiv.setAttribute('data-pno', proInfoNo);
+				console.log
 				optionDiv.setAttribute('id', 'option-container');
 				//const que = document.querySelector(.) 
 				//console.log(que);
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const quantityInput = optionDiv.querySelector("input");
 				quantityInput.addEventListener("change", function() {
 					const newQuantity = parseInt(this.value, 10);
-					console.log(this.value);
+					console.log('this.value', this.value);
 					const newTotalPrice = price * newQuantity;
 					const optionPriceElement = optionDiv.querySelector(".option-price");
 					const optionQuentity = optionDiv.querySelector(".option-qty");
@@ -74,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 				updateTotal();
 			}
-
 			// 선택 초기화
 			colorSelect.value = "";
 			sizeSelect.value = "";
@@ -96,95 +94,153 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	window.updateTotal = updateTotal;
+
 	// 장바구니 클릭시 정보저장.
 	document.querySelector('.add-to-cart').addEventListener('click', function() {
-		document.querySelectorAll('.selected-options div').forEach(item => {
-			console.log(item)
-			
-/*			<div data-pno="1" data-option="색상 : Red / 사이즈 : Large">
+		document.querySelectorAll('.selected-options>div').forEach(item => {
+			console.log('item : ', item)
+			/*<div data-pno="1" data-option="색상 : Red / 사이즈 : Large">
 			<span>색상 : Red / 사이즈 : Large</span>
 			<input type="number" value="1" min="1" style="width: 50px; margin-right: 10px;">
 			<span class="option-price">12900원</span>
 			<button type="button" onclick="this.parentElement.remove(); updateTotal();">x</button>
 			</div>*/
-			
-        const optionContainer = document.getElementById('option-container');
-        let pino = optionContainer.getAttribute('data-pno');
-        console.log('Product Number (pno):', pino);		
-		//console.log('totalCount :', totalCount);
-		//console.log('Product Number (pno):', pino);
-			
-			//let qty = totalCount;
-			/*let login = ;*/
-			
-/*			fetch('registerBasket.do')
-				.then()
-				.then()
-				.catch()*/
-
+			//const optionContainer = document.getElementById('option-container');
+			let pno = item.getAttribute('data-pno');
+			let cnt = item.querySelector('input').value;
+			console.log(pno, cnt, userId);
+			fetch('registerBasket.do?cnt=' + cnt + '&pino=' + pno + '&userId=' + userId)
+				.then(resolve => resolve.json())
+				.then(result => {
+					console.log(result);
+					if (result.status == 'success') {
+						alert('성공');
+						location.href = 'basketList1.do';
+					} else {
+						alert('처리실패!');
+					}
+				})
+				.catch(err => console.log(err));
 		});
-
-		location.href = 'basketList1.do';
 	})
-});
+
+	// wish-list
+	document.querySelector('.wish-list').addEventListener('click', function() {
+		fetch('registerWisht.do?pno=' + productNo+ '&userId=' + userId)
+			.then(resolve => resolve.json())
+			.then(result => {
+				console.log('result', result);
+				if (result.status == 'success') {
+					alert('관심상품으로 등록되었습니다');
+				} else {
+					alert('처리실패!');
+				}
+			})
+			.catch(err => console.log(err));
+			//location.href = 'wishList1.do';
+
+	});
 
 
+	//buy-now
+	document.querySelector('.buy-now').addEventListener('click', function() {
+		const pno = new Array;
+		const pCnt = new Array;
+		document.querySelectorAll('.selected-options div').forEach((item,idex) => {
+			pno[idex] = item.dataset.pno;
+			pCnt[idex] = item.children[1].value;
+		})
+		//pinfono, cnt Array 로 넘기기
+		location.href = `orderForm.do?form=direct&pno=${pno}&pCnt=${pCnt}`;
+	})
 
 
+	// review.
+	document.forms.reviewFrm.addEventListener('submit', function(e) {
+		e.preventDefault();
 
-/* 여기부터모달 */
-// 모달가져오기
-var modal = document.getElementById("myModal");
+		let score = document.querySelectorAll('div.rating span.filled').length;
+		const content = document.querySelector('textarea[name="content"]').value;
+		const fileField = document.querySelector('#file-input');
 
-// 모달버튼 가져오기
-var btn = document.getElementById("myBtn");
+		let fdata = new FormData();
+		fdata.append('pno', productNo);
+		fdata.append('score', score);
+		fdata.append("reviewImg", fileField.files[0]);
+		fdata.append('content', content);
+		console.log('productNo', productNo);
+		fdata.forEach(item => {
+			console.log(item);
+		})
 
-//  <span> 닫기
-var span = document.getElementsByClassName("close")[0];
+		fetch(this.action, {
+			method: 'post',
+			body: fdata
+		})
+			.then(result => result.json())
+			.then(result => {
+				console.log(result)
+				document.querySelector('#myModal').style.display = 'none';
+				location.href = 'productDetail.do?pno=' + productNo + '&page=1#reviewTop';
+			})
+			.catch(err => {
+				console.log(err)
+			});
+	})
 
-// 모달열기 
-btn.onclick = function() {
-	modal.style.display = "block";
-}
 
-// x 누름 닫히게
-span.onclick = function() {
-	modal.style.display = "none";
-}
+	/* 여기부터모달 */
+	// 모달가져오기
+	var modal = document.getElementById("myModal");
 
-// 모달밖클릭스 닫히게
-window.onclick = function(event) {
-	if (event.target == modal) {
+	// 모달버튼 가져오기
+	var btn = document.getElementById("myBtn");
+
+	//  <span> 닫기
+	var span = document.getElementsByClassName("close")[0];
+
+	// 모달열기 
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+
+	// x 누름 닫히게
+	span.onclick = function() {
 		modal.style.display = "none";
 	}
-}
 
-// 별점
-const stars = document.querySelectorAll(".rating span");
-stars.forEach(star => {
-	star.addEventListener("click", () => {
-		const value = star.getAttribute("data-value");
-		stars.forEach(s => s.classList.remove("filled"));
-		for (let i = 0; i < value; i++) {
-			stars[i].classList.add("filled");
+	// 모달밖클릭스 닫히게
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
 		}
+	}
+
+	// 별점
+	const stars = document.querySelectorAll(".rating span");
+	stars.forEach(star => {
+		star.addEventListener("click", () => {
+			const value = star.getAttribute("data-value");
+			stars.forEach(s => s.classList.remove("filled"));
+			for (let i = 0; i < value; i++) {
+				stars[i].classList.add("filled");
+			}
+		});
 	});
+
+	// 사진추가
+	const fileInput = document.getElementById("file-input");
+	const fileLabel = document.getElementById("file-label");
+
+	fileInput.addEventListener("change", (event) => {
+		const file = event.target.files[0];
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			fileLabel.innerHTML = `<img src="${e.target.result}" alt="Image">`;
+		};
+		reader.readAsDataURL(file);
+	});
+
+
+
 });
-
-// 사진추가
-const fileInput = document.getElementById("file-input");
-const fileLabel = document.getElementById("file-label");
-
-fileInput.addEventListener("change", (event) => {
-	const file = event.target.files[0];
-	const reader = new FileReader();
-	reader.onload = (e) => {
-		fileLabel.innerHTML = `<img src="${e.target.result}" alt="Image">`;
-	};
-	reader.readAsDataURL(file);
-});
-
-
-
-
-

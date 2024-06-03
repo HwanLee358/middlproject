@@ -1,0 +1,26 @@
+package com.wear.order.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.wear.common.Control;
+
+public class WearOrderCompleteControl implements Control {
+
+	@Override
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("logId");
+		if(userId == null) {
+			resp.sendRedirect("logForm.do");
+		}
+		
+		String path = "productorder/orderCompleate.tiles";
+		req.getRequestDispatcher(path).forward(req, resp);
+	}
+
+}

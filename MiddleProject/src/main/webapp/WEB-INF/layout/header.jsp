@@ -41,7 +41,7 @@
 									<a href="logout.do"><span><strong>로그아웃</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
-									<a href="#"><span><strong>주문조회</strong></span></a>
+									<a href="orderInfo.do"><span><strong>주문조회</strong></span></a>
 								</li>
 								<li class="xans-element- xans-layout xans-layout-statelogoff">
 									<a href="info.do?id=${logId }"><span><strong>마이페이지</strong></span></a>
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 						<div class="wishlist">
-							<a href="wishList1.do"> 
+							<a href="wishList1.do" class="wish-btn"> 
 								<i class="lni lni-heart"></i> <span class="total-items">0</span>
 							</a>
 						</div>
@@ -86,4 +86,4 @@
 			</div>
 		</div>
 	</div>
-	
+<script type="text/javascript" src="js/getCartWishCnt.js"></script>	

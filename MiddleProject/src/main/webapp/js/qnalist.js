@@ -27,8 +27,14 @@ qnaListshow();
 //console.log(qnaNo);
 
 function qnaListshow() {
+	document.querySelectorAll('tbody .nbg').forEach((li, idx) => {
+		if(idx >=1){
+			li.remove();
+		}
+	})
 	QnAsvc.qnaList({ pno: qnaNo, page: page },
 		result => {
+			let no = 1;
 			result.forEach(e => {
 				let tr = document.querySelector('.nbg').cloneNode(true);
 				tr.style.display = '';
@@ -54,7 +60,7 @@ function makePageInfo() {
 
 }
 function PageList(result) {
-	let totalCnt = 10;
+	let totalCnt = result.totalCount;
 	let startPage, endPage, realEnd;
 	let prev, next;
 
@@ -88,7 +94,7 @@ function PageList(result) {
 		aTag.setAttribute('data-page', pg);
 		aTag.setAttribute('href', pg);
 		if (pg == page) {
-			aTag.className = 'active';
+			aTag.className = 'now';
 		}
 		aTag.innerHTML = pg;
 		aTag.addEventListener('click', function(e) {

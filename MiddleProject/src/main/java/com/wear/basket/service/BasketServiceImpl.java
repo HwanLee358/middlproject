@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.wear.basket.mapper.BasketMapper;
+import com.wear.basket.vo.BasVO;
 import com.wear.basket.vo.BasketVO;
 import com.wear.common.DataSource;
 
@@ -13,9 +14,9 @@ public class BasketServiceImpl implements BasketService {
 	BasketMapper mapper = session.getMapper(BasketMapper.class);
 	
 	@Override
-	public List<BasketVO> basketList() {
+	public List<BasketVO> basketList(String userId) {
 		// TODO Auto-generated method stub
-		return mapper.basketselectList();
+		return mapper.basketselectList(userId);
 	}
 
 	@Override
@@ -45,5 +46,21 @@ public class BasketServiceImpl implements BasketService {
 		// TODO Auto-generated method stub
 		return mapper.insertBasket(basket) == 1;
 	}
+
+	@Override
+	public boolean orderbasket(BasketVO basket) {
+		// TODO Auto-generated method stub
+		return mapper.orderbasket(basket) == 1;
+	}
+
+	@Override
+	public List<BasketVO> selectbasket(int productNo) {
+		// TODO Auto-generated method stub
+		return mapper.wishtobasket(productNo);
+	}
+
+
+
+
 
 }

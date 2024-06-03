@@ -51,6 +51,7 @@ public class WearBoardControl implements Control {
 		}
 		
 		// board
+		System.out.println(list);
 		req.setAttribute("titleList", title);
 		req.setAttribute("wearList", list);
 		

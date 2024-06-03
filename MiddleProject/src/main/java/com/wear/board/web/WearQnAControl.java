@@ -26,10 +26,11 @@ public class WearQnAControl implements Control {
 		
 		System.out.println(productNo);
 		System.out.println(page);
-		
+		page = page == null ? "1" : page;
 		QnaBoardService svc = new QnaBoardServiceImpl();
 		SearchVO vo = new SearchVO();
 		vo.setProductNo(Integer.parseInt(productNo));
+		vo.setPage(Integer.parseInt(page));
 		List<QnaVO> list =svc.selectQna(vo);
 		System.out.println(list);
 		

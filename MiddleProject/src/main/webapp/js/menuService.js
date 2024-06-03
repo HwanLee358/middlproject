@@ -33,8 +33,10 @@ const menusvc = {
 		    .then(successCall)
 		    .catch(errorCall)
 	},
-	addWish(pno = 1, successCall, errorCall){
-		fetch('addwish.do',{
+	
+	
+	addWishList(pno = 1, successCall, errorCall){
+		fetch('addwishlist.do',{
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
 			body: 'pno=' + pno

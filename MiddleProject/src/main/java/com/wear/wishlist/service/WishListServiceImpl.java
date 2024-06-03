@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.wear.common.DataSource;
 import com.wear.wishlist.mapper.WishListMapper;
 import com.wear.wishlist.vo.WishListVO;
+import com.wear.wishlist.vo.WishVO;
 
 public class WishListServiceImpl implements WishListService{
 	SqlSession session = DataSource.getInstance().openSession(true);
@@ -30,5 +31,16 @@ public class WishListServiceImpl implements WishListService{
 	public boolean addWishlist(WishListVO wishlist) {
 		// TODO Auto-generated method stub
 		return mapper.insertWishlist(wishlist) == 1;
+	}
+	
+	@Override
+	public List<WishVO> selectWishList(int productNo) {
+		// TODO Auto-generated method stub
+		return mapper.sWishList(productNo);
+	}
+	@Override
+	public int getSelectWish(WishListVO wishlist) {
+		// TODO Auto-generated method stub
+		return mapper.getSelectWish(wishlist);
 	}
 }

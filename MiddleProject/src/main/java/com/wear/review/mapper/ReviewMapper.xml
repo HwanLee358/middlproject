@@ -15,6 +15,7 @@
 		from (select rownum rn,a.*
 		from(select *
 		from PRODUCT_REVIEW p
+		where product_no = #{productNo}
 		order by p.view_no desc)a
 		    <![CDATA[
 		    where rownum <=(#{page}*5))r
@@ -26,12 +27,13 @@
 		parameterType="int">
 		select count(*)
 		from product_review
-		where product_no =
-		#{productNo}
+		where product_no
+		=#{productNo}
 	</select>
 
 	<select id="totalImg" resultType="review" parameterType="int">
-		select review_img
+		select
+		review_img
 		from
 		product_review
 		where product_no = #{productNo}
@@ -47,11 +49,11 @@
 
 	<insert id="insertReview" parameterType="review">
 		insert into
-		product_review
-		(view_no,product_no,nickname,view_like_cnt,view_score,content,review_img)
+		product_review (view_no, user_id,
+		product_no,view_score,content,review_img)
 		values
-		(viewNo.nextval, #{productNo}, #{nickName}, #{viewLikeCnt},
-		#{viewScore}, #{content}, #{reviewImg})
+		(view_no_seq.nextval,
+		#{userId}, #{productNo}, #{viewScore}, #{content}, #{reviewImg})
 	</insert>
 
 

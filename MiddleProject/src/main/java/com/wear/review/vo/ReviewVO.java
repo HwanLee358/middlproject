@@ -6,7 +6,7 @@ import lombok.Data;
 public class ReviewVO {
 	private int viewNo;
 	private int productNo;
-	private String nickName;
+	private String userId;
 	private int viewLikeCnt;
 	private int viewScore;
 	private String content;

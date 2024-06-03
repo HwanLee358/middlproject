@@ -4,13 +4,14 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wear.basket.mapper.BasketMapper">
   <select id = "basketselectList" resultType = "com.wear.basket.vo.BasketVO">
-  	select *
-  	from basket
+  	select basket_no, user_id,  pi.product_color, pi.product_size, pi.product_info_no, product_cnt, product_img, product_name, product_price, p.product_no
+	from basket b right join product_info pi on ( b.product_info_no = pi.product_info_no) right join product p on (pi.product_no = p.product_no ) 
+  	where user_id = #{userId}
   </select>
   
   <update id = "updateBasket" parameterType = "int" >
   	update basket
-  	set product_cnt = product_cnt + #{productCnt}
+  	set product_cnt = #{productCnt}
   	where basket_no = #{basketNo}
   </update>
   
@@ -21,7 +22,7 @@
   
   <insert id = "insertBasket" parameterType = "basket">
   	insert into basket(basket_no, product_info_no, user_id, product_cnt)
-	values(#{basket_no}, #{product_info_no}, #{user_id}, #{product_cnt})
+	values(#{basketNo}, #{productInfoNo}, #{userId}, #{productCnt})
   </insert>
   
   <select id="basketCnt" resultType="int">
@@ -33,4 +34,15 @@
   	select count(*)
   	from wishlist
   </select>
+  
+  <select id = "orderbasket" parameterType = "com.wear.basket.vo.BasketVO">
+  	select *
+  	from basket
+  </select>
+  
+  <select id = "wishtobasket" resultType = "com.wear.basket.vo.BasketVO" parameterType = "int">
+  	select basket_no, b.user_id, product_img, product_name, product_cnt, w.product_no, product_price
+	from basket b left join wishlist w on (b.user_id = w.user_id) left join product p on (p.product_no = w.product_no)
+  </select>
+  
 </mapper>

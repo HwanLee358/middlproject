@@ -9,6 +9,10 @@ import com.wear.board.vo.QnaVO;
 import com.wear.board.vo.SearchVO;
 
 public interface WearBoardMapper {
+	//최신
+	List<ProductVO> RecentList();
+	List<ProductVO> bestList();
+	
 	//메뉴 전체
 	List<ProductVO> boardcateList(SearchVO search);
 	List<CategoryVO> catetitle(String categoryNo);
@@ -29,4 +33,10 @@ public interface WearBoardMapper {
 	
 	//QnA
 	int addQnA(QnaVO board);
+	
+	
+	
+	//갯수
+	int getWishCnts(String id);
+	int getCartCnt(String id);
 }

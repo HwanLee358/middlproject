@@ -29,11 +29,9 @@ public class LoginControl implements Control {
 		if (mvo != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("logId", mvo.getUserId());
-
 			// 관리자, 회원.
 			if (mvo.getUserResp().equals("Admin"))
-				resp.sendRedirect("joinForm.do");
-		
+				resp.sendRedirect("adminpage.do");
 			else
 				resp.sendRedirect("logFail.do");
 			
